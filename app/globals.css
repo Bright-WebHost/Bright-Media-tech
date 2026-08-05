@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-barlow text-paragraph antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-barlow font-bold leading-tight;
+    color: var(--heading-color);
+  }
+  /* Colorway variables — light default, dark overrides */
+  :root {
+    --heading-color: #04000b;
+    --page-bg: #ffffff;
+  }
+  .dark {
+    --heading-color: #ffffff;
+    --page-bg: #0e0f11;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1200px] px-4 sm:px-6;
+  }
+  /* Filled lime pill button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-dark transition-all duration-300 hover:bg-secondary;
+  }
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-full border px-7 py-3 text-sm font-semibold transition-all duration-300;
+  }
+  .section-label {
+    @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary;
+  }
+  .heading-underline::after {
+    content: "";
+    @apply mt-4 block h-[3px] w-16 bg-primary;
+  }
+  /* Animated arrow button — icon slides, matches source btn-animation */
+  .btn-animation {
+    @apply inline-flex items-center gap-2 font-semibold text-heading dark:text-white;
+  }
+  .btn-animation i {
+    @apply flex h-11 w-11 items-center justify-center rounded-full bg-primary text-dark transition-transform duration-300;
+  }
+  .btn-animation:hover i {
+    @apply translate-x-1;
+  }
+}
+
+/* Swiper theming */
+.swiper { padding-bottom: 3rem; }
+.swiper-pagination-bullet {
+  background: currentColor;
+  opacity: 0.3;
+}
+.swiper-pagination-bullet-active {
+  background: #c9f31d;
+  opacity: 1;
+  width: 22px;
+  border-radius: 6px;
+}
+.swiper-btn {
+  @apply flex h-11 w-11 items-center justify-center rounded-full border border-black/15 text-heading transition-colors hover:bg-primary hover:text-dark dark:border-white/20 dark:text-white;
+}
+.swiper-btn.swiper-button-disabled { @apply opacity-40; }
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+}

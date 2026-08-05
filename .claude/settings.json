@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:dixor-clean.vercel.app)",
+      "Bash(npm install *)",
+      "Bash(echo \"EXIT $?\")",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(rm -f dev.log)",
+      "Bash(grep -oE '.\\\\{0,40\\\\}validtheme.\\\\{0,40\\\\}' app/home.html)",
+      "Bash(perl -0777 -ne 'print $1 if /<body[^>]*>\\(.*\\)<\\\\/body>/s' light.html)",
+      "Bash(perl -0777 -i -pe 's{/_next/image\\\\?url=\\([^&\\\\s\"]+\\)\\(?:&amp;|&\\)w=\\\\d+\\(?:&amp;|&\\)q=\\\\d+}{ my $u=$1; $u=~s/%2F/\\\\//g; $u=~s#/_next/static/media/#/media/#; $u }ge' lbody.html)",
+      "Bash(perl -0777 -i -pe 's/<script\\\\b[^>]*>.*?<\\\\/script>//gs; s/<script\\\\b[^>]*\\\\/>//gs' lbody.html)",
+      "Bash(cp lbody.html __TRACKED_VAR__/app/home-light.html)",
+      "Bash(grep -oE '\\\\.navbar-nav[^{]*\\\\.dropdown-menu[^{]*\\\\{[^}]{0,120}' app/globals.css)",
+      "Bash(grep -oE 'navbar-toggle[^{]*\\\\{[^}]{0,80}' app/globals.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/assets/img/team/9.jpg)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/metadata/icon-families.json\" -o fa.json)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/metadata/shims.json\" -o shims.json)",
+      "Bash(grep -oE '\\\\-\\\\-\\(heading|text|body|dark|light|white|black|border\\)[a-z-]*:[ ]*#[0-9a-fA-F]{3,8}' app/globals.css)",
+      "Bash(mkdir -p reference)",
+      "Bash(mv app/home.html app/home-light.html reference/)",
+      "Bash(mv app/_pages reference/pages)",
+      "Bash(mv app/globals.css reference/compiled.css)",
+      "Bash(rm -rf \"app/[...slug]\" app/ThemeApp.jsx app/page.js app/overrides.css app/layout.js)",
+      "Bash(rm -rf .next)",
+      "Bash(echo \"install started pid $!\")",
+      "Bash(grep -oE '<h[12][^>]*>[^<]{2,80}' home.html)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(rm -rf reference dev.log install.log)",
+      "Bash(mkdir -p C:/Users/azmal/AppData/Local/Temp/claude/c--Users-azmal-Desktop-NEXT-learn-clone/40c928c8-6a04-409b-aadd-5690a1a66d33/scratchpad/ref)",
+      "Bash(cd C:/Users/azmal/AppData/Local/Temp/claude/c--Users-azmal-Desktop-NEXT-learn-clone/40c928c8-6a04-409b-aadd-5690a1a66d33/scratchpad/ref)",
+      "Bash(curl -s \"https://dixor-clean.vercel.app/\" -o home.html)",
+      "Bash(perl -0777 -ne 'print $1 if /<body[^>]*>\\(.*\\)<\\\\/body>/s' home.html)",
+      "Bash(perl -0777 -i -pe 's{/_next/image\\\\?url=\\([^&\\\\s\"]+\\)\\(?:&amp;|&\\)w=\\\\d+\\(?:&amp;|&\\)q=\\\\d+}{ my $u=$1; $u=~s/%2F/\\\\//g; $u=~s#/_next/static/media/#/media/#; $u }ge' body.html)",
+      "Bash(awk -F: '$1>1739')",
+      "Bash(echo \"exit $?\")",
+      "Bash(node -e \"console.log\\('framer', require\\('./node_modules/framer-motion/package.json'\\).version\\); console.log\\('swiper', require\\('./node_modules/swiper/package.json'\\).version\\)\")",
+      "Bash(npm run *)",
+      "Bash(echo \"build exit $?\")"
+    ]
+  }
+}
