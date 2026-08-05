@@ -1,22 +1,30 @@
 import Link from "next/link";
 import { FOOTER } from "@/lib/data";
 
-const exploreLinks = [
+const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
-const legalLinks = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
+const addresses = [
+  { label: "India 🇮🇳", text: "Janapriya Complex, Mangalore" },
+  { label: "Ivory Coast 🇨🇮", text: "Marcory VGE, Abidjan" },
+  { label: "UAE 🇦🇪", text: "Sharjah Publishing City" },
 ];
 
-const contactInfo = [
-  { icon: "fas fa-map-marker-alt", text: "Mangalore, Karnataka, India" },
-  { icon: "fas fa-phone-alt", text: "+91 854 800 5588" },
-  { icon: "fas fa-envelope", text: "info@brightmedia.tech" },
+const phones = [
+  { num: "+91 854 800 5588", tel: "+918548005588" },
+  { num: "+225 079 797 9387", tel: "+2250797979387" },
+  { num: "+971 50 123 4567", tel: "+971501234567" },
+];
+
+const emails = [
+  { email: "info@brightmedia.tech", mailto: "mailto:info@brightmedia.tech" },
+  { email: "projects@brightmedia.tech", mailto: "mailto:projects@brightmedia.tech" },
 ];
 
 export default function Footer() {
@@ -25,88 +33,107 @@ export default function Footer() {
       className="relative overflow-hidden"
       style={{ background: "linear-gradient(to bottom, #000000ff, #0d111b)" }}
     >
-      {/* ── Top grid ── */}
-      <div className="container-x grid gap-8 sm:gap-12 pt-14 sm:pt-20 pb-8 sm:pb-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      {/* ── TOP SECTION: Reference Minimal Layout (3 Addresses, 3 Phones, 2 Emails, Quick links, Social) ── */}
+      <div className="container-x pt-14 sm:pt-20 pb-8 sm:pb-12">
+        <div className="grid gap-10 grid-cols-1 lg:grid-cols-12">
 
-        {/* Brand — full width on mobile */}
-        <div className="sm:col-span-2 lg:col-span-1">
-          <div className="mb-4 sm:mb-5">
-            <img
-              src="https://brightmedia.tech/img/photo/all%20img/BM%20Logo.webp"
-              alt="Bright Media"
-              className="h-9 sm:h-10 w-auto object-contain object-left"
-            />
+          {/* Left Block (4 Cols) */}
+          <div className="lg:col-span-4 pr-0 lg:pr-8">
+            <Link href="/" className="inline-block mb-4">
+              <img
+                src="https://brightmedia.tech/img/photo/all%20img/BM%20Logo.webp"
+                alt="Bright Media"
+                className="h-9 sm:h-10 w-auto object-contain object-left"
+              />
+            </Link>
+            <p className="text-xs sm:text-sm text-white/50 leading-relaxed max-w-sm">
+              Bright Media is a full-service digital marketing and branding agency specializing in high-converting web development, SEO, and visual strategy.
+            </p>
           </div>
-          <p className="mb-2 sm:mb-3 text-base sm:text-lg font-bold text-white">Building Tomorrow.</p>
-          <p className="text-xs sm:text-sm leading-relaxed text-white/50">
-            Creating exceptional digital marketing, branding, and web development
-            solutions with quality, innovation, and lasting value.
-          </p>
 
-          {/* Social icons — show on mobile inside brand block */}
-          <div className="flex items-center gap-3 mt-5 lg:hidden">
-            {FOOTER.social.map((s) => (
-              <a
-                key={s.icon}
-                href={s.href}
-                aria-label="social link"
-                className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white/10 hover:bg-primary transition-colors duration-200"
-              >
-                <i className={`${s.icon} text-xs text-white`} />
-              </a>
-            ))}
+          {/* Right Columns (8 Cols) */}
+          <div className="lg:col-span-8 grid gap-8 grid-cols-2 sm:grid-cols-4">
+
+            {/* Column 1: Addresses */}
+            <div>
+              <h4 className="mb-4 text-xs font-bold text-white tracking-wide uppercase">Addresses</h4>
+              <ul className="space-y-2.5 text-xs text-white/50">
+                {addresses.map((a) => (
+                  <li key={a.label}>
+                    <span className="font-semibold text-white/80 block">{a.label}</span>
+                    <span className="text-[11px] block">{a.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 2: Contact (3 Phones & 2 Emails) */}
+            <div>
+              <h4 className="mb-4 text-xs font-bold text-white tracking-wide uppercase">Contact</h4>
+              <div className="space-y-3 text-xs text-white/50">
+                <div>
+                  <span className="text-[10px] font-bold text-white/40 uppercase block mb-1">Phone</span>
+                  {phones.map((p) => (
+                    <a
+                      key={p.num}
+                      href={`tel:${p.tel}`}
+                      className="block text-[11px] hover:text-[#c9f31d] transition-colors"
+                    >
+                      {p.num}
+                    </a>
+                  ))}
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-white/40 uppercase block mb-1">Email</span>
+                  {emails.map((e) => (
+                    <a
+                      key={e.email}
+                      href={e.mailto}
+                      className="block text-[11px] hover:text-[#c9f31d] transition-colors truncate"
+                    >
+                      {e.email}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Column 3: Quick link */}
+            <div>
+              <h4 className="mb-4 text-xs font-bold text-white tracking-wide uppercase">Quick link</h4>
+              <ul className="space-y-2 text-xs text-white/50">
+                {quickLinks.map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href} className="hover:text-[#c9f31d] transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4: Social */}
+            <div>
+              <h4 className="mb-4 text-xs font-bold text-white tracking-wide uppercase">Social</h4>
+              <ul className="space-y-2 text-xs text-white/50">
+                {FOOTER.social.map((s, i) => {
+                  const label = i === 0 ? "Facebook" : i === 1 ? "LinkedIn" : i === 2 ? "Behance" : "Dribbble";
+                  return (
+                    <li key={label}>
+                      <a href={s.href} className="hover:text-[#c9f31d] transition-colors">
+                        {label}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
           </div>
-        </div>
-
-        {/* Explore */}
-        <div>
-          <h4 className="mb-4 sm:mb-6 text-sm sm:text-base font-bold text-white">Explore</h4>
-          <ul className="space-y-2 sm:space-y-3">
-            {exploreLinks.map((l) => (
-              <li key={l.label}>
-                <Link
-                  href={l.href}
-                  className="text-xs sm:text-sm text-white/55 transition-colors duration-200 hover:text-primary"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Legal */}
-        <div>
-          <h4 className="mb-4 sm:mb-6 text-sm sm:text-base font-bold text-white">Legal</h4>
-          <ul className="space-y-2 sm:space-y-3">
-            {legalLinks.map((l) => (
-              <li key={l.label}>
-                <Link
-                  href={l.href}
-                  className="text-xs sm:text-sm text-white/55 transition-colors duration-200 hover:text-primary"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <h4 className="mb-4 sm:mb-6 text-sm sm:text-base font-bold text-white">Get in Touch</h4>
-          <ul className="space-y-3 sm:space-y-4">
-            {contactInfo.map((c) => (
-              <li key={c.text} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-white/55">
-                <i className={`${c.icon} mt-[3px] w-4 shrink-0 text-white/40`} />
-                <span>{c.text}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 
-      {/* ── Brand watermark ── */}
+      {/* ── Brand watermark (ORIGINAL UNTOUCHED WATERMARK) ── */}
       <div
         className="pointer-events-none select-none overflow-hidden leading-none"
         aria-hidden="true"
@@ -114,9 +141,9 @@ export default function Footer() {
         <p
           className="whitespace-nowrap text-center font-extrabold uppercase tracking-tight"
           style={{
-            fontSize: "clamp(50px, 16vw, 220px)",
+            fontSize: "clamp(50px, 16vw, 200px)",
             background:
-              "linear-gradient(to bottom, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.01) 100%)",
+              "linear-gradient(to bottom, rgba(214, 255, 52, 0.43) 0%, rgba(255,255,255,0.01) 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -127,7 +154,7 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* ── Bottom bar ── */}
+      {/* ── Bottom bar (ORIGINAL UNTOUCHED BOTTOM BAR) ── */}
       <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
         <div className="container-x flex flex-col items-center justify-between gap-3 sm:gap-4 py-4 sm:py-5 text-xs sm:text-sm text-white/40 sm:flex-row">
           <p>© 2026 Bright Media – All rights reserved</p>

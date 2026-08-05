@@ -26,8 +26,8 @@ export const NAV: NavItem[] = [
     ],
   },
   { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const HERO = {
@@ -329,4 +329,3 @@ export const FOOTER = {
     { icon: "fab fa-dribbble", href: "#" },
   ],
 };
-

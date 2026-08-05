@@ -45,10 +45,10 @@ export default function Blog() {
                   </span>
                 </div>
                 <h4 className="mt-3 text-xl font-bold text-heading transition-colors group-hover:text-primary dark:text-white">
-                  <Link href="#">{p.title}</Link>
+                  <Link href="/blog">{p.title}</Link>
                 </h4>
                 <Link
-                  href="#"
+                  href="/blog"
                   className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-heading dark:text-white"
                 >
                   Read More <i className="fas fa-arrow-right" />
@@ -56,6 +56,11 @@ export default function Blog() {
               </div>
             </Reveal>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <Link href="/blog" className="btn-primary">
+            Explore All Sticky Note Posts <i className="fas fa-sticky-note ml-1" />
+          </Link>
         </div>
       </div>
     </section>
