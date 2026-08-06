@@ -1,5 +1,7 @@
 // Central content for the Dixor clone — structure mirrors the source template.
 
+import { Phone } from "lucide-react";
+
 export const LOGO_DARK = "/media/logo.46fb92a1.png"; // dark logo → use on light bg
 export const LOGO_LIGHT = "/media/logo-light.f1d48bdf.png"; // light logo → use on dark bg
 export const ARROW = "/media/arrow.86889acb.png";
@@ -301,16 +303,16 @@ export const POSTS: Post[] = [
 ];
 
 export const CONTACT = {
-  phone: "+47 333 78 901",
-  email: "info@dixor.com",
+  phone: "+917 795 240 605",
+  email: "info@brightmedia.tech",
   bg: "/assets/img/about/3.jpg",
 };
 
 export const FOOTER = {
   locations: [
-    { country: "INDIA", address: "2nd Floor, Janapriya Complex, State Bank, Mangalore" },
-    { country: "IVORY COAST", address: "11 BP 2498- 11, 4th Floor, Waimea Bldg, Marcory Boulevard VGE, Abidjan, Côte d'Ivoire" },
-    { country: "UAE", address: "Business Centre, Sharjah Publishing City Free Zone, Sharjah, United Arab Emirates" },
+    { country: "INDIA", address: "2nd floor, Regal Park, Mission Street, State Bank, Mangalore 575001", phone: "+917 795 240 605" },
+    { country: "IVORY COAST", address: "11 BP 2498- 11, 4th Floor, Waimea Bldg, Marcory Boulevard VGE, Abidjan, Côte d'Ivoire", phone: "+225 079 797 9387" },
+    { country: "UAE", address: "Business Centre, Sharjah Publishing City Free Zone, Sharjah, United Arab Emirates", phone: "+971 545 681 182" },
   ],
   usefulLinks: [
     { label: "About Us", href: "#" },

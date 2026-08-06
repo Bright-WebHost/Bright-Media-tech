@@ -64,7 +64,7 @@ export default function ContactPageContent() {
             </h1>
 
             <p className="mt-6 text-base md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Have a new project, brand identity, or growth goal in mind? Drop us a note on our torn paper letter board below—we respond in under 24 hours!
+              Let’s collaborate! Contact us today to begin your brand's digital transformation and achieve outstanding results with our expert team.
             </p>
 
             {/* Postmark Stamp Graphic Badge */}
@@ -106,7 +106,7 @@ export default function ContactPageContent() {
                     <span className="font-handwriting text-3xl font-bold text-gray-900 block">
                       ✉️ Ripped Letter Form
                     </span>
-                    <p className="text-xs text-gray-600">Fill in the fields below to start your project note.</p>
+                    <p className="text-xs text-gray-600">Fill in the fields below to start your project.</p>
                   </div>
                   <span className="rounded-full bg-black px-3 py-1 text-xs font-bold text-[#c9f31d] uppercase tracking-wider">
                     Official Inquiry
@@ -153,7 +153,7 @@ export default function ContactPageContent() {
                     </div>
 
                     {/* Select Budget Pills */}
-                    <div>
+                    {/* <div>
                       <label className="block text-xs font-black uppercase text-gray-700 tracking-wider mb-2">
                         2. Estimated Budget Range
                       </label>
@@ -173,7 +173,7 @@ export default function ContactPageContent() {
                           </button>
                         ))}
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* Input Fields */}
                     <div className="grid gap-4 sm:grid-cols-2">
@@ -238,7 +238,7 @@ export default function ContactPageContent() {
                       type="submit"
                       className="w-full rounded-xl bg-black px-8 py-4 text-sm font-black uppercase text-[#c9f31d] shadow-xl transition-transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2"
                     >
-                      <span>Send Ripped Note Now</span>
+                      <span>Submit Now</span>
                       <i className="fas fa-arrow-right" />
                     </button>
                   </form>
@@ -279,17 +279,17 @@ export default function ContactPageContent() {
 
                   <div className="mt-4 flex items-center gap-4 text-xs font-bold text-black border-t border-black/5 pt-3">
                     <a
-                      href="tel:+4733378901"
+                      href={`tel:${loc.phone}`}
                       className="inline-flex items-center gap-1.5 hover:text-lime-600"
                     >
-                      <i className="fas fa-phone-alt text-lime-600" /> +47 333 78 901
+                      <i className="fas fa-phone-alt text-lime-600" /> {loc.phone}  
                     </a>
-                    <a
-                      href="mailto:info@dixor.com"
+                    {/* <a
+                      href={loc.email}
                       className="inline-flex items-center gap-1.5 hover:text-lime-600"
                     >
-                      <i className="fas fa-envelope text-lime-600" /> info@dixor.com
-                    </a>
+                      <i className="fas fa-envelope text-lime-600" /> {loc.email}
+                    </a> */}
                   </div>
                 </div>
               ))}
@@ -297,12 +297,12 @@ export default function ContactPageContent() {
               {/* QUICK DIRECT CONTACT CARDS */}
               <div className="grid gap-4 sm:grid-cols-2">
                 <a
-                  href="tel:+4733378901"
-                  className="rounded-2xl bg-[#feef8f] p-5 text-gray-900 shadow-md border border-amber-300 rotate-[-2deg] transition-transform hover:scale-105"
+                  href="mailto:info@dixor.com"
+                  className="rounded-2xl bg-[#feef8f] p-5 text-gray-900 shadow-md border border-amber-300 rotate-[2deg] transition-transform hover:scale-105"
                 >
-                  <span className="font-handwriting text-xl font-bold block text-amber-900">📞 Call Us Directly</span>
-                  <p className="font-black text-base mt-1">+47 333 78 901</p>
-                  <span className="text-[10px] font-bold text-gray-600">Mon-Fri (9am - 6pm GMT)</span>
+                  <span className="font-handwriting text-xl font-bold block text-amber-900">✉️ Email Support</span>
+                  <p className="font-black text-base mt-1">info@brightmedia.tech</p>
+                  {/* <span className="text-[10px] font-bold text-gray-600">Mon-Fri (9am - 6pm GMT)</span> */}
                 </a>
 
                 <a
@@ -310,8 +310,8 @@ export default function ContactPageContent() {
                   className="rounded-2xl bg-[#99f6e4] p-5 text-gray-900 shadow-md border border-teal-300 rotate-[2deg] transition-transform hover:scale-105"
                 >
                   <span className="font-handwriting text-xl font-bold block text-teal-950">✉️ Email Support</span>
-                  <p className="font-black text-base mt-1">info@dixor.com</p>
-                  <span className="text-[10px] font-bold text-gray-600">24/7 Priority Mailbox</span>
+                  <p className="font-black text-base mt-1">hello@brightmedia.tech</p>
+                  {/* <span className="text-[10px] font-bold text-gray-600">24/7 Priority Mailbox</span> */}
                 </a>
               </div>
 

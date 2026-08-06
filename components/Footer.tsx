@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           {/* Right Columns (8 Cols) */}
-          <div className="lg:col-span-8 grid gap-8 grid-cols-2 sm:grid-cols-4">
+          <div className="lg:col-span-8 grid gap-8 grid-cols-2 sm:grid-cols-3">
 
             {/* Column 1: Addresses */}
             <div>
@@ -113,7 +113,7 @@ export default function Footer() {
             </div>
 
             {/* Column 4: Social */}
-            <div>
+            {/* <div>
               <h4 className="mb-4 text-xs font-bold text-white tracking-wide uppercase">Social</h4>
               <ul className="space-y-2 text-xs text-white/50">
                 {FOOTER.social.map((s, i) => {
@@ -127,7 +127,7 @@ export default function Footer() {
                   );
                 })}
               </ul>
-            </div>
+            </div> */}
 
           </div>
         </div>
