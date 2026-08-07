@@ -53,9 +53,7 @@ export default function StickyNoteCard({
     >
       {/* Tape Strip or Push Pin accent at top */}
       {post.pinned ? (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1 bg-red-600 px-2.5 py-0.5 text-[10px] font-black tracking-widest text-white uppercase shadow-md rounded-full">
-          <i className="fas fa-[#c9f31d] fa-thumbtack text-xs" /> PINNED FEATURED
-        </div>
+        <div className="tape-strip -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg]" />
       ) : (
         <div className="tape-strip -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg]" />
       )}
@@ -63,7 +61,7 @@ export default function StickyNoteCard({
       {/* Top Bar: Category badge & Bookmark */}
       <div>
         <div className="flex items-center justify-between gap-2 border-b border-black/10 pb-3">
-          <span className="rounded-full bg-black/90 px-3 py-1 text-xs font-bold text-[#c9f31d] uppercase tracking-wider shadow-sm">
+          <span className="rounded-full bg-black/90 px-3 py-1 text-xs font-bold text-[#c9f31d] uppercase tracking-wider ">
             {post.category}
           </span>
           <div className="flex items-center gap-2">
@@ -72,10 +70,11 @@ export default function StickyNoteCard({
               title={isBookmarked ? "Bookmarked note" : "Bookmark note"}
               className="text-black/60 transition-colors hover:text-black"
             >
-              <i className={isBookmarked ? "fas fa-bookmark text-amber-900" : "far fa-bookmark"} />
+              {/* <i className={isBookmarked ? "fas fa-bookmark text-amber-900" : "far fa-bookmark"} /> */}
             </button>
-            <span className="font-handwriting text-lg font-bold text-black/70">
-              {post.date.month} {post.date.day}
+            <span className="font-handwriting text-sm font-bold text-black/70">
+              {post.date.month} 
+              {/* {post.date.day} */}
             </span>
           </div>
         </div>
@@ -91,50 +90,51 @@ export default function StickyNoteCard({
             fill
             className="object-cover transition-transform duration-500 group-hover/img:scale-110"
           />
-          <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity group-hover/img:opacity-100 flex items-center justify-center">
+          {/* <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity group-hover/img:opacity-100 flex items-center justify-center">
             <span className="rounded-full bg-black/80 px-3 py-1.5 text-xs font-bold text-[#c9f31d] shadow-lg flex items-center gap-1.5">
               <i className="fas fa-search-plus" /> Quick Peek
             </span>
-          </div>
+          </div> */}
         </div>
 
         {/* Note Title */}
-        <h3
-          onClick={() => onQuickRead(post)}
-          className="mt-4 cursor-pointer text-xl font-black leading-snug tracking-tight hover:underline"
-        >
+        <Link
+              href={`/blog/${post.slug}`}
+          className="mt-4 cursor-pointer text-base font-black text-black leading-snug tracking-tight hover:underline"
+          >
           {post.title}
-        </h3>
+       
+        </Link>
 
         {/* Note Excerpt in Handwritten accent style */}
-        <p className="mt-2 text-sm font-medium line-clamp-3 leading-relaxed text-black/80">
+        {/* <p className="mt-2 text-sm font-medium line-clamp-3 leading-relaxed text-black/80">
           {post.excerpt}
-        </p>
+        </p> */}
 
         {/* Key Takeaway Mini Tape snippet */}
-        {post.takeaways && post.takeaways.length > 0 && (
+        {/* {post.takeaways && post.takeaways.length > 0 && (
           <div className="mt-3 rounded-md bg-black/5 p-2.5 text-xs font-semibold text-black/90 border-l-2 border-black/40">
             <span className="font-handwriting text-sm font-bold block text-black/60">💡 Key Note:</span>
             <span className="italic font-sans">"{post.takeaways[0]}"</span>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Footer Meta & Action Links */}
-      <div className="mt-6 border-t border-black/10 pt-4">
-        <div className="flex items-center justify-between text-xs font-bold text-black/70">
+      {/* <div className="mt-6 border-t border-black/10 pt-4"> */}
+        {/* <div className="flex items-center justify-between text-xs font-bold text-black/70"> */}
           {/* Author avatar */}
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <div className="relative h-7 w-7 overflow-hidden rounded-full border border-black/30">
               <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
             </div>
             <span>{post.author.name}</span>
-          </div>
-          <span>{post.readTime}</span>
-        </div>
+          </div> */}
+          {/* <span>{post.readTime}</span> */}
+        {/* </div> */}
 
         {/* Bottom Actions */}
-        <div className="mt-4 flex items-center justify-between gap-2">
+        {/* <div className="mt-4 flex items-center justify-between gap-2">
           <button
             onClick={(e) => onLike(post.id, e)}
             className="flex items-center gap-1.5 rounded-lg bg-black/10 px-3 py-1.5 text-xs font-bold transition-all hover:bg-black/20 hover:scale-105 active:scale-95"
@@ -154,11 +154,11 @@ export default function StickyNoteCard({
               href={`/blog/${post.slug}`}
               className="inline-flex items-center gap-1 rounded-lg bg-black px-3.5 py-1.5 text-xs font-extrabold text-[#c9f31d] transition-transform hover:scale-105"
             >
-              Full Post <i className="fas fa-arrow-right text-[10px]" />
+              View Project <i className="fas fa-arrow-right text-[10px]" />
             </Link>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </div>
   );
 }

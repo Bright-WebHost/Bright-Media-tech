@@ -14,10 +14,10 @@ export default function Breadcrumb({
           {title}
         </h1>
         <nav className="mt-4 flex items-center justify-center gap-2 text-sm font-medium">
-          <Link href="/" className="text-primary hover:underline">
+          {/* <Link href="/" className="text-primary hover:underline">
             Home
-          </Link>
-          <i className="fas fa-angle-right text-xs opacity-60" />
+          </Link> */}
+          {/* <i className="fas fa-angle-right text-xs opacity-60" /> */}
           <span className="opacity-70">{crumb}</span>
         </nav>
       </div>

@@ -43,9 +43,9 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
 
   return (
     <main className="min-h-screen pt-24 pb-20">
-      <Breadcrumb title={post.title} crumb="Blog Details" />
+      <Breadcrumb title={post.title} crumb="" />
 
-      <section className="py-12 paper-canvas-light dark:paper-canvas-dark">
+      <section className="py-12 paper-canvas-light ">
         <div className="container-x">
           {/* Main Paper Notepad Wrapper */}
           <div className="relative mx-auto max-w-5xl rounded-3xl border-4 border-amber-950/20 bg-white p-6 shadow-2xl dark:bg-[#16171a] sm:p-10 md:p-14 overflow-hidden">
@@ -58,19 +58,20 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
 
             {/* Post Category & Read Meta */}
             <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border-b border-black/10 pb-4 dark:border-white/10">
-              <Link
+              {/* <Link
                 href="/blog"
                 className="inline-flex items-center gap-2 text-xs font-black uppercase text-paragraph transition-colors hover:text-[#c9f31d] dark:text-gray-400"
               >
                 <i className="fas fa-arrow-left" /> Back to All Notes
-              </Link>
+              </Link> */}
 
               <div className="flex items-center gap-3">
                 <span className="rounded-full bg-[#c9f31d] px-4 py-1 text-xs font-black text-black uppercase tracking-wider shadow">
                   {post.category}
                 </span>
                 <span className="font-handwriting text-xl font-bold text-gray-700 dark:text-gray-300">
-                  {post.date.month} {post.date.day}, {post.date.year}
+                  location
+                  {/* {post.date.month} {post.date.day}, {post.date.year} */}
                 </span>
               </div>
             </div>
@@ -81,7 +82,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
             </h1>
 
             {/* Author Profile Bar */}
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-b border-black/10 pb-6 dark:border-white/10">
+            {/* <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-b border-black/10 pb-6 dark:border-white/10">
               <div className="flex items-center gap-4">
                 <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-[#c9f31d] shadow-md">
                   <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
@@ -103,7 +104,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
                   <i className="fas fa-heart text-base" /> {likes} Claps &amp; Likes
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {/* Featured Photo taped on Paper */}
             <div className="relative my-10 h-72 md:h-[420px] w-full overflow-hidden rounded-2xl border-2 border-black/10 shadow-2xl">
@@ -116,9 +117,9 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
             <div className="grid gap-12 lg:grid-cols-3">
               {/* Main Body (2 Columns) */}
               <div className="lg:col-span-2 space-y-8 text-paragraph dark:text-gray-200">
-                <p className="text-xl font-medium leading-relaxed italic border-l-4 border-[#c9f31d] pl-6 py-4 bg-[#c9f31d]/10 rounded-r-2xl">
+                {/* <p className="text-xl font-medium leading-relaxed italic border-l-4 border-[#c9f31d] pl-6 py-4 bg-[#c9f31d]/10 rounded-r-2xl">
                   "{post.content.intro}"
-                </p>
+                </p> */}
 
                 {post.content.sections.map((sec, idx) => (
                   <div key={idx} className="space-y-4">
@@ -129,9 +130,9 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
 
                     {sec.stickyQuote && (
                       <div className="my-6 rotate-[-1deg] rounded-2xl bg-[#feef8f] p-6 text-gray-900 shadow-xl border border-amber-300">
-                        <span className="font-handwriting text-2xl font-bold block text-amber-900 mb-1">
+                        {/* <span className="font-handwriting text-2xl font-bold block text-amber-900 mb-1">
                           📌 Author Sticky Note:
-                        </span>
+                        </span> */}
                         <p className="font-handwriting text-2xl font-bold leading-snug">
                           "{sec.stickyQuote}"
                         </p>
@@ -143,7 +144,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
                 {/* Conclusion Callout */}
                 <div className="mt-10 rounded-2xl bg-dark-secondary p-8 text-white border border-[#c9f31d]/50 shadow-2xl">
                   <h3 className="text-xl font-extrabold text-[#c9f31d] uppercase tracking-wider">
-                    Summary &amp; Key Conclusion
+                    Client Industry
                   </h3>
                   <p className="mt-3 text-base text-gray-300 leading-relaxed">
                     {post.content.conclusion}
@@ -156,19 +157,21 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
                 {/* Takeaways Wall */}
                 <div className="rounded-2xl border border-black/10 bg-gray-50 p-6 dark:border-white/10 dark:bg-dark-secondary shadow-lg">
                   <h3 className="font-handwriting text-3xl font-bold text-heading dark:text-white flex items-center gap-2 border-b border-black/10 pb-3 dark:border-white/10">
-                    <i className="fas fa-sticky-note text-[#c9f31d]" /> Key Takeaways
+                    <i className="fas fa-sticky-note text-[#c9f31d]" /> Project Info
                   </h3>
 
                   <div className="mt-6 space-y-4">
+                    
+                        <span className="font-handwriting text-lg font-bold block text-white/50">
+                          Project Component
+                          {/* {index + 1}: */}
+                        </span>
                     {post.takeaways.map((takeaway, index) => (
                       <div
                         key={index}
                         style={{ transform: `rotate(${index % 2 === 0 ? 2 : -2}deg)` }}
                         className="rounded-xl bg-[#c9f31d] p-4 text-gray-950 shadow-md border border-black/20"
                       >
-                        <span className="font-handwriting text-lg font-bold block text-black/70">
-                          Takeaway #{index + 1}:
-                        </span>
                         <p className="font-sans font-extrabold text-sm mt-1">{takeaway}</p>
                       </div>
                     ))}
@@ -176,7 +179,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
                 </div>
 
                 {/* Pin Comment Box */}
-                <div className="rounded-2xl bg-[#fff275] p-6 text-gray-950 shadow-xl border border-amber-300 rotate-1">
+                {/* <div className="rounded-2xl bg-[#fff275] p-6 text-gray-950 shadow-xl border border-amber-300 rotate-1">
                   <h4 className="font-handwriting text-3xl font-bold text-amber-950">
                     ✏️ Pin a Comment Note
                   </h4>
@@ -202,12 +205,12 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
                       Pin Note <i className="fas fa-thumbtack ml-1" />
                     </button>
                   </form>
-                </div>
+                </div> */}
               </div>
             </div>
 
             {/* Pinned Sticky Comments Grid */}
-            <div className="mt-16 border-t border-black/10 pt-10 dark:border-white/10">
+            {/* <div className="mt-16 border-t border-black/10 pt-10 dark:border-white/10">
               <h3 className="text-2xl font-black text-heading dark:text-white flex items-center gap-2">
                 <i className="fas fa-comments text-[#c9f31d]" /> Reader Sticky Notes ({comments.length})
               </h3>
@@ -227,10 +230,10 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Related Sticky Notes Carousel Preview */}
-            <div className="mt-20 border-t border-black/10 pt-10 dark:border-white/10">
+            {/* <div className="mt-20 border-t border-black/10 pt-10 dark:border-white/10">
               <h3 className="text-2xl font-black text-heading dark:text-white">
                 More Notes You Might Like
               </h3>
@@ -253,7 +256,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
                   </Link>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

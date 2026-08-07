@@ -1,4 +1,5 @@
 import SiteShell from "@/components/SiteShell";
+import BlogPageContent from "@/components/blog/BlogPageContent";
 import ProjectsPageContent from "@/components/projects/ProjectsPageContent";
 
 export const metadata = {
@@ -10,7 +11,8 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <SiteShell>
-      <ProjectsPageContent />
+      {/* <ProjectsPageContent /> */}
+      <BlogPageContent />
     </SiteShell>
   );
 }

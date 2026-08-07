@@ -9,7 +9,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 export default function BlogPageContent() {
   const [posts, setPosts] = useState<BlogPost[]>(BLOG_POSTS);
-  const [selectedCategory, setSelectedCategory] = useState<string>("All Notes");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All Projects");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [viewMode, setViewMode] = useState<"spread" | "grid">("spread");
   const [activeModalPost, setActiveModalPost] = useState<BlogPost | null>(null);
@@ -18,7 +18,7 @@ export default function BlogPageContent() {
   // Filter posts
   const filteredPosts = posts.filter((p) => {
     const matchesCategory =
-      selectedCategory === "All Notes" || p.category === selectedCategory;
+      selectedCategory === "All Projects" || p.category === selectedCategory;
     const matchesSearch =
       p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -39,55 +39,55 @@ export default function BlogPageContent() {
   };
 
   // Add custom pinned sticky note
-  const handleAddCustomNote = (newNote: {
-    title: string;
-    content: string;
-    author: string;
-    color: "lime" | "yellow" | "teal" | "pink" | "orange";
-  }) => {
-    const customPost: BlogPost = {
-      id: `custom-${Date.now()}`,
-      slug: `custom-note-${Date.now()}`,
-      title: newNote.title,
-      excerpt: newNote.content,
-      category: "Strategy",
-      date: { day: "NOW", month: "TODAY", year: "2026" },
-      readTime: "1 min read",
-      author: {
-        name: newNote.author,
-        role: "Community Contributor",
-        avatar: "/assets/img/team/8.jpg",
-      },
-      image: "/assets/img/blog/4.jpg",
-      colorTheme: newNote.color,
-      stickyBgLight: "bg-[#feef8f] text-gray-900",
-      stickyBgDark: "bg-[#fde047] text-gray-900",
-      textColor: "text-gray-900",
-      badgeBg: "bg-black text-[#c9f31d]",
-      rotation: Math.floor(Math.random() * 8) - 4,
-      likes: 1,
-      commentsCount: 0,
-      takeaways: [newNote.content],
-      content: {
-        intro: newNote.content,
-        sections: [
-          {
-            heading: "User Sticky Note",
-            body: newNote.content,
-          },
-        ],
-        conclusion: "Pinned by visitor onto the Bright Media board.",
-      },
-      comments: [],
-    };
+  // const handleAddCustomNote = (newNote: {
+  //   title: string;
+  //   content: string;
+  //   author: string;
+  //   color: "lime" | "yellow" | "teal" | "pink" | "orange";
+  // }) => {
+  //   const customPost: BlogPost = {
+  //     id: `custom-${Date.now()}`,
+  //     slug: `custom-note-${Date.now()}`,
+  //     title: newNote.title,
+  //     excerpt: newNote.content,
+  //     category: "Strategy",
+  //     date: { day: "NOW", month: "TODAY", year: "2026" },
+  //     readTime: "1 min read",
+  //     author: {
+  //       name: newNote.author,
+  //       role: "Community Contributor",
+  //       avatar: "/assets/img/team/8.jpg",
+  //     },
+  //     image: "/assets/img/blog/4.jpg",
+  //     colorTheme: newNote.color,
+  //     stickyBgLight: "bg-[#feef8f] text-gray-900",
+  //     stickyBgDark: "bg-[#fde047] text-gray-900",
+  //     textColor: "text-gray-900",
+  //     badgeBg: "bg-black text-[#c9f31d]",
+  //     rotation: Math.floor(Math.random() * 8) - 4,
+  //     likes: 1,
+  //     commentsCount: 0,
+  //     takeaways: [newNote.content],
+  //     content: {
+  //       intro: newNote.content,
+  //       sections: [
+  //         {
+  //           heading: "User Sticky Note",
+  //           body: newNote.content,
+  //         },
+  //       ],
+  //       conclusion: "Pinned by visitor onto the Bright Media board.",
+  //     },
+  //     comments: [],
+  //   };
 
-    setPosts([customPost, ...posts]);
-  };
+  //   setPosts([customPost, ...posts]);
+  // };
 
   return (
     <main className="min-h-screen pt-24">
       {/* Breadcrumb Header */}
-      <Breadcrumb title="Sticky Desk Blog" crumb="Blog & Creative Notes" />
+      {/* <Breadcrumb title="Sticky Desk Blog" crumb="Blog & Creative Notes" /> */}
 
       {/* Main Paper Desk Canvas */}
       <section className="relative py-12 md:py-20 paper-canvas-light dark:paper-canvas-dark border-y border-black/10 dark:border-white/10 overflow-hidden">
@@ -110,7 +110,8 @@ export default function BlogPageContent() {
             </h1>
 
             <p className="mt-4 text-base md:text-lg text-paragraph dark:text-gray-300 max-w-2xl mx-auto">
-              Explore our agency blog styled like tactile sticky notes pinned to a creative workspace canvas. Click any note to unpin &amp; read!
+              Our Projects harness design and technology to create places where
+people live, work, and heal.
             </p>
           </div>
 
@@ -211,7 +212,7 @@ export default function BlogPageContent() {
             <div
               className={
                 viewMode === "spread"
-                  ? "grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10"
+                  ? "grid gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-10"
                   : "grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
               }
             >
@@ -237,11 +238,11 @@ export default function BlogPageContent() {
       />
 
       {/* Pin User Note Modal */}
-      <PinNoteModal
+      {/* <PinNoteModal
         isOpen={isPinModalOpen}
         onClose={() => setIsPinModalOpen(false)}
         onAddCustomNote={handleAddCustomNote}
-      />
+      /> */}
     </main>
   );
 }

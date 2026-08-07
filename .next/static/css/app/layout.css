@@ -2481,10 +2481,6 @@ video {
 .bg-white\/95 {
   background-color: rgb(255 255 255 / 0.95);
 }
-.bg-\[\#fee\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 238 238 / var(--tw-bg-opacity, 1));
-}
 .bg-\[radial-gradient\(\#c9f31d_1px\2c transparent_1px\)\] {
   background-image: radial-gradient(#c9f31d 1px,transparent 1px);
 }
@@ -3193,6 +3189,12 @@ video {
 .text-yellow-400 {
   --tw-text-opacity: 1;
   color: rgb(250 204 21 / var(--tw-text-opacity, 1));
+}
+.text-black\/100 {
+  color: rgb(0 0 0 / 1);
+}
+.text-white\/100 {
+  color: rgb(255 255 255 / 1);
 }
 .underline {
   text-decoration-line: underline;
