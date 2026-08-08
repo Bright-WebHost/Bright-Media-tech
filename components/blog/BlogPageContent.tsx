@@ -17,12 +17,19 @@ export default function BlogPageContent() {
 
   // Filter posts
   const filteredPosts = posts.filter((p) => {
+    const categories = Array.isArray(p.category) ? p.category : [p.category];
     const matchesCategory =
-      selectedCategory === "All Projects" || p.category === selectedCategory;
+      selectedCategory === "All Projects" ||
+      categories.some(
+        (cat) => cat.trim().toLowerCase() === selectedCategory.trim().toLowerCase()
+      );
     const matchesSearch =
+      searchQuery.trim() === "" ||
       p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.category.toLowerCase().includes(searchQuery.toLowerCase());
+      categories.some((cat) =>
+        cat.toLowerCase().includes(searchQuery.toLowerCase())
+      );
     return matchesCategory && matchesSearch;
   });
 
@@ -116,10 +123,10 @@ people live, work, and heal.
           </div>
 
           {/* Desk Toolbar */}
-          <div className="mb-10 rounded-2xl border border-black/10 bg-white/80 p-4 shadow-xl backdrop-blur dark:border-white/10 dark:bg-dark-secondary/90">
-            <div className="flex flex-col gap-4 lg:flex-row  lg:justify-between">
+          <div className="mb-10 rounded-2xl border border-black/10 bg-white/80 p-2 shadow-xl backdrop-blur dark:border-white/10 dark:bg-dark-secondary/90">
+            <div className=" gap-4 lg:flex-row  lg:justify-between">
               {/* Category Filter Pills */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-2 pl-2 lg:pb-0 scrollbar-none ">
+              <div className="flex  gap-2 overflow-x-auto pb-2 pl-2 lg:pb-0 scrollbar-none ">
                 {BLOG_CATEGORIES.map((cat) => {
                   const isActive = selectedCategory === cat;
                   return (
@@ -140,7 +147,7 @@ people live, work, and heal.
               </div>
 
               {/* Right Controls: Search, View Mode & Add Note */}
-              <div className="flex flex-wrap items-center gap-3">
+              {/* <div className=""> */}
                 {/* Sticky Search Input */}
                 {/* <div className="relative flex-1 sm:w-64 sm:flex-none">
                   <input
@@ -154,8 +161,8 @@ people live, work, and heal.
                 </div> */}
 
                 {/* View Mode Switcher */}
-                <div className="flex items-center rounded-full border border-black/10 bg-gray-100 p-1 dark:border-white/10 dark:bg-dark">
-                  <button
+                {/* <div className="flex  rounded-full border border-black/10 bg-gray-100 p-1 dark:border-white/10 dark:bg-dark"> */}
+                  {/* <button
                     onClick={() => setViewMode("spread")}
                     title="Spread Canvas View"
                     className={`rounded-full px-3 py-1 text-xs font-bold transition-colors ${
@@ -176,8 +183,8 @@ people live, work, and heal.
                     }`}
                   >
                     <i className="fas fa-th-large mr-1" /> Grid
-                  </button>
-                </div>
+                  </button> */}
+                {/* </div> */}
 
                 {/* Pin Note Button */}
                 {/* <button
@@ -186,7 +193,7 @@ people live, work, and heal.
                 >
                   <i className="fas fa-thumbtack" /> Pin Note
                 </button> */}
-              </div>
+              {/* </div> */}
             </div>
           </div>
 
@@ -200,7 +207,7 @@ people live, work, and heal.
               </p>
               <button
                 onClick={() => {
-                  setSelectedCategory("All Notes");
+                  setSelectedCategory("All Projects");
                   setSearchQuery("");
                 }}
                 className="mt-4 rounded-full bg-black px-4 py-2 text-xs font-bold text-[#c9f31d]"
@@ -221,6 +228,7 @@ people live, work, and heal.
                   key={post.id}
                   post={post}
                   viewMode={viewMode}
+                  activeCategory={selectedCategory}
                   onQuickRead={(p) => setActiveModalPost(p)}
                   onLike={(id) => handleLike(id)}
                 />

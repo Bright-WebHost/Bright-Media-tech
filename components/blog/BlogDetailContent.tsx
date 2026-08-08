@@ -42,13 +42,13 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
   const relatedPosts = BLOG_POSTS.filter((p) => p.id !== post.id).slice(0, 3);
 
   return (
-    <main className="min-h-screen pt-24 pb-20">
+    <main className="min-h-screen pt-24 pb-0">
       <Breadcrumb title={post.title} crumb="" />
 
-      <section className="py-12 paper-canvas-light ">
+      <section className="py-12 paper-canvas-dark ">
         <div className="container-x">
-          {/* Main Paper Notepad Wrapper */}
-          <div className="relative mx-auto max-w-5xl rounded-3xl border-4 border-amber-950/20 bg-white p-6 shadow-2xl dark:bg-[#16171a] sm:p-10 md:p-14 overflow-hidden">
+          {/* Main Paper Notepad Wrapper with Notebook Ruled Lines */}
+          <div className="relative mx-auto max-w-5xl rounded-3xl border-4 border-amber-950/20 bg-[#FAF8F5] notebook-paper p-6 shadow-2xl sm:p-10 md:p-14 overflow-hidden">
             {/* Top Metallic Spiral Binder / Clipboard accent */}
             <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-r from-amber-950/20 via-black/40 to-amber-950/20 border-b border-black/20 flex items-center justify-around px-8">
               {[...Array(12)].map((_, i) => (
@@ -57,7 +57,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
             </div>
 
             {/* Post Category & Read Meta */}
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border-b border-black/10 pb-4 dark:border-white/10">
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border-b border-black/10 pb-4 ">
               {/* <Link
                 href="/blog"
                 className="inline-flex items-center gap-2 text-xs font-black uppercase text-paragraph transition-colors hover:text-[#c9f31d] dark:text-gray-400"
@@ -65,11 +65,18 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
                 <i className="fas fa-arrow-left" /> Back to All Notes
               </Link> */}
 
-              <div className="flex items-center gap-3">
-                <span className="rounded-full bg-[#c9f31d] px-4 py-1 text-xs font-black text-black uppercase tracking-wider shadow">
-                  {post.category}
-                </span>
-                <span className="font-handwriting text-xl font-bold text-gray-700 dark:text-gray-300">
+              <div className="flex flex-wrap items-center gap-2">
+                {(Array.isArray(post.category) ? post.category : [post.category]).map(
+                  (cat, idx) => (
+                    <span
+                      key={idx}
+                      className="rounded-full bg-[#c9f31d] px-4 py-1 text-xs font-black text-black uppercase tracking-wider shadow"
+                    >
+                      {cat}
+                    </span>
+                  )
+                )}
+                <span className="font-handwriting text-xl font-bold text-gray-700 dark:text-gray-600 ml-2">
                   location
                   {/* {post.date.month} {post.date.day}, {post.date.year} */}
                 </span>
@@ -77,7 +84,7 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
             </div>
 
             {/* Post Title */}
-            <h1 className="mt-8 text-3xl font-black text-heading dark:text-white md:text-5xl lg:text-6xl leading-tight">
+            <h1 className="mt-8 text-3xl font-black text-heading  md:text-5xl lg:text-6xl leading-tight">
               {post.title}
             </h1>
 
@@ -116,14 +123,14 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
             {/* Main Content Layout with Side Takeaway Sticky Notes */}
             <div className="grid gap-12 lg:grid-cols-3">
               {/* Main Body (2 Columns) */}
-              <div className="lg:col-span-2 space-y-8 text-paragraph dark:text-gray-200">
+              <div className="lg:col-span-2 space-y-8 text-paragraph ">
                 {/* <p className="text-xl font-medium leading-relaxed italic border-l-4 border-[#c9f31d] pl-6 py-4 bg-[#c9f31d]/10 rounded-r-2xl">
                   "{post.content.intro}"
                 </p> */}
 
                 {post.content.sections.map((sec, idx) => (
                   <div key={idx} className="space-y-4">
-                    <h2 className="text-2xl font-black text-heading dark:text-white">
+                    <h2 className="text-2xl font-black text-heading ">
                       {sec.heading}
                     </h2>
                     <p className="text-base md:text-lg leading-relaxed">{sec.body}</p>

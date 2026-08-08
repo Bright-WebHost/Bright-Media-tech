@@ -4,15 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, MapPin, Calendar, Tag, ArrowUpRight, CheckCircle } from "lucide-react";
-import { ALL_PROJECTS } from "@/lib/projects";
+import { ALL_PROJECTS, Project } from "@/lib/projects";
 
 // ─── Helper ───────────────────────────────────────────────────────────────────
 function getProject(id: string) {
   return ALL_PROJECTS.find((p) => p.id === id) ?? null;
 }
 
-function getRelated(id: string, category: string) {
-  return ALL_PROJECTS.filter((p) => p.id !== id && p.category === category).slice(0, 3);
+function getRelated(id: string, category: Project["category"]) {
+  const cats = Array.isArray(category) ? category : [category];
+  return ALL_PROJECTS.filter(
+    (p) =>
+      p.id !== id &&
+      (Array.isArray(p.category)
+        ? p.category.some((c) => cats.includes(c as any))
+        : cats.includes(p.category as any))
+  ).slice(0, 3);
 }
 
 // ─── Client Content Component ─────────────────────────────────────────────────
@@ -34,6 +41,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
   }
 
   const related = getRelated(id, project.category);
+  const categoriesList = Array.isArray(project.category) ? project.category : [project.category];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] pt-24">
@@ -70,9 +78,16 @@ export default function ProjectDetailContent({ id }: { id: string }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block bg-primary/90 text-dark text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-                {project.category}
-              </span>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {categoriesList.map((cat, idx) => (
+                  <span
+                    key={idx}
+                    className="inline-block bg-primary/90 text-dark text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                  >
+                    {cat}
+                  </span>
+                ))}
+              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-3">
                 {project.brand}
               </h1>
@@ -88,7 +103,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
           {[
             { Icon: MapPin, label: "Location", value: project.location },
             { Icon: Calendar, label: "Year", value: project.year },
-            { Icon: Tag, label: "Category", value: project.category },
+            { Icon: Tag, label: "Category", value: categoriesList.join(", ") },
           ].map(({ Icon, label, value }) => (
             <div key={label} className="flex items-center gap-3">
               <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">

@@ -65,11 +65,18 @@ export default function BlogDetailContent2({ post }: BlogDetailContentProps) {
                 <i className="fas fa-arrow-left" /> Back to All Notes
               </Link> */}
 
-              <div className="flex items-center gap-3">
-                <span className="rounded-full bg-[#c9f31d] px-4 py-1 text-xs font-black text-black uppercase tracking-wider shadow">
-                  {post.category}
-                </span>
-                <span className="font-handwriting text-xl font-bold text-gray-700 dark:text-gray-300">
+              <div className="flex flex-wrap items-center gap-2">
+                {(Array.isArray(post.category) ? post.category : [post.category]).map(
+                  (cat, idx) => (
+                    <span
+                      key={idx}
+                      className="rounded-full bg-[#c9f31d] px-4 py-1 text-xs font-black text-black uppercase tracking-wider shadow"
+                    >
+                      {cat}
+                    </span>
+                  )
+                )}
+                <span className="font-handwriting text-xl font-bold text-gray-700 dark:text-gray-300 ml-2">
                   {post.date.month} {post.date.day}, {post.date.year}
                 </span>
               </div>

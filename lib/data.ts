@@ -28,7 +28,7 @@ export const NAV: NavItem[] = [
     ],
   },
   { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "/blog" },
+  // { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

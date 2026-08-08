@@ -146,16 +146,14 @@
 
   /* Ruled Notebook Paper for Details */
   .notebook-paper {
-    background-color: #fcfcf9;
-    background-image: linear-gradient(#e2e8f0 1px, transparent 1px);
-    background-size: 100% 28px;
-    line-height: 28px;
+    background-color: #FAF8F5;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-size: 100% 32px;
   }
   .dark .notebook-paper {
-    background-color: #1a1c20;
-    background-image: linear-gradient(#2d3139 1px, transparent 1px);
-    background-size: 100% 28px;
-    line-height: 28px;
+    background-color: #f1f1e7;
+    background-image: linear-gradient(to bottom, rgba(60, 56, 56, 0.193) 1px, transparent 1px);
+    background-size: 100% 32px;
   }
 
   /* Torn Paper Jagged Edges & Cards */

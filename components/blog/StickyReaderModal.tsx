@@ -72,9 +72,18 @@ export default function StickyReaderModal({
         <div className="p-6 md:p-10 pt-12 max-h-[85vh] overflow-y-auto notebook-paper">
           {/* Header Badge & Date */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 pb-4 dark:border-white/10">
-            <span className="rounded-full bg-[#c9f31d] px-4 py-1 text-xs font-black text-black uppercase tracking-wider shadow">
-              {post.category}
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              {(Array.isArray(post.category) ? post.category : [post.category]).map(
+                (cat, idx) => (
+                  <span
+                    key={idx}
+                    className="rounded-full bg-[#c9f31d] px-3.5 py-1 text-xs font-black text-black uppercase tracking-wider shadow"
+                  >
+                    {cat}
+                  </span>
+                )
+              )}
+            </div>
             <div className="flex items-center gap-4 text-xs font-semibold text-gray-600 dark:text-gray-400">
               <span className="font-handwriting text-xl text-black dark:text-white">
                 {post.date.month} {post.date.day}, {post.date.year}

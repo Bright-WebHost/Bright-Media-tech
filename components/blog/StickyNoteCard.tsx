@@ -10,6 +10,7 @@ interface StickyNoteCardProps {
   onQuickRead: (post: BlogPost) => void;
   onLike: (postId: string, e: React.MouseEvent) => void;
   viewMode: "spread" | "grid";
+  activeCategory?: string;
 }
 
 export default function StickyNoteCard({
@@ -17,9 +18,19 @@ export default function StickyNoteCard({
   onQuickRead,
   onLike,
   viewMode,
+  activeCategory = "All Projects",
 }: StickyNoteCardProps) {
   const [hovered, setHovered] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
+
+  // Determine single category to show on card
+  const categories = Array.isArray(post.category) ? post.category : [post.category];
+  const badgeCategory =
+    activeCategory && activeCategory !== "All Projects" && activeCategory !== "All"
+      ? categories.find(
+          (c) => c.trim().toLowerCase() === activeCategory.trim().toLowerCase()
+        ) || activeCategory
+      : categories[0] || "Creative";
 
   // Rotation style depending on view mode
   const rotationDeg = viewMode === "spread" ? post.rotation : 0;
@@ -36,7 +47,15 @@ export default function StickyNoteCard({
             ? "bg-[#fecdd3] text-gray-900"
             : post.colorTheme === "orange"
               ? "bg-[#fed7aa] text-gray-900"
-              : "bg-[#e9d5ff] text-purple-950";
+              : post.colorTheme === "blue"
+                ? "bg-[#a0bfff] text-slate-900"
+                : post.colorTheme === "sky-blue"
+                  ? "bg-[#a7cfff] text-slate-900"
+                  : post.colorTheme === "gray"
+                    ? "bg-[#c9c9c9] text-purple-950"
+                    : post.colorTheme === "purple"
+                      ? "bg-[#e9d5ff] text-purple-950"
+                      : "";
 
   return (
     <div
@@ -61,8 +80,8 @@ export default function StickyNoteCard({
       {/* Top Bar: Category badge & Bookmark */}
       <div>
         <div className="flex items-center justify-between gap-2 border-b border-black/10 pb-3">
-          <span className="rounded-full bg-black/90 px-3 py-1 text-xs font-bold text-[#c9f31d] uppercase tracking-wider ">
-            {post.category}
+          <span className="rounded-full bg-black/90 px-3 py-1 text-[8px] font-medium text-[#c9f31d] uppercase tracking-wider">
+            {badgeCategory}
           </span>
           <div className="flex items-center gap-2">
             <button

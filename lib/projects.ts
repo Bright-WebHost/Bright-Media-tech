@@ -16,7 +16,7 @@ export interface Project {
   brand: string;
   location: string;
   country: string;
-  category: Exclude<ProjectCategory, "All">;
+  category: Exclude<ProjectCategory, "All"> | Exclude<ProjectCategory, "All">[] | string | string[];
   image: string;
   year: string;
   tags: string[];

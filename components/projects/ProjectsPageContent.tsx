@@ -8,7 +8,13 @@ import { MapPin, ArrowUpRight } from "lucide-react";
 import { PROJECT_CATEGORIES, ALL_PROJECTS, type Project, type ProjectCategory } from "@/lib/projects";
 
 // ─── Card Component ────────────────────────────────────────────────────────────
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index, activeCategory }: { project: Project; index: number; activeCategory?: string }) {
+  const categories = Array.isArray(project.category) ? project.category : [project.category];
+  const badgeCategory =
+    activeCategory && activeCategory !== "All"
+      ? categories.find((c) => c.toLowerCase() === activeCategory.toLowerCase()) || activeCategory
+      : categories[0] || "Project";
+
   return (
     <motion.div
       layout
@@ -34,8 +40,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
           {/* Category pill */}
           <div className="absolute top-4 left-4 z-10">
-            <span className="bg-primary/90 text-dark text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-              {project.category}
+            <span className="bg-primary/90 text-dark text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+              {badgeCategory}
             </span>
           </div>
 
@@ -74,7 +80,12 @@ export default function ProjectsPageContent() {
   const filtered =
     active === "All"
       ? ALL_PROJECTS
-      : ALL_PROJECTS.filter((p) => p.category === active);
+      : ALL_PROJECTS.filter((p) => {
+          const cats = Array.isArray(p.category) ? p.category : [p.category];
+          return cats.some(
+            (c) => c.toLowerCase() === active.toLowerCase()
+          );
+        });
 
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
@@ -176,7 +187,7 @@ export default function ProjectsPageContent() {
           <AnimatePresence mode="popLayout">
             <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {filtered.map((project, i) => (
-                <ProjectCard key={project.id} project={project} index={i} />
+                <ProjectCard key={project.id} project={project} index={i} activeCategory={active} />
               ))}
             </motion.div>
           </AnimatePresence>

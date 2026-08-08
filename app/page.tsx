@@ -17,10 +17,10 @@ export default function HomePage() {
     <SiteShell>
       <Hero />
       <About />
-      <Process />
-      {/* <Services /> */}
+      {/* <Process /> */}
+      <Services />
       <Portfolio />
-      <OurClients />
+      {/* <OurClients /> */}
       {/* <Clients /> */}
       {/* <Team /> */}
       <Testimonials />
