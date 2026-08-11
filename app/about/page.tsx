@@ -5,6 +5,7 @@ import AboutStats from "@/components/about/AboutStats";
 import AboutPartners from "@/components/about/AboutPartners";
 import AboutTeam from "@/components/about/AboutTeam";
 import AboutTestimonials from "@/components/about/AboutTestimonials";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata = {
   title: "About Company | Dixor Creative Digital Agency",
@@ -15,7 +16,9 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <SiteShell>
-      <AboutBreadcrumb />
+      <Breadcrumb title="About Us" />
+      {/* <AboutBreadcrumb /> */}
+
       {/* <AboutAgency /> */}
       <AboutStats />
       {/* <AboutPartners /> */}

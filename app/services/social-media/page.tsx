@@ -35,8 +35,8 @@ export default function SocialMediaPage() {
       {/* Our Process — Dark */}
       <SMProcess />
 
-      {/* Tools & Platforms — White */}
-      <SMTools />
+      {/* Tools & Platforms — Small height horizontal row */}
+      {/* <SMTools /> */}
 
       {/* Benefits — Dark */}
       <SMBenefits />

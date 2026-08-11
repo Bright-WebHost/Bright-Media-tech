@@ -19,12 +19,12 @@ export default function HomePage() {
       <About />
       {/* <Process /> */}
       <Services />
-      <Portfolio />
+      <WhyDixor />
       {/* <OurClients /> */}
       {/* <Clients /> */}
       {/* <Team /> */}
       <Testimonials />
-      <WhyDixor />
+      <Portfolio />
       {/* <ContactCTA /> */}
       {/* <Blog /> */}
     </SiteShell>

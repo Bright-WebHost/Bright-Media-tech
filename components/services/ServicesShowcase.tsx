@@ -64,7 +64,7 @@ function NumberedList() {
         <Link
           key={s.id}
           href={`/service-details/${s.id}`}
-          className="group flex items-center gap-6 rounded-2xl border border-black/5 bg-white p-8 transition-colors hover:border-primary dark:border-white/10 dark:bg-dark-secondary"
+          className="group flex items-center gap-6 rounded-2xl border border-black/5 bg-white p-8 transition-colors hover:border-primary `"
         >
           <span className="text-5xl font-black text-primary/30 group-hover:text-primary">{s.no}</span>
           <div className="flex-1">
@@ -94,7 +94,7 @@ function Alternating() {
           className={`flex flex-col gap-8 lg:items-center  ${i % 2 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
         >
           <div className="flex h-56 flex-1 items-center justify-center rounded-2xl bg-primary/10">
-            <Image src={s.icon} alt="" width={80} height={80} className="h-20 w-20 object-contain" />
+            <Image src={s.icon} alt="" width={200} height={220} className="h-70 w-70 object-contain object-fit" />
           </div>
           <div className="flex-1">
             <span className="text-sm font-bold text-primary">{s.no}</span>

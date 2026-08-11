@@ -6,7 +6,7 @@ import ScrollFillText from "@/components/motion/ScrollFillText";
 
 export default function About() {
   return (
-    <section className="py-16 sm:py-24 bg-white overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#F2F2F2] overflow-hidden">
       <div className="container-x relative px-4 sm:px-6">
         <div className="grid gap-10 sm:gap-16 lg:grid-cols-12 lg:items-start">
           {/* Image */}
@@ -49,7 +49,7 @@ export default function About() {
         </div>
 
         {/* Service Cards */}
-        <div className="group/wrapper grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 relative z-20 mt-8 sm:mt-12 lg:-mt-[11rem] w-full lg:w-[67%] lg:ml-auto">
+        <div className="group/wrapper grid grid-cols-3 sm:grid-cols-3 gap-4 sm:gap-6 relative z-20 mt-8 sm:mt-12 lg:-mt-[11rem] w-full lg:w-[67%] lg:ml-auto">
           {ABOUT.services.map((s, i) => {
             if (i === 0) {
               return (

@@ -17,7 +17,7 @@ export const NAV: NavItem[] = [
   { label: "About", href: "/about" },
   {
     label: "Services",
-    href: "/services",
+    href: "#",
     children: [
       { label: "Social Media Marketing", href: "/services/social-media" },
       { label: "Branding", href: "/services-2/branding" },
@@ -68,7 +68,7 @@ export const SERVICES: Service[] = [
     id: 1,
     no: "01",
     title: "Static & Dynamic Websites",
-    icon: "/assets/img/icon/1.png",
+    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9SHMsaH7-ZApYkJxK6wPVEb2Mz2GXCfTfAVkC0xvzFA&s=10",
     iconLight: "/assets/img/icon/23.png",
     desc: "They feature dynamic content that can change based on user interactions or data input. hey are typically built using HTML and CSS and are suitable for businesses or Corporates who require a online presence to showcase their products or services.",
   },

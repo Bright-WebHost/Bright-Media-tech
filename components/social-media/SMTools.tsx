@@ -1,80 +1,155 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import Reveal from "@/components/motion/Reveal";
 
 const tools = [
-  { name: "Meta Business Suite", icon: "fab fa-meta", color: "#0668E1" },
-  { name: "Instagram", icon: "fab fa-instagram", color: "#E1306C" },
-  { name: "Facebook", icon: "fab fa-facebook-f", color: "#1877F2" },
-  { name: "LinkedIn", icon: "fab fa-linkedin-in", color: "#0A66C2" },
-  // { name: "TikTok", icon: "fab fa-tiktok", color: "#69C9D0" },
-  // { name: "YouTube", icon: "fab fa-youtube", color: "#FF0000" },
-  // { name: "Google Analytics", icon: "fab fa-google", color: "#F4B400" },
-  // { name: "Canva", icon: "fas fa-swatchbook", color: "#00C4CC" },
-  // { name: "Adobe Creative Suite", icon: "fab fa-adobe", color: "#FF0000" },
-  // { name: "Hootsuite", icon: "fas fa-rss", color: "#143059" },
-  // { name: "SemRush", icon: "fas fa-search-dollar", color: "#FF642D" },
-  // { name: "Adobe Photoshop", icon: "fas fa-image", color: "#31A8FF" },
+  {
+    name: "Adobe Illustrator",
+    category: "Management",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRzuT_YMrMflo1_fFuocx8aLR97k9HWTTonCm6cHXHhw&s=10",
+    color: "#0668E1",
+  },
+  {
+    name: "Adobe InDesign",
+    category: "Reels & Stories",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ56ns-o5aKW7j_afazkjeFAIoYeh7OhnHhz6emJGIktA&s=10",
+    color: "#E1306C",
+  },
+  {
+    name: "CorelDRAW",
+    category: "Paid & Organic",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTldxIaJivKAgsx4Md-PGwDPTwxyfMnhKhtX225IwgTA9Ht5Zsv64rieA&s=10",
+    color: "#1877F2",
+  },
+  {
+    name: "Photoshop",
+    category: "B2B Scale",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Adobe_Photoshop_CC_2026_icon.svg/1280px-Adobe_Photoshop_CC_2026_icon.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
+    color: "#0A66C2",
+  },
+  // {
+  //   name: "Hootsuite",
+  //   category: "Automation",
+  //   image: "https://cdn.worldvectorlogo.com/logos/hootsuite.svg",
+  //   color: "#143059",
+  // },
+  // {
+  //   name: "SemRush",
+  //   category: "Intelligence",
+  //   image: "https://cdn.worldvectorlogo.com/logos/semrush-1.svg",
+  //   color: "#FF642D",
+  // },
+  // {
+  //   name: "Photoshop",
+  //   category: "Creative Assets",
+  //   image: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+  //   color: "#31A8FF",
+  // },
+  // {
+  //   name: "TikTok",
+  //   category: "Viral Trends",
+  //   image: "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg",
+  //   color: "#000000",
+  // },
+  // {
+  //   name: "YouTube",
+  //   category: "Video Ads",
+  //   image: "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg",
+  //   color: "#FF0000",
+  // },
+  // {
+  //   name: "Google Analytics",
+  //   category: "Attribution",
+  //   image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Google_Analytics_logo.svg",
+  //   color: "#F4B400",
+  // },
 ];
-
-function GridPattern() {
-  return (
-    <div
-      className="pointer-events-none absolute inset-0 z-0"
-      style={{
-        backgroundImage: `
-          linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)
-        `,
-        backgroundSize: "50px 50px",
-      }}
-    />
-  );
-}
 
 export default function SMTools() {
   return (
-    <section className="bg-dark py-24 lg:py-32">
-      <GridPattern />
-      <div className="container-x">
-        <Reveal className="mb-16 text-center">
-          <h4 className="section-label justify-center">Our Toolbox</h4>
-          <h2 className="mt-3 text-3xl font-extrabold text-white md:text-5xl">
-            Tools &amp; Platforms We Use
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-paragraph">
-            We leverage the best-in-class tools to manage, create, publish, and analyse
-            your social media presence with precision and scale.
-          </p>
-        </Reveal>
+    <section className="relative overflow-hidden bg-[#0a0b0e] py-8 sm:py-10 border-y border-white/10 text-white">
+      {/* Background Radial Glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(201,243,29,0.06) 0%, transparent 70%)",
+        }}
+      />
 
-        {/* Tools grid */}
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {tools.map((tool, i) => (
-            <motion.div
-              key={tool.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{
-                duration: 0.5,
-                delay: i * 0.06,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              whileHover={{ y: -6, scale: 1.03, transition: { duration: 0.2 } }}
-              className="group flex flex-col items-center gap-3 rounded-2xl border border-black/5 bg-[#f9f9f9] p-6 text-center transition-all duration-300 hover:border-primary hover:shadow-md"
-            >
-              {/* Icon circle */}
+      {/* Subtle Grid Lines */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #fff 1px, transparent 1px),
+            linear-gradient(to bottom, #fff 1px, transparent 1px)
+          `,
+          backgroundSize: "36px 36px",
+        }}
+      />
+
+      <div className="container-x relative z-10">
+        {/* Compact CTA Header Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+          <div className="flex items-center gap-2.5">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c9f31d] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#c9f31d]" />
+            </span>
+            <span className="font-mono text-xs font-black uppercase tracking-wider text-[#c9f31d]">
+              OUR TOOLBOX // NATIVE PLATFORMS
+            </span>
+          </div>
+          {/* <span className="font-mono text-[11px] text-white/50 tracking-wider hidden sm:inline-block">
+            ⚡ 100% DIRECT API INTEGRATION
+          </span> */}
+        </div>
+
+        {/* Horizontal Marquee / Ribbon of Platform Logo Image + Title in Same Row */}
+        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <motion.div
+            className="flex items-center gap-4 w-max"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              duration: 25,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+          >
+            {/* Duplicated tools for seamless infinite loop */}
+            {[...tools, ...tools].map((tool, idx) => (
               <div
-                className="flex h-14 w-14 items-center justify-center rounded-xl text-white transition-transform duration-300 group-hover:scale-110"
-                style={{ backgroundColor: tool.color }}
+                key={`${tool.name}-${idx}`}
+                className="group flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 backdrop-blur-md transition-all duration-300 hover:border-[#c9f31d]/50 hover:bg-white/[0.08] hover:scale-105 shadow-sm shrink-0 cursor-default"
               >
-                <i className={`${tool.icon} text-2xl`} />
+                {/* Platform Logo Image Badge in Same Row */}
+                <div className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white p-1.5 shadow-md transition-transform duration-300 group-hover:scale-110">
+                  <Image
+                    src={tool.image}
+                    alt={tool.name}
+                    width={20}
+                    height={20}
+                    className="h-full w-full object-contain"
+                    unoptimized
+                  />
+                </div>
+
+                {/* Platform Title in Same Row */}
+                <div className="flex flex-col pr-1">
+                  <span className="text-xs sm:text-sm font-bold text-white tracking-tight group-hover:text-[#c9f31d] transition-colors leading-tight">
+                    {tool.name}
+                  </span>
+                  {/* <span className="text-[9px] font-mono text-white/40 uppercase tracking-wider leading-tight">
+                    {tool.category}
+                  </span> */}
+                </div>
               </div>
-              <span className="text-sm font-semibold text-heading">{tool.name}</span>
-            </motion.div>
-          ))}
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

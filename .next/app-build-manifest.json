@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/projects/page": [
+    "/services/social-media/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/projects/page.js"
+      "static/chunks/app/services/social-media/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,10 +11,31 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/blog/[slug]/page": [
+    "/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/blog/[slug]/page.js"
+      "static/css/app/about/page.css",
+      "static/chunks/app/about/page.js"
+    ],
+    "/services-2/branding/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services-2/branding/page.js"
+    ],
+    "/services-3/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services-3/page.js"
+    ],
+    "/services-4/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services-4/page.js"
+    ],
+    "/service-5/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/service-5/page.js"
     ],
     "/page": [
       "static/chunks/webpack.js",
@@ -22,26 +43,20 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
+    "/projects/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/page.js"
+    ],
     "/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/contact/page.js"
     ],
-    "/about/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/about/page.css",
-      "static/chunks/app/about/page.js"
-    ],
-    "/services/social-media/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/services/social-media/page.js"
-    ],
-    "/photography-and-video-production/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/photography-and-video-production/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

@@ -5,15 +5,17 @@ import Breadcrumb from "./Breadcrumb";
 export default function PageShell({
   title,
   crumb,
+  description,
   children,
 }: {
   title: string;
-  crumb: string;
+  crumb?: string;
+  description?: string;
   children: ReactNode;
 }) {
   return (
     <SiteShell>
-      <Breadcrumb title={title} crumb={crumb} />
+      <Breadcrumb title={title} crumb={crumb} description={description} />
       {children}
     </SiteShell>
   );

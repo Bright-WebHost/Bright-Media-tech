@@ -26,8 +26,8 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-[999] transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 py-2 shadow-md backdrop-blur dark:bg-dark/95"
-          : "bg-transparent py-4"
+          ? "bg-[#0e0f11]/95 py-2.5 shadow-md backdrop-blur border-b border-white/10"
+          : "bg-[#0e0f11]/90 py-3.5 backdrop-blur-md border-b border-white/10 shadow-sm"
       }`}
     >
       <nav className="container-x flex items-center justify-between">

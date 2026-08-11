@@ -82,25 +82,31 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#0e0f11] pt-28 sm:pt-36 lg:pt-44 text-white">
+    <section className="relative overflow-hidden bg-[#fafaf8] pt-28 sm:pt-28 lg:pt-34 text-[#0e0f11]">
       {/* ============================================================ */}
-      {/* BACKGROUND DESK CANVAS & AMBIENT GLOW */}
+      {/* BACKGROUND DESK CANVAS & ARCHITECTURAL GRID PATTERN */}
       {/* ============================================================ */}
-      {/* Radial Neon Dot Grid Canvas */}
-      <div className="pointer-events-none absolute inset-0 opacity-20 bg-[radial-gradient(#c9f31d_1px,transparent_1px)] [background-size:28px_28px]" />
+      {/* Primary Linear Grid Pattern */}
+      <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)] [background-size:44px_44px]" />
+
+      {/* Secondary Fine Graph Paper Grid */}
+      <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,rgba(0,0,0,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.025)_1px,transparent_1px)] [background-size:11px_11px]" />
+
+      {/* Grid Intersection Accent Dots */}
+      <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(0,0,0,0.18)_1.2px,transparent_1.2px)] [background-size:44px_44px]" />
 
       {/* Decorative Floating Tape Strips in Backdrop */}
-      <div className="tape-strip top-20 left-10 -rotate-12 hidden xl:block opacity-40" />
-      <div className="tape-strip top-40 right-16 rotate-45 hidden xl:block opacity-40" />
-      <div className="tape-strip bottom-48 left-16 rotate-6 hidden xl:block opacity-30" />
+      <div className="tape-strip top-20 left-10 -rotate-12 hidden xl:block opacity-60" />
+      <div className="tape-strip top-40 right-16 rotate-45 hidden xl:block opacity-60" />
+      <div className="tape-strip bottom-48 left-16 rotate-6 hidden xl:block opacity-50" />
 
-      {/* Soft Ambient Neon Glows */}
-      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[#c9f31d]/10 blur-[140px]" />
-      <div className="pointer-events-none absolute top-1/2 -right-40 h-[450px] w-[450px] rounded-full bg-[#38bdf8]/10 blur-[130px]" />
+      {/* Soft Ambient Pastel Glows */}
+      {/* <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[#c9f31d]/20 blur-[140px]" />
+      <div className="pointer-events-none absolute top-1/2 -right-40 h-[450px] w-[450px] rounded-full bg-[#38bdf8]/15 blur-[130px]" /> */}
 
       <div className="container-x relative z-10 px-4 sm:px-6">
         {/* ============================================================ */}
-        {/* 1. ASYMMETRIC NON-CENTERED HERO HEADER (Left Text + Right Desk Elements) */}
+        {/* 1. ASYMMETRIC HERO HEADER (Left Text + Right Desk Elements) */}
         {/* ============================================================ */}
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center text-left">
           {/* LEFT 7 COLS: BOLD LEFT-ALIGNED HEADLINE & ACTIONS */}
@@ -110,13 +116,13 @@ export default function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 rounded-full border border-[#c9f31d]/40 bg-[#c9f31d]/10 px-4 py-1.5 text-xs font-black text-[#c9f31d] uppercase tracking-wider backdrop-blur-md"
+              className="inline-flex items-center gap-2.5 rounded-full border border-black/10 bg-[#c9f31d]/25 px-4 py-1.5 text-[11px] font-black text-black uppercase tracking-wider shadow-sm backdrop-blur-md"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c9f31d] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c9f31d]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#15803d] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#15803d]" />
               </span>
-              <span>⚡ BRIGHT MEDIA • CREATIVE &amp; DIGITAL LAB • Q3/Q4 OPEN</span>
+              <span>⚡ BRIGHT MEDIA • CREATIVE &amp; DIGITAL LAB</span>
             </motion.div>
 
             {/* Main Display Headline with Sticky Accent */}
@@ -125,7 +131,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-[4.8rem] xl:text-[5.4rem] font-black uppercase tracking-tight text-white leading-[0.98]"
+                className="text-4xl sm:text-6xl md:text-7xl lg:text-[4.8rem] xl:text-[5.4rem] font-bold uppercase tracking-tight text-black leading-[0.98]"
               >
                 Bringing The <br />
                 <span className="relative inline-block">
@@ -136,23 +142,11 @@ export default function Hero() {
                   </span>
                 </span>{" "}
                 <br />
-                <span className="font-handwriting text-[#c9f31d] text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[5.8rem] underline decoration-wavy decoration-[#c9f31d] normal-case inline-block mt-1 sm:mt-2">
+                <span className="font-handwriting text-black text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[5.8rem] underline decoration-wavy decoration-[#c9f31d] normal-case inline-block mt-1 sm:mt-2">
                   Pinned On Paper
                 </span>
               </motion.h1>
             </div>
-
-            {/* Subtitle Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-2 max-w-2xl"
-            >
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
-                We manage and scale all aspects of your brand—from tactile identity systems and Next.js digital platforms to high-impact photography, cinematic video, and ROI-driven paid ads.
-              </p>
-            </motion.div>
 
             {/* CTA Buttons & Stamp Row */}
             <motion.div
@@ -163,22 +157,22 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2.5 rounded-full bg-[#c9f31d] px-8 py-4 text-sm font-black text-black uppercase tracking-wider shadow-2xl transition-all hover:bg-white hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-2.5 rounded-full bg-[#c9f31d] px-8 py-4 text-sm font-black text-black uppercase tracking-wider shadow-lg shadow-[#c9f31d]/20 transition-all hover:bg-black hover:text-white hover:scale-105 active:scale-95"
               >
                 <i className="fas fa-paper-plane text-xs" /> Start A Project
               </Link>
 
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2.5 rounded-full border-2 border-white/20 bg-white/5 px-8 py-4 text-sm font-black text-white uppercase tracking-wider backdrop-blur-md transition-all hover:border-[#c9f31d] hover:bg-[#c9f31d]/10 hover:scale-105"
+                className="inline-flex items-center gap-2.5 rounded-full border-2 border-black/15 bg-black/[0.03] px-8 py-4 text-sm font-black text-black uppercase tracking-wider backdrop-blur-md transition-all hover:border-black hover:bg-[#c9f31d]/20 hover:scale-105"
               >
-                <i className="fas fa-sticky-note text-[#c9f31d] text-xs" /> Explore Sticky Notes
+                <i className="fas fa-sticky-note text-black text-xs" /> Explore Sticky Notes
               </Link>
 
               {/* Postmark Postal Stamp Graphic Badge */}
-              <div className="postmark-stamp text-[#c9f31d] hidden sm:inline-flex">
-                <span className="text-[9px] font-bold uppercase tracking-widest text-white">BRIGHT MEDIA POST</span>
-                <span className="font-handwriting text-lg font-bold text-[#c9f31d]">⚡ 24h Express</span>
+              <div className="postmark-stamp text-black border-black/30 hidden sm:inline-flex bg-white/80 shadow-sm">
+                <span className="text-[9px] font-bold uppercase tracking-widest text-black/70">BRIGHT MEDIA POST</span>
+                <span className="font-handwriting text-lg font-bold text-black">⚡ 24h Express</span>
               </div>
             </motion.div>
           </div>
@@ -192,7 +186,7 @@ export default function Hero() {
                 animate={{ opacity: 1, rotate: -3, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 whileHover={{ rotate: 0, scale: 1.02 }}
-                className="relative rounded-2xl bg-[#fafafa] p-4 text-black shadow-2xl border-2 border-black/10 transition-all duration-300"
+                className="relative rounded-2xl bg-white p-4 text-black shadow-xl border-2 border-black/10 transition-all duration-300"
               >
                 {/* Tape Strips on Polaroid */}
                 <div className="tape-strip -top-3 left-6 -rotate-12" />
@@ -201,14 +195,14 @@ export default function Hero() {
                 {/* Polaroid Media Viewport */}
                 <div className="relative h-56 sm:h-64 w-full overflow-hidden rounded-xl bg-gray-900 border border-black/10">
                   <Image
-                    src="https://images.unsplash.com/photo-1542744094-3a31727223ec?w=800&q=80"
+                    src="/media/1.147b1ea1.jpg"
                     alt="Bright Media Studio Workspace"
                     fill
                     className="object-cover"
                     priority
                   />
                   <div className="absolute top-3 left-3 rounded-full bg-black/80 backdrop-blur px-3 py-1 text-[10px] font-black text-[#c9f31d] uppercase tracking-wider shadow">
-                    📌 Studio Lab 2026
+                    📌 Bright media
                   </div>
                   <div className="absolute bottom-3 right-3 rounded-full bg-[#c9f31d] px-3 py-1 text-[10px] font-black text-black uppercase shadow">
                     ⚡ Live
@@ -222,11 +216,11 @@ export default function Hero() {
                       Behind the lens with Bright Media ✨
                     </p>
                     <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
-                      Ivory Coast • Dubai • Worldwide
+                      Ivory Coast • UAE • India
                     </p>
                   </div>
-                  <span className="rounded-full bg-black/10 p-2 text-xs font-bold text-black" title="Verified Studio Craft">
-                    <i className="fas fa-stamp text-[#c9f31d]" />
+                  <span className="rounded-full bg-black/5 p-2 text-xs font-bold text-black" title="Verified Studio Craft">
+                    <i className="fas fa-stamp text-[#65a30d]" />
                   </span>
                 </div>
               </motion.div>
@@ -237,7 +231,7 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0, rotate: 2 }}
                 transition={{ duration: 0.6, delay: 0.35 }}
                 whileHover={{ rotate: 0, y: -4, scale: 1.03 }}
-                className="relative rounded-2xl bg-[#c9f31d] p-5 text-[#0e0f11] shadow-2xl border-2 border-black/20"
+                className="relative rounded-2xl bg-[#c9f31d] p-5 text-[#0e0f11] shadow-xl border-2 border-black/20"
               >
                 {/* 3D Push Pin Accent */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center justify-center">
@@ -262,7 +256,7 @@ export default function Hero() {
 
                 <div className="mt-3 flex items-center justify-between pt-2 border-t border-black/10 text-[11px] font-extrabold">
                   <span className="font-mono">📈 +340% Recall</span>
-                  <span className="font-handwriting text-sm text-black/60">Pinned on desk 📌</span>
+                  {/* <span className="font-handwriting text-sm text-black/60">Pinned on desk 📌</span> */}
                 </div>
               </motion.div>
             </div>
@@ -272,15 +266,15 @@ export default function Hero() {
         {/* ============================================================ */}
         {/* 2. INTERACTIVE TACTILE STICKY DESK CANVAS (Unique Centerpiece) */}
         {/* ============================================================ */}
-        <div className="mt-16 sm:mt-24">
-          <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-8">
+        {/* <div className="mt-16 sm:mt-24">
+          <div className="flex items-center justify-between border-b border-black/10 pb-4 mb-8">
             <div className="flex items-center gap-3">
-              <span className="flex h-3 w-3 rounded-full bg-[#c9f31d]" />
-              <span className="font-handwriting text-2xl font-bold text-[#c9f31d]">
+              <span className="flex h-3 w-3 rounded-full bg-[#15803d]" />
+              <span className="font-handwriting text-2xl sm:text-3xl font-bold text-[#0e0f11]">
                 📌 Live Desk Spread: Core Agency Services
               </span>
             </div>
-            <span className="text-xs font-semibold text-gray-400 hidden sm:inline">
+            <span className="text-xs font-semibold text-gray-500 hidden sm:inline">
               Click any note to explore dedicated services &rarr;
             </span>
           </div>
@@ -293,14 +287,14 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0, rotate: s.rotation }}
                 transition={{ duration: 0.6, delay: 0.15 * idx }}
                 whileHover={{ y: -10, rotate: 0, scale: 1.03 }}
-                className={`relative flex flex-col justify-between rounded-2xl p-6 shadow-2xl ${s.color} border-2 border-black/10 cursor-pointer transition-all duration-300`}
-              >
+                className={`relative flex flex-col justify-between rounded-2xl p-6 shadow-xl ${s.color} border-2 border-black/10 cursor-pointer transition-all duration-300`}
+              > */}
                 {/* Top Tape Strip Accent */}
-                <div className={s.tapeClass} />
+                {/* <div className={s.tapeClass} />
 
-                <div>
+                <div> */}
                   {/* Top Bar: Tag & Live Like */}
-                  <div className="flex items-center justify-between border-b border-black/10 pb-3">
+                  {/* <div className="flex items-center justify-between border-b border-black/10 pb-3">
                     <span className="rounded-full bg-black/90 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#c9f31d]">
                       {s.tag}
                     </span>
@@ -312,24 +306,24 @@ export default function Hero() {
                       <i className="fas fa-heart text-red-600" />
                       <span>{likesState[s.id] || s.likes}</span>
                     </button>
-                  </div>
+                  </div> */}
 
                   {/* Title & Description */}
-                  <h3 className="mt-4 text-xl font-black leading-tight tracking-tight text-black">
+                  {/* <h3 className="mt-4 text-xl font-black leading-tight tracking-tight text-black">
                     {s.title}
                   </h3>
                   <p className="mt-2 text-xs font-medium leading-relaxed text-black/80">
                     {s.desc}
-                  </p>
+                  </p> */}
 
                   {/* Takeaway Tape Snippet */}
-                  <div className="mt-4 rounded-lg bg-black/10 p-2.5 text-[11px] font-bold text-black/90 border-l-2 border-black/50">
+                  {/* <div className="mt-4 rounded-lg bg-black/10 p-2.5 text-[11px] font-bold text-black/90 border-l-2 border-black/50">
                     {s.badge}
                   </div>
-                </div>
+                </div> */}
 
                 {/* Footer Action Link */}
-                <div className="mt-6 pt-4 border-t border-black/10 flex items-center justify-between">
+                {/* <div className="mt-6 pt-4 border-t border-black/10 flex items-center justify-between">
                   <Link
                     href={s.link}
                     className="inline-flex items-center gap-1.5 text-xs font-black uppercase text-black hover:underline"
@@ -339,27 +333,30 @@ export default function Hero() {
                   <span className="font-handwriting text-sm font-bold text-black/60">
                     Pinned 📌
                   </span>
-                </div>
-              </motion.div>
+                </div> */}
+              {/* </motion.div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* ============================================================ */}
         {/* 3. POLAROID STUDIO BOARD & LIVE AGENCY STATS */}
         {/* ============================================================ */}
-        <div className="mt-16 sm:mt-24 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+        {/* <div className="mt-16 sm:mt-24 rounded-3xl border-2 border-black/10 bg-white p-6 sm:p-10 shadow-xl relative overflow-hidden"> */}
+          {/* Subtle desk texture background */}
+          {/* <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:20px_20px]" /> */}
+
+          {/* <div className="grid gap-10 lg:grid-cols-12 lg:items-center relative z-10"> */}
             {/* Left Col: Polaroid Photo Card Taped to Board */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-sm rounded-2xl bg-[#fefefe] p-4 text-black shadow-2xl rotate-[-2deg] hover:rotate-0 transition-transform duration-300 border-2 border-black/10">
+            {/* <div className="lg:col-span-5 relative">
+              <div className="relative mx-auto max-w-sm rounded-2xl bg-[#fafafa] p-4 text-black shadow-xl rotate-[-2deg] hover:rotate-0 transition-transform duration-300 border-2 border-black/10"> */}
                 {/* Tape strips on Polaroid */}
-                <div className="tape-strip -top-3 left-4 -rotate-12" />
+                {/* <div className="tape-strip -top-3 left-4 -rotate-12" />
                 <div className="tape-strip -top-3 right-4 rotate-12" />
 
                 <div className="relative h-64 sm:h-72 w-full overflow-hidden rounded-lg border border-black/10 bg-gray-900">
                   <Image
-                    src="https://images.unsplash.com/photo-1542744094-3a31727223ec?w=800&q=80"
+                    src="/media/3.527ea292.jpg"
                     alt="Bright Media Studio Work"
                     fill
                     className="object-cover"
@@ -368,9 +365,9 @@ export default function Hero() {
                   <div className="absolute top-3 right-3 rounded-full bg-[#c9f31d] px-3 py-1 text-[10px] font-black text-black uppercase shadow">
                     Creative Lab
                   </div>
-                </div>
+                </div> */}
 
-                <div className="mt-3 text-center">
+                {/* <div className="mt-3 text-center">
                   <p className="font-handwriting text-xl sm:text-2xl font-bold text-gray-900">
                     Behind the lens with Bright Media ✨
                   </p>
@@ -379,52 +376,52 @@ export default function Hero() {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Right Col: Live Metric Counters */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* <div className="lg:col-span-7 space-y-6">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#c9f31d]/20 border border-[#c9f31d]/30 px-3.5 py-1 text-xs font-bold text-[#c9f31d] uppercase tracking-wider mb-2">
-                  <i className="fas fa-chart-line" /> Proven Track Record
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#c9f31d]/25 border border-black/10 px-3.5 py-1 text-xs font-black text-black uppercase tracking-wider mb-2">
+                  <i className="fas fa-chart-line text-[#15803d]" /> Proven Track Record
                 </div>
-                <h3 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
+                <h3 className="text-2xl sm:text-4xl font-black text-black uppercase tracking-tight">
                   Numbers Pinned on Our Board
                 </h3>
-                <p className="mt-2 text-sm text-gray-300 max-w-xl leading-relaxed">
+                <p className="mt-2 text-sm text-gray-600 max-w-xl leading-relaxed">
                   Every campaign, website, and visual identity is engineered for measurable real-world growth and sustained brand dominance.
                 </p>
-              </div>
+              </div> */}
 
               {/* 4 Stat Boxes */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+              {/* <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
                 {HERO_STATS.map((stat, idx) => (
                   <div
                     key={idx}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur hover:border-[#c9f31d]/50 hover:bg-[#c9f31d]/5 transition-all"
+                    className="rounded-2xl border-2 border-black/10 bg-[#fafafa] p-4 text-center shadow-sm hover:border-black/30 hover:shadow-md hover:bg-white transition-all"
                   >
-                    <i className={`${stat.icon} text-lg text-[#c9f31d] mb-2`} />
-                    <div className="text-2xl sm:text-3xl font-black text-white">
+                    <i className={`${stat.icon} text-lg text-black mb-2`} />
+                    <div className="text-2xl sm:text-3xl font-black text-black">
                       {stat.value}
                     </div>
-                    <div className="mt-1 text-[11px] font-semibold text-gray-400">
+                    <div className="mt-1 text-[11px] font-semibold text-gray-600">
                       {stat.label}
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
               {/* Airmail Stripe Footer Accent */}
-              <div className="h-2 w-full bg-[repeating-linear-gradient(45deg,#ef4444,#ef4444_15px,#ffffff_15px,#ffffff_25px,#3b82f6_25px,#3b82f6_40px,#ffffff_40px,#ffffff_50px)] rounded-full opacity-80 mt-4" />
+              {/* <div className="h-2 w-full bg-[repeating-linear-gradient(45deg,#ef4444,#ef4444_15px,#ffffff_15px,#ffffff_25px,#3b82f6_25px,#3b82f6_40px,#ffffff_40px,#ffffff_50px)] rounded-full opacity-80 mt-4 shadow-sm" />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* ============================================================ */}
-      {/* 4. TORN PAPER EDGE TRANSITION (Obsidian Hero -> White About) */}
+      {/* 4. TORN PAPER EDGE TRANSITION */}
       {/* ============================================================ */}
       <div className="mt-16 sm:mt-24">
-        <TornEdgeDivider fillColor="#ffffff" />
+        <TornEdgeDivider fillColor="#F2F2F2" />
       </div>
     </section>
   );

@@ -168,12 +168,12 @@ export default function Portfolio() {
           </p>
 
           {/* Postmark stamp accent */}
-          <div className="pt-2 flex justify-center">
+          {/* <div className="pt-2 flex justify-center">
             <div className="postmark-stamp text-black border-black/30">
               <span className="text-[9px] font-bold uppercase tracking-widest text-gray-700">BRIGHT MEDIA MODEL</span>
               <span className="font-handwriting text-lg font-bold text-black">⚡ 5-Phase Delivery</span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* ============================================================ */}
@@ -215,7 +215,7 @@ export default function Portfolio() {
                     </div>
 
                     {/* Step Title */}
-                    <h3 className="mt-3 text-sm font-black uppercase tracking-wider leading-snug">
+                    <h3 className="mt-3 text-sm font-black text-black uppercase tracking-wider leading-snug">
                       {p.title}
                     </h3>
                     <p className="font-handwriting text-base font-bold opacity-80 mt-0.5">
@@ -229,12 +229,12 @@ export default function Portfolio() {
                   </div>
 
                   {/* Bottom Indicator */}
-                  <div className="mt-4 pt-2.5 border-t border-black/15 flex items-center justify-between text-[11px] font-bold">
+                  {/* <div className="mt-4 pt-2.5 border-t border-black/15 flex items-center justify-between text-[11px] font-bold">
                     <span>Phase {index + 1}</span>
                     <span className="font-mono text-xs">
                       {index < PROCESS_STEPS.length - 1 ? ">>" : "✓ FINISH"}
                     </span>
-                  </div>
+                  </div> */}
                 </motion.div>
               );
             })}
@@ -274,7 +274,7 @@ export default function Portfolio() {
             slidesPerView={1}
             breakpoints={{
               640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
+              1024: { slidesPerView: 4 },
             }}
             loop
             speed={700}

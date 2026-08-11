@@ -38,17 +38,15 @@ export default function WhyDixor() {
               >
                 <button
                   onClick={() => setOpen(open === i ? -1 : i)}
-                  className={`flex w-full items-center justify-between px-4 sm:px-6 py-3 sm:py-4 text-left text-sm sm:text-base font-bold transition-colors ${
-                    open === i ? "bg-primary text-dark" : "text-heading"
-                  }`}
+                  className={`flex w-full items-center justify-between px-4 sm:px-6 py-3 sm:py-4 text-left text-sm sm:text-base font-bold transition-colors ${open === i ? "bg-primary text-dark" : "text-heading"
+                    }`}
                 >
                   {item.title}
                   <i className={`fas fa-${open === i ? "minus" : "plus"} text-sm shrink-0 ml-3`} />
                 </button>
                 <div
-                  className={`grid transition-all duration-300 ${
-                    open === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
+                  className={`grid transition-all duration-300 ${open === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
                 >
                   <div className="overflow-hidden">
                     <p className="px-4 sm:px-6 py-3 sm:py-4 text-sm leading-relaxed">
