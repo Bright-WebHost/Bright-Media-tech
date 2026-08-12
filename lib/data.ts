@@ -61,6 +61,9 @@ export interface Service {
   icon: string; // dark theme icon
   iconLight: string; // light theme icon
   desc: string;
+  image: string;
+  tag?: string;
+  features?: string[];
 }
 
 export const SERVICES: Service[] = [
@@ -68,33 +71,65 @@ export const SERVICES: Service[] = [
     id: 1,
     no: "01",
     title: "Static & Dynamic Websites",
+    tag: "Web Solutions",
     icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9SHMsaH7-ZApYkJxK6wPVEb2Mz2GXCfTfAVkC0xvzFA&s=10",
     iconLight: "/assets/img/icon/23.png",
-    desc: "They feature dynamic content that can change based on user interactions or data input. hey are typically built using HTML and CSS and are suitable for businesses or Corporates who require a online presence to showcase their products or services.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+    desc: "They feature dynamic content that can change based on user interactions or data input. They are typically built using HTML and CSS and are suitable for businesses or Corporates who require an online presence to showcase their products or services.",
+    features: [
+      "Blazing Fast Performance & SEO",
+      "Responsive Layouts Across All Devices",
+      "Dynamic Content & Interactive Elements",
+      "Custom Brand Identity Integration",
+    ],
   },
   {
     id: 2,
     no: "02",
     title: "E-commerce",
+    tag: "Online Store",
     icon: "/assets/img/icon/2.png",
     iconLight: "/assets/img/icon/24.png",
+    image: "https://images.unsplash.com/photo-1556742049-0a67c57750c9?w=1200&q=80",
     desc: "E-commerce websites allow businesses to sell products or services online. They include features such as shopping carts, secure payment gateways, and inventory management systems to facilitate online transactions.",
+    features: [
+      "Seamless Checkout & Cart UX",
+      "Secure Multi-Currency Gateways",
+      "Real-Time Inventory Management",
+      "High-Converting Sales Funnels",
+    ],
   },
   {
     id: 3,
     no: "03",
     title: "CMS",
+    tag: "Content Management",
     icon: "/assets/img/icon/3.png",
     iconLight: "/assets/img/icon/25.png",
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80",
     desc: "Content Management Systems websites are built using platforms like WordPress, Joomla, or Drupal, which allow users to easily create, manage, and update website content without extensive technical knowledge. CMS websites are ideal for blogs, news sites, and small to medium-sized businesses.",
+    features: [
+      "Intuitive Drag-and-Drop Editing",
+      "Custom Themes & Flexible Plugins",
+      "Role-Based Access & Publishing Workflows",
+      "Scalable Architecture & Easy Updates",
+    ],
   },
   {
     id: 4,
     no: "04",
     title: "LMS",
+    tag: "E-Learning Platform",
     icon: "/assets/img/icon/4.png",
     iconLight: "/assets/img/icon/26.png",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&q=80",
     desc: "Learning Management Systems websites are designed for online learning and education. They provide a platform for instructors to create and deliver courses, manage student enrollments, track progress, and assess learning outcomes. Examples of LMS platforms include Moodle, Canvas, and Blackboard.",
+    features: [
+      "Course Builder & Multimedia Lessons",
+      "Student Tracking & Analytics",
+      "Automated Quizzes & Certifications",
+      "Interactive Community & Discussion Forums",
+    ],
   },
 ];
 export interface Service1 {

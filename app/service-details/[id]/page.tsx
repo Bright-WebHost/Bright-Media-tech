@@ -31,13 +31,12 @@ export default function ServiceDetail({ params }: { params: { id: string } }) {
         <div className="container-x grid gap-12 lg:grid-cols-[1fr_340px]">
           {/* Main content */}
           <article>
-            <div className="mb-8 flex h-72 items-center justify-center rounded-2xl bg-primary/10">
+            <div className="relative mb-8 h-80 sm:h-96 w-full overflow-hidden rounded-3xl border border-black/10 dark:border-white/10 shadow-lg">
               <Image
-                src={service.icon}
-                alt=""
-                width={110}
-                height={110}
-                className="h-28 w-28 object-contain"
+                src={service.image || service.icon}
+                alt={service.title}
+                fill
+                className="object-cover object-center"
               />
             </div>
             <h2 className="text-3xl font-extrabold text-heading dark:text-white">

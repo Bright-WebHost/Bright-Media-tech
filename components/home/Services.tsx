@@ -346,7 +346,7 @@ export default function Services() {
 
           {/* Centered Interactive Animation Toggle Toolbar */}
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-            <button
+            {/* <button
               onClick={() => setBoardMode("arranged")}
               className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-black uppercase tracking-wider transition-all ${
                 boardMode === "arranged"
@@ -355,9 +355,9 @@ export default function Services() {
               }`}
             >
               <i className="fas fa-th-large" /> ✨ Arrange Canvas
-            </button>
+            </button> */}
 
-            <button
+            {/* <button
               onClick={() => setBoardMode("trash")}
               className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-black uppercase tracking-wider transition-all ${
                 boardMode === "trash"
@@ -366,7 +366,7 @@ export default function Services() {
               }`}
             >
               <i className="fas fa-trash-alt" /> 🗑️ Chaotic Trash Pile
-            </button>
+            </button> */}
 
             {/* Postmark Stamp Pill */}
             <div className="postmark-stamp text-[#c9f31d] hidden sm:inline-flex py-1 px-3">

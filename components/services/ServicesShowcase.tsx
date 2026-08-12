@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import { SERVICES, SERVICES1 } from "@/lib/data";
+import WDTools from "../web-dev/WDTools";
+import SEOTools from "../seo/SEOTools";
 
 type Variant = 1 | 2 | 3 | 4;
 
@@ -83,30 +85,91 @@ function NumberedList() {
 function Alternating() {
   return (
     <>
-    <SectionHeading className="mb-12"
-          label="Types"
-          title="Websites we provide"
-        />
-    <div className="space-y-12 ">
-      {SERVICES.map((s, i) => (
-        <div
-          key={s.id}
-          className={`flex flex-col gap-8 lg:items-center  ${i % 2 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
-        >
-          <div className="flex h-56 flex-1 items-center justify-center rounded-2xl bg-primary/10">
-            <Image src={s.icon} alt="" width={200} height={220} className="h-70 w-70 object-contain object-fit" />
+      <SectionHeading
+        className="mb-14 lg:mb-20"
+        label="Types"
+        title="Websites we provide"
+      />
+      <div className="space-y-16 sm:space-y-20 lg:space-y-28">
+        {SERVICES.map((s, i) => (
+          <div
+            key={s.id}
+            className={`flex flex-col gap-8 lg:gap-14 lg:items-center ${
+              i % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row"
+            }`}
+          >
+            {/* Image Showcase Container */}
+            <div className="group relative w-full lg:w-1/2 aspect-[16/10] overflow-hidden rounded-2xl sm:rounded-3xl border border-black/10 bg-black/5 shadow-md transition-all duration-500 hover:shadow-2xl dark:border-white/10 dark:bg-white/5">
+              <Image
+                src={s.image || s.icon}
+                alt={s.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50 transition-opacity duration-300 group-hover:opacity-30" />
+              
+              {/* Floating Tag/Number Badge */}
+              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-4 py-1.5 backdrop-blur-md text-white text-xs font-semibold tracking-wide">
+                <span className="text-primary font-bold">{s.no}</span>
+                <span className="h-1 w-1 rounded-full bg-white/60" />
+                <span>{s.tag || "Web Solution"}</span>
+              </div>
+            </div>
+
+            {/* Content Details Container */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-4 sm:space-y-5">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary border border-primary/20">
+                  {s.tag || "Web Solution"}
+                </span>
+                <span className="text-xs font-bold text-paragraph">/ 0{i + 1}</span>
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-heading leading-tight">
+                {s.title}
+              </h3>
+
+              <p className="text-base sm:text-lg leading-relaxed text-paragraph ">
+                {s.desc}
+              </p>
+
+              {/* {s.features && (
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                  {s.features.map((feat, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center gap-2.5 text-sm font-medium text-heading dark:text-white/90"
+                    >
+                      <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary text-dark text-[10px]">
+                        <i className="fas fa-check" />
+                      </span>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              )} */}
+
+              {/* <div className="pt-3 flex flex-wrap items-center gap-4">
+                <Link
+                  href={`/service-details/${s.id}`}
+                  className="btn-primary"
+                >
+                  <span>Explore Details</span>
+                  <i className="fas fa-arrow-right text-xs" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="btn-outline border-black/15 text-heading hover:border-primary hover:bg-primary/10 dark:border-white/20 dark:text-white"
+                >
+                  <span>Get Started</span>
+                </Link>
+              </div> */}
+            </div>
           </div>
-          <div className="flex-1">
-            <span className="text-sm font-bold text-primary">{s.no}</span>
-            <h3 className="mt-2 text-2xl font-bold text-heading ">{s.title}</h3>
-            <p className="mt-3 leading-relaxed">{s.desc}</p>
-            <Link href="#" className="btn-primary mt-6">
-              {/* Read More <i className="fas fa-arrow-right" /> */}
-            </Link>
-          </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+      <WDTools/>
     </>
   );
 }
@@ -134,6 +197,8 @@ function MinimalColumns() {
           <p className="mt-3 text-sm leading-relaxed group-hover:text-dark/80">{s.desc}</p>
         </Link>
       ))}
-    </div>  </>
+    </div> 
+    <SEOTools/>
+     </>
   );
 }

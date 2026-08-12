@@ -1,55 +1,29 @@
 import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
-import SMHero from "@/components/social-media/SMHero";
-import SMOverview from "@/components/social-media/SMOverview";
-import SMWhyMatters from "@/components/social-media/SMWhyMatters";
-import SMServicesOffered from "@/components/social-media/SMServicesOffered";
-import SMProcess from "@/components/social-media/SMProcess";
-import SMTools from "@/components/social-media/SMTools";
-import SMBenefits from "@/components/social-media/SMBenefits";
-import SMProjects from "@/components/social-media/SMProjects";
-import SMFaq from "@/components/social-media/SMFaq";
-import SMCta from "@/components/social-media/SMCta";
-import BRHero from "@/components/branding/BRHero";
+import Breadcrumb from "@/components/Breadcrumb";
 import BRProcess from "@/components/branding/BRProcess";
+import SMCta from "@/components/social-media/SMCta";
 
 export const metadata: Metadata = {
   title: "Branding | Bright Media",
   description:
-    "Elevate your brand with Bright Media's data-driven social media marketing services. Strategy, content creation, community management, and analytics — all under one roof.",
+    "Elevate your brand with Bright Media's data-driven branding services. Strategy, identity systems, and brand positioning.",
 };
 
 export default function BrandingPage() {
   return (
     <SiteShell>
-      {/* Hero — Dark */}
-      <BRHero />
+      <Breadcrumb
+        title="Brand Identity"
+        subtitle="Built on Precision & Soul"
+        badge="BRANDING // PILLAR 01"
+        description="Make your brand stand out from the rest. We specialize in crafting quality brand identities that resonate with your audience and set you apart from the competition."
+      />
 
-      {/* Service Overview — White */}
-      {/* <SMOverview /> */}
-
-      {/* Why Social Media Matters — Dark */}
-      {/* <SMWhyMatters /> */}
-
-      {/* Services We Offer — White */}
-      {/* <SMServicesOffered /> */}
-
-      {/* Our Process — Dark */}
+      {/* Our Process */}
       <BRProcess />
 
-      {/* Tools & Platforms — White */}
-      <SMTools />
-
-      {/* Benefits — Dark */}
-      {/* <SMBenefits /> */}
-
-      {/* Featured Projects — White */}
-      {/* <SMProjects /> */}
-
-      {/* FAQ — Dark */}
-      {/* <SMFaq /> */}
-
-      {/* CTA — White */}
+      {/* CTA */}
       <SMCta />
     </SiteShell>
   );

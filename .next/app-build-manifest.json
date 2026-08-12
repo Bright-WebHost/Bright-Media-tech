@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/services/social-media/page": [
+    "/photography-and-video-production/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/services/social-media/page.js"
+      "static/chunks/app/photography-and-video-production/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,11 +11,10 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/about/page": [
+    "/services/social-media/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/about/page.css",
-      "static/chunks/app/about/page.js"
+      "static/chunks/app/services/social-media/page.js"
     ],
     "/services-2/branding/page": [
       "static/chunks/webpack.js",
@@ -27,6 +26,12 @@
       "static/chunks/main-app.js",
       "static/chunks/app/services-3/page.js"
     ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/services-4/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -37,11 +42,16 @@
       "static/chunks/main-app.js",
       "static/chunks/app/service-5/page.js"
     ],
-    "/page": [
+    "/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/about/page.css",
+      "static/chunks/app/about/page.js"
+    ],
+    "/services/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/page.js"
     ],
     "/projects/page": [
       "static/chunks/webpack.js",
@@ -52,11 +62,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/contact/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

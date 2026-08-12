@@ -1,58 +1,34 @@
 import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
-import SMHero from "@/components/social-media/SMHero";
-import SMOverview from "@/components/social-media/SMOverview";
-import SMWhyMatters from "@/components/social-media/SMWhyMatters";
-import SMServicesOffered from "@/components/social-media/SMServicesOffered";
-import SMProcess from "@/components/social-media/SMProcess";
-import SMTools from "@/components/social-media/SMTools";
-import SMBenefits from "@/components/social-media/SMBenefits";
-import SMProjects from "@/components/social-media/SMProjects";
-import SMFaq from "@/components/social-media/SMFaq";
-import SMCta from "@/components/social-media/SMCta";
-import BRHero from "@/components/branding/BRHero";
-import BRProcess from "@/components/branding/BRProcess";
-import PAHero from "@/components/paid-ads/PAHero";
+import Breadcrumb from "@/components/Breadcrumb";
 import PAProcess from "@/components/paid-ads/PAProcess";
 import PABenefits from "@/components/paid-ads/PABenifits";
+import SMCta from "@/components/social-media/SMCta";
 
 export const metadata: Metadata = {
   title: "Paid Ads | Bright Media",
   description:
-    "Elevate your brand with Bright Media's data-driven paid ads services. Strategy, content creation, community management, and analytics — all under one roof.",
+    "Maximize reach and ROI with targeted advertising campaigns across Google, Meta, and multi-channel ad networks.",
 };
 
 export default function Service5Page() {
   return (
     <SiteShell>
-      {/* Hero — Dark */}
-      <PAHero />
+      {/* Breadcrumb Header */}
+      <Breadcrumb
+        title="Paid Advertising"
+        subtitle="Maximized ROAS & Scale"
+        badge="PAID ADS // PILLAR 05"
+        description="Maximize reach and return on investment with targeted advertising campaigns across Google Ads, Meta Ads Manager, Snapchat Ads, and multi-channel platforms."
+      />
 
-      {/* Service Overview — White */}
-      {/* <SMOverview /> */}
-
-      {/* Why Social Media Matters — Dark */}
-      {/* <SMWhyMatters /> */}
-
-      {/* Services We Offer — White */}
-      {/* <SMServicesOffered /> */}
-
-      {/* Our Process — Dark */}
+      {/* Our Process */}
       <PAProcess />
 
-      {/* Tools & Platforms — White */}
-      <SMTools />
-
-      {/* Benefits — Dark */}
+      {/* Benefits */}
       <PABenefits />
 
-      {/* Featured Projects — White */}
-      {/* <SMProjects /> */}
-
-      {/* FAQ — Dark */}
-      {/* <SMFaq /> */}
-
-      {/* CTA — White */}
+      {/* CTA */}
       <SMCta />
     </SiteShell>
   );

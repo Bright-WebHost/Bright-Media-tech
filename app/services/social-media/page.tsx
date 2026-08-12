@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
-import SMHero from "@/components/social-media/SMHero";
-import SMOverview from "@/components/social-media/SMOverview";
-import SMWhyMatters from "@/components/social-media/SMWhyMatters";
-import SMServicesOffered from "@/components/social-media/SMServicesOffered";
+import Breadcrumb from "@/components/Breadcrumb";
 import SMProcess from "@/components/social-media/SMProcess";
-import SMTools from "@/components/social-media/SMTools";
 import SMBenefits from "@/components/social-media/SMBenefits";
-import SMProjects from "@/components/social-media/SMProjects";
-import SMFaq from "@/components/social-media/SMFaq";
 import SMCta from "@/components/social-media/SMCta";
+import SMHero from "@/components/social-media/SMHero";
 
 export const metadata: Metadata = {
   title: "Social Media Marketing | Bright Media",
@@ -20,34 +15,22 @@ export const metadata: Metadata = {
 export default function SocialMediaPage() {
   return (
     <SiteShell>
-      {/* Hero — Dark */}
-      <SMHero />
+      {/* Breadcrumb Header */}
+      <SMHero/>
+      <Breadcrumb
+        title="Social Media"
+        subtitle="Viral Reach & Engagement"
+        badge="SOCIAL MEDIA // PILLAR 02"
+        description="Engage and grow your audience with custom social media strategies, high-voltage content creation, and active community interaction."
+      />
 
-      {/* Service Overview — White */}
-      {/* <SMOverview /> */}
-
-      {/* Why Social Media Matters — Dark */}
-      {/* <SMWhyMatters /> */}
-
-      {/* Services We Offer — White */}
-      {/* <SMServicesOffered /> */}
-
-      {/* Our Process — Dark */}
+      {/* Our Process */}
       <SMProcess />
 
-      {/* Tools & Platforms — Small height horizontal row */}
-      {/* <SMTools /> */}
-
-      {/* Benefits — Dark */}
+      {/* Benefits */}
       <SMBenefits />
 
-      {/* Featured Projects — White */}
-      {/* <SMProjects /> */}
-
-      {/* FAQ — Dark */}
-      {/* <SMFaq /> */}
-
-      {/* CTA — White */}
+      {/* CTA */}
       <SMCta />
     </SiteShell>
   );
