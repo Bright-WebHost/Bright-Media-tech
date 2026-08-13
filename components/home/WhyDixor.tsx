@@ -87,7 +87,7 @@ export default function WhyDixor() {
               {/* <span className="font-mono text-xs font-bold uppercase tracking-widest text-black/50 block mb-1">
                 WHY BRIGHT MEDIA
               </span> */}
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase text-black leading-[1.02] tracking-tight">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold uppercase text-black leading-[1.02] tracking-tight">
                 Unlock Revenue Growth
               </h2>
             </div>

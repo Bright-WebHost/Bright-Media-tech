@@ -153,7 +153,7 @@ export default function SMBenefits() {
                 <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">
                   {/* Facebook Icon Image Badge */}
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1877F2] text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110">
-                    <i className="fab fa-facebook-f text-2xl" />
+                    <img src="/assets/img/icon/sem.webp" className="rounded-2xl"/>
                   </div>
                   {/* Title Below Image */}
                   <span className="mt-2.5 text-[11px] font-bold text-black/100">SemRush</span>
@@ -164,13 +164,10 @@ export default function SMBenefits() {
                 <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">
                   {/* Instagram Icon Image Badge (Gradient) */}
                   <div
-                    className="flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110"
-                    style={{
-                      background:
-                        "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)",
-                    }}
+                    className="flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110 bg-white"
+                    
                   >
-                    <i className="fab fa-instagram text-2xl" />
+                    <img src="/assets/img/icon/hs.webp" className="rounded-2xl"/>
                   </div>
                   {/* Title Below Image */}
                   <span className="mt-2.5 text-[11px] font-bold text-black/100">Hootsuite</span>
@@ -181,7 +178,7 @@ export default function SMBenefits() {
                 <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">
                   {/* LinkedIn Icon Image Badge */}
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0A66C2] text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110">
-                    <i className="fab fa-linkedin-in text-2xl" />
+                    <img src="/assets/img/icon/ps.webp" className="rounded-2xl"/>
                   </div>
                   {/* Title Below Image */}
                   <span className="mt-2.5 text-[11px] font-bold text-black/100">Adobe Photoshop</span>
@@ -191,8 +188,8 @@ export default function SMBenefits() {
                 {/* 4. Meta */}
                 <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">
                   {/* Meta Icon Image Badge */}
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0668E1] text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110">
-                    <i className="fab fa-meta text-2xl" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110">
+                    <img src="/assets/img/icon/mbs.webp" className="rounded-2xl"/>
                   </div>
                   {/* Title Below Image */}
                   <span className="mt-2.5 text-[11px] font-bold text-black/100">Meta Business Suite</span>

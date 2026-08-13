@@ -85,14 +85,14 @@ export default function AboutStats() {
 
               <div className="relative z-10 space-y-5">
                 {/* Header Strip */}
-                <div className="flex items-center justify-between border-b border-black/15 pb-3">
+                {/* <div className="flex items-center justify-between border-b border-black/15 pb-3">
                   <span className="rounded-full bg-black px-3.5 py-1 font-mono text-[10px] font-black uppercase tracking-wider text-[#c9f31d]">
                     🔭 STRATEGIC HORIZON // 2026+
                   </span>
                   <span className="font-handwriting text-sm font-bold text-black/80">
                     ★ Certified Vision
                   </span>
-                </div>
+                </div> */}
 
                 {/* Title & Tagline */}
                 <div>
@@ -113,7 +113,7 @@ export default function AboutStats() {
                 </p>
 
                 {/* 3 Strategic Pillars */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
+                {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
                   <div className="rounded-xl border border-black/20 bg-black/5 p-2.5 text-xs font-black text-black flex items-center gap-1.5 backdrop-blur-xs">
                     <span>✦</span> Global Reach
                   </div>
@@ -123,7 +123,7 @@ export default function AboutStats() {
                   <div className="rounded-xl border border-black/20 bg-black/5 p-2.5 text-xs font-black text-black flex items-center gap-1.5 backdrop-blur-xs">
                     <span>✦</span> Scaled Growth
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Bottom Signature Footnote */}
@@ -157,14 +157,14 @@ export default function AboutStats() {
 
               <div className="relative z-10 space-y-5">
                 {/* Header Strip */}
-                <div className="flex items-center justify-between border-b border-black/10 pb-3">
+                {/* <div className="flex items-center justify-between border-b border-black/10 pb-3">
                   <span className="rounded-full bg-[#c9f31d] px-3.5 py-1 font-mono text-[10px] font-black uppercase tracking-wider text-black border border-black/15 shadow-2xs">
                     ⚡ CORE OBJECTIVE // EVERY DAY
                   </span>
                   <span className="font-handwriting text-sm font-bold text-black/70">
                     ★ Purpose Driven
                   </span>
-                </div>
+                </div> */}
 
                 {/* Title & Tagline */}
                 <div>
@@ -185,7 +185,7 @@ export default function AboutStats() {
                 </p>
 
                 {/* 3 Strategic Pillars */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
+                {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
                   <div className="rounded-xl border border-black/10 bg-[#fafafa] p-2.5 text-xs font-black text-black flex items-center gap-1.5 shadow-2xs">
                     <span className="text-[#65a30d]">✦</span> Strategic Branding
                   </div>
@@ -195,7 +195,7 @@ export default function AboutStats() {
                   <div className="rounded-xl border border-black/10 bg-[#fafafa] p-2.5 text-xs font-black text-black flex items-center gap-1.5 shadow-2xs">
                     <span className="text-[#65a30d]">✦</span> Data-Driven ROI
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Bottom Signature Footnote */}

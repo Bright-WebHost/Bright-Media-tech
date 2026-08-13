@@ -32,7 +32,7 @@ export default function Navbar() {
     >
       <nav className="container-x flex items-center justify-between">
         <Link href="/" className="relative block h-10 w-32">
-          <Image src="https://brightmedia.tech/img/photo/all%20img/BM%20Logo.webp" alt="Dixor" fill className="object-contain object-left" priority />
+          <Image src="/assets/img/icon/bm-logo.webp" alt="Dixor" fill className="object-contain object-left" priority />
         </Link>
 
         {/* Desktop menu */}

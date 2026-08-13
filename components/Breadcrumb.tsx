@@ -149,14 +149,14 @@ export default function Breadcrumb({
 
   return (
     <section
-      className={`relative overflow-hidden bg-[#0e0f11] pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 text-white border-b border-white/10 ${className}`}
+      className={`relative overflow-hidden bg-[#121316] pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 text-white border-b border-white/10 ${className}`}
     >
       {/* Dark Graph Grid Canvas Background */}
-      <div className="pointer-events-none absolute inset-0 opacity-25 bg-[radial-gradient(rgba(201,243,29,0.3)_1px,transparent_1px)] [background-size:28px_28px]" />
+      {/* <div className="pointer-events-none absolute inset-0 opacity-25 bg-[radial-gradient(rgba(201,243,29,0.3)_1px,transparent_1px)] [background-size:28px_28px]" /> */}
       <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:40px_40px]" />
 
       {/* Ambient Neon Lime Glows */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[380px] w-[650px] rounded-full bg-[#c9f31d]/10 blur-[130px]" />
+      {/* <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[380px] w-[650px] rounded-full bg-[#c9f31d]/10 blur-[130px]" /> */}
 
       {/* Decorative Scotch Tape Strips scattered in background */}
       <div className="tape-strip top-8 left-8 sm:top-10 sm:left-12 -rotate-12 hidden md:block opacity-40 !w-16 !h-5" />
@@ -179,7 +179,7 @@ export default function Breadcrumb({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1 }}
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black  text-white tracking-tight leading-[1.05]"
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold  text-white tracking-tight leading-[1.05]"
         >
           {mainTitle}{" "}
           <br className="hidden sm:inline" />

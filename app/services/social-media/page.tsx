@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
 import Breadcrumb from "@/components/Breadcrumb";
 import SMProcess from "@/components/social-media/SMProcess";
+import SMWork from "@/components/social-media/SMWork";
 import SMBenefits from "@/components/social-media/SMBenefits";
 import SMCta from "@/components/social-media/SMCta";
 import SMHero from "@/components/social-media/SMHero";
@@ -16,19 +17,22 @@ export default function SocialMediaPage() {
   return (
     <SiteShell>
       {/* Breadcrumb Header */}
-      <SMHero/>
       <Breadcrumb
         title="Social Media"
         subtitle="Viral Reach & Engagement"
         badge="SOCIAL MEDIA // PILLAR 02"
         description="Engage and grow your audience with custom social media strategies, high-voltage content creation, and active community interaction."
       />
+      <SMHero />
 
       {/* Our Process */}
       <SMProcess />
 
       {/* Benefits */}
       <SMBenefits />
+      
+      {/* Our Work - 3D Flip Carousel with Torn Sticky Notes */}
+      <SMWork />
 
       {/* CTA */}
       <SMCta />

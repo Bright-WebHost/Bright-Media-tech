@@ -163,9 +163,9 @@ export default function About() {
                   📌 Bright Media Studio
                 </div>
 
-                <div className="absolute bottom-3.5 right-3.5 rounded-full bg-[#c9f31d] px-3.5 py-1 text-[10px] font-black text-black uppercase shadow">
+                {/* <div className="absolute bottom-3.5 right-3.5 rounded-full bg-[#c9f31d] px-3.5 py-1 text-[10px] font-black text-black uppercase shadow">
                   Creative Direction
-                </div>
+                </div> */}
               </div>
 
               {/* Frame Footer Caption */}

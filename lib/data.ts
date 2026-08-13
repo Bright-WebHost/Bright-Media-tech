@@ -44,7 +44,7 @@ export const HERO = {
 };
 
 export const ABOUT = {
-  image: "/media/2.6f5c9794.jpg",
+  image: "/assets/img/about/bm-neon.webp",
   heading: "Build Strong Digital Brand",
   text: "It involves crafting a unique identity, engaging storytelling, and consistent online presence to connect with audiences and drive sustainable growth.",
   services: [
@@ -270,7 +270,7 @@ export const CLIENTS = {
 };
 
 export const WHY = {
-  image: "/media/3.527ea292.jpg",
+  image: "/assets/img/about/exp.webp",
   items: [
     {
       title: "Personalized Strategies",

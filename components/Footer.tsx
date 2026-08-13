@@ -6,7 +6,6 @@ const quickLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -24,7 +23,7 @@ const phones = [
 
 const emails = [
   { email: "info@brightmedia.tech", mailto: "mailto:info@brightmedia.tech" },
-  { email: "projects@brightmedia.tech", mailto: "mailto:projects@brightmedia.tech" },
+  { email: "hello@brightmedia.tech", mailto: "mailto:hello@brightmedia.tech" },
 ];
 
 export default function Footer() {
@@ -41,9 +40,9 @@ export default function Footer() {
           <div className="lg:col-span-4 pr-0 lg:pr-8">
             <Link href="/" className="inline-block mb-4">
               <img
-                src="https://brightmedia.tech/img/photo/all%20img/BM%20Logo.webp"
+                src="/assets/img/icon/bm-logo.webp"
                 alt="Bright Media"
-                className="h-9 sm:h-10 w-auto object-contain object-left"
+                className="h-12 sm:h-14 w-auto object-contain object-left"
               />
             </Link>
             <p className="text-xs sm:text-sm text-white/50 leading-relaxed max-w-sm">

@@ -11,6 +11,7 @@ import WhyDixor from "@/components/home/WhyDixor";
 import Process from "@/components/home/Process";
 import ContactCTA from "@/components/ContactCTA";
 import Blog from "@/components/home/Blog";
+import AboutTestimonials from "@/components/about/AboutTestimonials";
 
 export default function HomePage() {
   return (
@@ -23,7 +24,8 @@ export default function HomePage() {
       {/* <OurClients /> */}
       {/* <Clients /> */}
       {/* <Team /> */}
-      <Testimonials />
+      <AboutTestimonials />
+      {/* <Testimonials /> */}
       <Portfolio />
       {/* <ContactCTA /> */}
       {/* <Blog /> */}

@@ -67,9 +67,9 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "Bajaj Auto",
     industry: "Automotive Mobility",
     category: "Branding & Social",
-    image: "https://brightmedia.tech/img/covers/project/bajaj.webp",
+    image: "/assets/img/portfolio/bajaj.webp",
     badge: "⚡ 1M+ Views",
-    bgColor: "bg-[#c9f31d]", // Neon Lime
+    bgColor: "bg-[#BAE6FD]", // light blue
     tapeClass: "tape-strip -top-2 sm:-top-3 left-2 sm:left-4 -rotate-6 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-red-600",
     rotation: -3.5,
@@ -81,9 +81,9 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "Second Cup",
     industry: "Café & Coffee Chain",
     category: "Photography & Video",
-    image: "https://brightmedia.tech/img/covers/project/lg/secondcup1.webp",
+    image: "/assets/img/portfolio/sc.webp",
     badge: "🎬 Viral Reels",
-    bgColor: "bg-[#feef8f]", // Canary Yellow
+    bgColor: "bg-[#C9C9C9]", // gray
     tapeClass: "tape-strip -top-2 sm:-top-3 right-2 sm:right-4 rotate-4 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-blue-600",
     rotation: 2.8,
@@ -95,9 +95,9 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "Tonino",
     industry: "Fine Dining Restaurant",
     category: "Branding & Video",
-    image: "https://brightmedia.tech/img/covers/project/tonino.webp",
+    image: "/assets/img/portfolio/tonino.webp",
     badge: "💡 Luxury Recall",
-    bgColor: "bg-[#99f6e4]", // Aqua Mint
+    bgColor: "bg-[#fecdd3]", // Aqua Mint
     tapeClass: "tape-strip -top-2 sm:-top-3 left-1/2 -translate-x-1/2 -rotate-2 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-emerald-600",
     rotation: -2.2,
@@ -109,9 +109,9 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "Motorland",
     industry: "Automotive Fleet",
     category: "Social Media & Web",
-    image: "https://brightmedia.tech/img/covers/project/Mllog.webp",
+    image: "/assets/img/portfolio/ml.webp",
     badge: "⚡ 100+ Posts",
-    bgColor: "bg-[#fecdd3]", // Coral Rose
+    bgColor: "bg-[#A7CFFF]", // Coral Rose
     tapeClass: "tape-strip -top-2 sm:-top-3 right-2 sm:right-6 rotate-6 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-amber-600",
     rotation: 4.2,
@@ -123,9 +123,9 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "Kaiser",
     industry: "German Appliances",
     category: "Paid Ads & Branding",
-    image: "https://brightmedia.tech/img/covers/project/kaiser.webp",
+    image: "/assets/img/portfolio/kaiser.webp",
     badge: "📈 High ROAS",
-    bgColor: "bg-[#fed7aa]", // Peach Orange
+    bgColor: "bg-[#FBCFE8]", // Peach Orange
     tapeClass: "tape-strip -top-2 sm:-top-3 left-2 sm:left-6 -rotate-4 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-purple-600",
     rotation: -3.8,
@@ -137,7 +137,7 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "TAC Architecture",
     industry: "Luxury Architecture",
     category: "Web Development",
-    image: "https://brightmedia.tech/img/allimg/logo/taclogo.webp",
+    image: "/assets/img/portfolio/tac.webp",
     badge: "⚡ 60fps UX",
     bgColor: "bg-[#e9d5ff]", // Lavender Purple
     tapeClass: "tape-strip -top-2 sm:-top-3 right-2 sm:right-4 rotate-3 !w-7 sm:!w-14 !h-2 sm:!h-4",
@@ -153,9 +153,9 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "MCM Materials",
     industry: "Construction Industry",
     category: "Web & Social Media",
-    image: "https://brightmedia.tech/img/allimg/logo/mcm.webp",
+    image: "/assets/img/portfolio/mcm.webp",
     badge: "🏢 Dynamic Web",
-    bgColor: "bg-[#bbf7d0]", // Sage Green
+    bgColor: "bg-[#A7CFFF]", // Sage Green
     tapeClass: "tape-strip -top-2 sm:-top-3 left-2 sm:left-5 -rotate-5 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-cyan-600",
     rotation: -4.5,
@@ -167,7 +167,7 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "Hafil Services",
     industry: "Hospitality Solutions",
     category: "Branding & Web",
-    image: "https://brightmedia.tech/img/allimg/logo/hafillogo1.webp",
+    image: "/assets/img/portfolio/hafil.webp",
     badge: "✦ Brand From Scratch",
     bgColor: "bg-[#bae6fd]", // Sky Blue
     tapeClass: "tape-strip -top-2 sm:-top-3 left-1/2 -translate-x-1/2 rotate-2 !w-7 sm:!w-14 !h-2 sm:!h-4",
@@ -181,9 +181,9 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "Farhat Frères",
     industry: "Automotive Dealer",
     category: "Web Platform & Social",
-    image: "https://brightmedia.tech/img/allimg/logo/farhat%20.webp",
+    image: "/assets/img/portfolio/farhat.webp",
     badge: "🚗 50+ Pages",
-    bgColor: "bg-[#fde68a]", // Golden Amber
+    bgColor: "bg-[#C9C9C9]", // Golden Amber
     tapeClass: "tape-strip -top-2 sm:-top-3 right-2 sm:right-5 rotate-5 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-indigo-600",
     rotation: -2.7,
@@ -195,9 +195,9 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "AZIM Group",
     industry: "Group of Companies",
     category: "Branding & Web",
-    image: "https://brightmedia.tech/img/allimg/logo/azimlogo1.webp",
+    image: "/assets/img/portfolio/azim.webp",
     badge: "🌐 7 Sectors",
-    bgColor: "bg-[#fbcfe8]", // Pink Blossom
+    bgColor: "bg-[#FED7AA]", // Pink Blossom
     tapeClass: "tape-strip -top-2 sm:-top-3 left-2 sm:left-6 -rotate-3 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-lime-600",
     rotation: 3.6,
@@ -209,7 +209,7 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "Battery & Tyres",
     industry: "GTSW Distribution",
     category: "Social Media",
-    image: "https://brightmedia.tech/img/allimg/logo/Giti.webp",
+    image: "/assets/img/portfolio/gt.webp",
     badge: "🔋 Duracell & Giti",
     bgColor: "bg-[#d9f99d]", // Light Lime
     tapeClass: "tape-strip -top-2 sm:-top-3 right-2 sm:right-4 rotate-4 !w-7 sm:!w-14 !h-2 sm:!h-4",
@@ -223,9 +223,9 @@ const PROVEN_WORKS_CHAOTIC = [
     title: "Pulse Healthy",
     industry: "Healthy Restaurant",
     category: "Branding & Web",
-    image: "https://brightmedia.tech/img/allimg/logo/pulse.webp",
+    image: "/assets/img/portfolio/pulse.webp",
     badge: "🥗 Nutritious Brand",
-    bgColor: "bg-[#a7f3d0]", // Mint Fresh
+    bgColor: "bg-[#C9F31D]", // Mint Fresh
     tapeClass: "tape-strip -top-2 sm:-top-3 left-2 sm:left-4 -rotate-6 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-amber-600",
     rotation: 2.5,

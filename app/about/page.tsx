@@ -23,7 +23,7 @@ export default function AboutPage() {
       <AboutStats />
       {/* <AboutPartners /> */}
       <AboutTeam />
-      <AboutTestimonials />
+      {/* <AboutTestimonials /> */}
     </SiteShell>
   );
 }
