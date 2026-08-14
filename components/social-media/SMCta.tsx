@@ -83,11 +83,11 @@ export default function SMCta() {
                         <span>+91 854 800 5588</span>
                       </a>
                       <a
-                        href="mailto:contact@brightmedia.tech"
+                        href="mailto:info@brightmedia.tech"
                         className="inline-flex items-center gap-2 hover:text-emerald-700 transition-colors"
                       >
                         <i className="fas fa-envelope text-[#65a30d]" />
-                        <span>contact@brightmedia.tech</span>
+                        <span>info@brightmedia.tech</span>
                       </a>
                     </div>
                   </div>

@@ -3,6 +3,7 @@ import SiteShell from "@/components/SiteShell";
 import Breadcrumb from "@/components/Breadcrumb";
 import BRProcess from "@/components/branding/BRProcess";
 import SMCta from "@/components/social-media/SMCta";
+import BRHero from "@/components/branding/BRHero";
 
 export const metadata: Metadata = {
   title: "Branding | Bright Media",
@@ -19,7 +20,7 @@ export default function BrandingPage() {
         badge="BRANDING // PILLAR 01"
         description="Make your brand stand out from the rest. We specialize in crafting quality brand identities that resonate with your audience and set you apart from the competition."
       />
-
+      <BRHero />
       {/* Our Process */}
       <BRProcess />
 

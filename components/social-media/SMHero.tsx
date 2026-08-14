@@ -74,7 +74,7 @@ export default function SMHero() {
 
   return (
     <>
-    <section className="relative overflow-hidden bg-[#faf8f5] py-12 sm:py-16 text-[#0e0f11] border-b border-black/10">
+    <section className="relative overflow-hidden bg-[#faf8f5] pt-12 sm:pt-16 pb-0 text-[#0e0f11]">
       {/* Light Paper Desk Graph Background */}
       <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] [background-size:32px_32px]" />
       <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(0,0,0,0.12)_1px,transparent_1px)] [background-size:16px_16px]" />
@@ -206,6 +206,12 @@ export default function SMHero() {
         </div>
       </div>
       
+      {/* ============================================================ */}
+      {/* TORN PAPER BOTTOM TRANSITION (Eliminates harsh line division) */}
+      {/* ============================================================ */}
+      <div className="relative -mb-1 mt-10 sm:mt-14 w-full overflow-hidden pointer-events-none z-20">
+        <TornEdgeDivider fillColor="#FAF8F5" className="filter drop-shadow-[0_-3px_5px_rgba(0,0,0,0.04)]" />
+      </div>
     </section>
     </>
   );

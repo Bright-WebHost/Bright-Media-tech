@@ -1,262 +1,218 @@
 "use client";
 
-import { useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import Link from "next/link";
+import { useState } from "react";
+import Reveal from "@/components/motion/Reveal";
+import TornEdgeDivider from "../contact/TornEdgeDivider";
 
-function GridPattern() {
-  return (
-    <div
-      className="pointer-events-none absolute inset-0 z-0"
-      style={{
-        backgroundImage: `
-          linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)
-        `,
-        backgroundSize: "50px 50px",
-      }}
-    />
-  );
-}
+const STATS = [
+  {
+    value: "100+",
+    label: "Unique Identities Created",
+    color: "lime",
+    pinType: "tape",
+    rotation: -1.5,
+  },
+  {
+    value: "95%",
+    label: "Client Satisfaction ",
+    color: "yellow",
+    pinType: "pin-red",
+    rotation: 1.8,
+  },
+  {
+    value: "85%",
+    label: "Growth Impact",
+    color: "teal",
+    pinType: "tape",
+    rotation: -2.0,
+  },
+  {
+    value: "85%",
+    label: "Brand Recognition",
+    color: "peach",
+    pinType: "pin-blue",
+    rotation: 1.5,
+  },
+];
 
-function Particles() {
-  return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-      {Array.from({ length: 20 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full bg-primary/30"
-          style={{
-            width: `${Math.random() * 4 + 2}px`,
-            height: `${Math.random() * 4 + 2}px`,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.2, 0.7, 0.2],
-          }}
-          transition={{
-            duration: 4 + Math.random() * 4,
-            repeat: Infinity,
-            delay: Math.random() * 4,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-/** Floating glass orb — matches the neon/glass aesthetic of the site's hero */
-function GlassOrb() {
-  return (
-    <motion.div
-      className="pointer-events-none absolute right-[5%] top-1/2 hidden -translate-y-1/2 lg:block"
-      animate={{ y: [-20, 20, -20] }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-    >
-      {/* Outer ring */}
-      <div
-        className="relative flex h-[380px] w-[380px] items-center justify-center rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle at 30% 30%, rgba(201,243,29,0.12), rgba(201,243,29,0.02) 60%, transparent 100%)",
-          border: "1px solid rgba(201,243,29,0.18)",
-          boxShadow:
-            "0 0 80px rgba(201,243,29,0.08), inset 0 0 80px rgba(201,243,29,0.04)",
-          backdropFilter: "blur(2px)",
-        }}
-      >
-        {/* Inner orb */}
-        <motion.div
-          className="h-48 w-48 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle at 40% 30%, rgba(201,243,29,0.35), rgba(201,243,29,0.05) 70%)",
-            boxShadow: "0 0 60px rgba(201,243,29,0.2)",
-          }}
-          animate={{ scale: [1, 1.08, 1], rotate: [0, 180, 360] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-        />
-        {/* Decorative orbit ring */}
-        <div
-          className="absolute inset-8 rounded-full"
-          style={{
-            border: "1px dashed rgba(201,243,29,0.15)",
-          }}
-        />
-      </div>
-    </motion.div>
-  );
-}
-
-const heroWords = ["", "Branding", ""];
+// Torn Paper Bottom Jagged Clip Path
+const TORN_NOTE_CLIP =
+  "polygon(0% 0%, 100% 0%, 100% calc(100% - 14px), 98% calc(100% - 3px), 95% calc(100% - 12px), 92% calc(100% - 2px), 89% calc(100% - 15px), 85% calc(100% - 4px), 81% calc(100% - 13px), 77% calc(100% - 2px), 73% calc(100% - 15px), 69% calc(100% - 5px), 65% calc(100% - 13px), 61% calc(100% - 2px), 57% calc(100% - 16px), 53% calc(100% - 4px), 48% calc(100% - 15px), 44% calc(100% - 2px), 40% calc(100% - 14px), 36% calc(100% - 5px), 32% calc(100% - 16px), 27% calc(100% - 3px), 23% calc(100% - 13px), 19% calc(100% - 2px), 15% calc(100% - 15px), 11% calc(100% - 4px), 7% calc(100% - 13px), 3% calc(100% - 2px), 0% calc(100% - 11px))";
 
 export default function BRHero() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const [hoveredStat, setHoveredStat] = useState<number | null>(null);
 
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 30 });
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 30 });
-
-  const orbX = useTransform(springX, [-1, 1], [-20, 20]);
-  const orbY = useTransform(springY, [-1, 1], [-12, 12]);
-
-  useEffect(() => {
-    const handleMouse = (e: MouseEvent) => {
-      mouseX.set((e.clientX / window.innerWidth - 0.5) * 2);
-      mouseY.set((e.clientY / window.innerHeight - 0.5) * 2);
-    };
-    window.addEventListener("mousemove", handleMouse);
-    return () => window.removeEventListener("mousemove", handleMouse);
-  }, [mouseX, mouseY]);
-
-  const wordVariants = {
-    hidden: { y: "110%", opacity: 0 },
-    show: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.9,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.1 + i * 0.15,
-      },
-    }),
+  const getStatStyles = (color: string) => {
+    switch (color) {
+      case "lime":
+        return {
+          bg: "bg-[#d8f938] text-[#0e0f11]",
+          border: "border-black/20",
+        };
+      case "yellow":
+        return {
+          bg: "bg-[#fef08a] text-stone-900",
+          border: "border-yellow-600/20",
+        };
+      case "teal":
+        return {
+          bg: "bg-[#99f6e4] text-stone-900",
+          border: "border-teal-700/20",
+        };
+      case "peach":
+        return {
+          bg: "bg-[#fed7aa] text-stone-900",
+          border: "border-orange-700/20",
+        };
+      default:
+        return {
+          bg: "bg-white text-stone-900",
+          border: "border-black/15",
+        };
+    }
   };
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-dark">
-      <GridPattern />
-      <Particles />
+    <>
+    <section className="relative overflow-hidden bg-[#faf8f5] pt-12 sm:pt-16 pb-0 text-[#0e0f11]">
+      {/* Light Paper Desk Graph Background */}
+      <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] [background-size:32px_32px]" />
+      <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(0,0,0,0.12)_1px,transparent_1px)] [background-size:16px_16px]" />
 
-      {/* Ambient glow blobs */}
-      <div className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-32 bottom-1/4 h-64 w-64 rounded-full bg-primary/8 blur-[100px]" />
+      {/* Subtle Wall Tape Accents */}
+      <div className="tape-strip top-4 left-10 rotate-[-10deg] opacity-50 hidden sm:block !w-16 !h-4" />
+      <div className="tape-strip top-6 right-12 rotate-[12deg] opacity-50 hidden md:block !w-16 !h-4" />
 
-      {/* Mouse-parallax glass orb */}
-      <motion.div
-        className="pointer-events-none absolute right-[5%] top-1/2 hidden -translate-y-1/2 lg:block"
-        style={{ x: orbX, y: orbY }}
-      >
-        <GlassOrb />
-      </motion.div>
-
-      {/* Hero content */}
-      <div className="container-x relative z-10 text-center">
-        {/* Eyebrow label */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-          className="mb-8 inline-flex items-center gap-3"
-        >
-          {/* <span className="h-px w-12 bg-primary/60" />
-          <span className="section-label">Bright Media — Services</span>
-          <span className="h-px w-12 bg-primary/60" /> */}
-        </motion.div>
-
-        {/* Main heading — split text reveal */}
-        <h1 className="mb-6 text-[15vw] font-extrabold uppercase leading-[0.9] text-white sm:text-[5vw] lg:text-[8vw] xl:text-[6rem]">
-          {heroWords.map((word, i) => (
-            <span key={word} className="block overflow-hidden">
-              <motion.span
-                className="block"
-                variants={wordVariants}
-                initial="hidden"
-                animate="show"
-                custom={i}
-              >
-                {i === 1 ? (
-                  <span className="text-stroke" style={{ WebkitTextStroke: "2px rgba(255,255,255,0.9)", color: "transparent" }}>
-                    {word}
-                  </span>
-                ) : (
-                  word
-                )}
-              </motion.span>
-            </span>
-          ))}
-        </h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mb-5 max-w-4xl text-base leading-relaxed text-white/55 md:text-lg"
-        >
-          Make your brand stand out from the rest, Let us redefine your brand by utilizing the
-           right approach. we specialize in crafting quality brand identities that resonate with 
-           your audience and set you apart from the competition. Our strategic approach, creative 
-           expertise, and attention to detail ensure that your brand leaves a lasting impression 
-           and drives meaningful connections with your target market.
-        </motion.p>
-
-        {/* CTA buttons */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center justify-center gap-4 sm:flex-row"
-        >
-          <Link href="#overview" className="btn-primary">
-            Explore Services <i className="fas fa-arrow-down" />
-          </Link>
-          <Link
-            href="#contact-cta"
-            className="btn-outline border-white/20 text-white hover:border-primary hover:text-primary"
-          >
-            Let&apos;s Discuss
-          </Link>
-        </motion.div> */}
-      </div>
-
-      {/* Stats strip */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="container-x relative z-10 mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-4"
-      >
-        {[
-          { value: "100+", label: "Unique Identities Created" },
-          { value: "95%", label: "Client Satisfaction" },
-          { value: "85%", label: "Growth Impact" },
-          { value: "85%", label: "Brand Recognition" },
-        ].map((stat) => (
+      <div className="container-x relative z-10 px-4 sm:px-6">
+        {/* ============================================================ */}
+        {/* MAIN HEADLINE STICKY NOTE (TORN PAPER STYLE) */}
+        {/* ============================================================ */}
+        <Reveal className="mx-auto max-w-4xl text-center mb-10 sm:mb-12">
           <div
-            key={stat.label}
-            className="flex flex-col items-center justify-center bg-dark/60 px-6 py-8 text-center backdrop-blur-sm"
+            style={{
+              filter: "drop-shadow(0 12px 18px rgba(0,0,0,0.1)) drop-shadow(0 4px 6px rgba(0,0,0,0.04))",
+            }}
+            className="relative"
           >
-            <span className="text-3xl font-black text-primary md:text-4xl">
-              {stat.value}
-            </span>
-            <span className="mt-1 text-xs font-medium text-white/50 md:text-sm">
-              {stat.label}
-            </span>
-          </div>
-        ))}
-      </motion.div>
+            {/* Torn Paper Header Sheet */}
+            <div
+              style={{
+                clipPath: TORN_NOTE_CLIP,
+              }}
+              className="relative overflow-hidden rounded-t-2xl bg-white p-6 sm:p-10 pb-12 sm:pb-16 border-t-2 border-l-2 border-r-2 border-black/15"
+            >
+              {/* Faint Ruled Paper Grid Overlay */}
+              <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(to_bottom,rgba(0,0,0,0.4)_1px,transparent_1px),linear-gradient(to_right,rgba(0,0,0,0.4)_1px,transparent_1px)] [background-size:24px_24px]" />
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2"
-        >
-          {/* <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30">
-            Scroll
-          </span> */}
-          <div className="h-8 w-px bg-gradient-to-b from-white/30 to-transparent" />
-        </motion.div>
-      </motion.div>
+              {/* Tape Strips on Top Corners */}
+              <div className="tape-strip -top-3 left-10 rotate-[-5deg] z-20 !w-16 !h-4 sm:!w-20 sm:!h-5" />
+              <div className="tape-strip -top-3 right-10 rotate-[4deg] z-20 !w-16 !h-4 sm:!w-20 sm:!h-5" />
+
+              {/* Main Heading */}
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-black leading-[1.06]">
+                What{" "}
+                <span className="font-handwriting text-4xl sm:text-6xl lg:text-7xl text-emerald-800 underline decoration-wavy decoration-[#c9f31d] normal-case inline-block">
+                  We Can
+                </span>{" "}
+                Do
+              </h1>
+
+              {/* Exact Subtitle */}
+              <p className="mt-4 text-base sm:text-lg text-black/75 font-medium max-w-2xl mx-auto leading-relaxed">
+                Make your brand stand out from the rest, Let us redefine your brand by utilizing the right approach. 
+                We specialize in crafting quality brand identities that resonate with your audience and set you apart 
+                from the competition. Our strategic approach, creative expertise, and attention to detail ensure that 
+                your brand leaves a lasting impression and drives meaningful connections with your target market.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* ============================================================ */}
+        {/* STATS STRIP AS 4 PINNED TORN STICKY NOTECARDS */}
+        {/* ============================================================ */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
+          {STATS.map((stat, i) => {
+            const styles = getStatStyles(stat.color);
+            const isHovered = hoveredStat === i;
+
+            return (
+              <Reveal key={stat.label} delay={i * 0.07} className="flex flex-col">
+                <div
+                  onMouseEnter={() => setHoveredStat(i)}
+                  onMouseLeave={() => setHoveredStat(null)}
+                  style={{
+                    transform: isHovered
+                      ? "translateY(-8px) scale(1.02) rotate(0deg)"
+                      : `rotate(${stat.rotation}deg)`,
+                    transition: "all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                    filter: isHovered
+                      ? "drop-shadow(0 18px 22px rgba(0,0,0,0.2)) drop-shadow(0 6px 8px rgba(0,0,0,0.08)) drop-shadow(0 0 14px rgba(201,243,29,0.3))"
+                      : "drop-shadow(0 10px 14px rgba(0,0,0,0.1)) drop-shadow(0 3px 5px rgba(0,0,0,0.04))",
+                  }}
+                  className="group relative flex flex-col h-full"
+                >
+                  {/* Torn Notecard with Jagged Bottom Clip */}
+                  <div
+                    style={{
+                      clipPath: TORN_NOTE_CLIP,
+                    }}
+                    className={`relative flex flex-col justify-between h-full overflow-hidden rounded-t-xl p-4 sm:p-6 pb-10 sm:pb-12 text-center ${styles.bg} ${styles.border} border-t-2 border-l-2 border-r-2`}
+                  >
+                    {/* Faint Graph Texture */}
+                    <div className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_bottom,rgba(0,0,0,0.4)_1px,transparent_1px),linear-gradient(to_right,rgba(0,0,0,0.4)_1px,transparent_1px)] [background-size:18px_18px]" />
+
+                    {/* Top Tape or 3D Push Pin */}
+                    {stat.pinType === "tape" ? (
+                      <div className="tape-strip -top-2.5 left-1/2 -translate-x-1/2 rotate-[-2deg] z-20 !w-12 sm:!w-16 !h-3 sm:!h-4" />
+                    ) : stat.pinType === "pin-red" ? (
+                      <div className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 z-20">
+                        <div className="relative">
+                          <div className="absolute -bottom-1 -right-1 h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-black/40 blur-[1px]" />
+                          <div className="h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-red-600 border-2 border-white shadow-md flex items-center justify-center">
+                            <div className="h-1 w-1 rounded-full bg-white/90" />
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 z-20">
+                        <div className="relative">
+                          <div className="absolute -bottom-1 -right-1 h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-black/40 blur-[1px]" />
+                          <div className="h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-blue-600 border-2 border-white shadow-md flex items-center justify-center">
+                            <div className="h-1 w-1 rounded-full bg-white/90" />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Stat Value */}
+                    <div className="relative z-10 pt-1">
+                      <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight block">
+                        {stat.value}
+                      </span>
+                    </div>
+
+                    {/* Stat Label */}
+                    <div className="relative z-10 mt-2">
+                      <span className="text-xs sm:text-sm font-bold text-stone-800 leading-tight block">
+                        {stat.label}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+      
+      {/* ============================================================ */}
+      {/* TORN PAPER BOTTOM TRANSITION (Eliminates harsh line division) */}
+      {/* ============================================================ */}
+      <div className="relative -mb-1 mt-10 sm:mt-14 w-full overflow-hidden pointer-events-none z-20">
+        <TornEdgeDivider fillColor="#ffffffff" className="filter drop-shadow-[0_-3px_5px_rgba(0,0,0,0.04)]" />
+      </div>
     </section>
+    </>
   );
 }

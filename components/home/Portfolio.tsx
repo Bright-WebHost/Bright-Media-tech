@@ -211,7 +211,7 @@ const PROVEN_WORKS_CHAOTIC = [
     category: "Social Media",
     image: "/assets/img/portfolio/gt.webp",
     badge: "🔋 Duracell & Giti",
-    bgColor: "bg-[#d9f99d]", // Light Lime
+    bgColor: "bg-[#FEEF8F]", // Light Lime
     tapeClass: "tape-strip -top-2 sm:-top-3 right-2 sm:right-4 rotate-4 !w-7 sm:!w-14 !h-2 sm:!h-4",
     pinColor: "bg-teal-600",
     rotation: -3.2,

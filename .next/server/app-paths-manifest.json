@@ -1,9 +1,8 @@
 {
-  "/page": "app/page.js",
-  "/services/social-media/page": "app/services/social-media/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
   "/about/page": "app/about/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/contact/page": "app/contact/page.js",
   "/services-2/branding/page": "app/services-2/branding/page.js",
-  "/services-3/page": "app/services-3/page.js",
-  "/contact/page": "app/contact/page.js"
+  "/photography-and-video-production/page": "app/photography-and-video-production/page.js",
+  "/services/social-media/page": "app/services/social-media/page.js"
 }
