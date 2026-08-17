@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
+import PVTools from "../photo/PVTools";
 
 const steps = [
   {
@@ -58,8 +59,8 @@ export default function PAProcess() {
             Our Proven Process
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-black/50">
-            At Bright Media, we believe that successful branding begins with a deep 
-            understanding of your business, audience, and objectives. Our process is 
+            At Bright Media, we believe that successful branding begins with a deep
+            understanding of your business, audience, and objectives. Our process is
             collaborative and tailored to your unique needs
           </p>
         </Reveal>
@@ -82,9 +83,8 @@ export default function PAProcess() {
                   delay: 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className={`relative mb-8 pl-16 lg:mb-12 lg:pl-0 ${
-                  isLeft ? "lg:pr-[calc(50%+2rem)] lg:text-right" : "lg:pl-[calc(50%+2rem)]"
-                }`}
+                className={`relative mb-8 pl-16 lg:mb-12 lg:pl-0 ${isLeft ? "lg:pr-[calc(50%+2rem)] lg:text-right" : "lg:pl-[calc(50%+2rem)]"
+                  }`}
               >
                 {/* Icon node — sits on the timeline */}
                 <div
@@ -106,6 +106,7 @@ export default function PAProcess() {
           })}
         </div>
       </div>
+      
     </section>
   );
 }

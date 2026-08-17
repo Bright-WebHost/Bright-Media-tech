@@ -20,7 +20,7 @@ export default function PhotographyAndVideoProductionPage() {
         description="Capture compelling visuals, commercial videos, and studio photoshoots that tell your brand story and engage audiences across all digital channels."
       />
       <PVServices />
-      <SMTools />
+      {/* <SMTools /> */}
       <SMCta />
     </SiteShell>
   );

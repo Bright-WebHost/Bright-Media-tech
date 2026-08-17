@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Camera, Film, Users, Radio, Sparkles } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
+import PVTools from "./PVTools";
 
 /** Realistic 3D Pushpin component SVG */
 function PushPin({ color = "red", className = "" }: { color?: "red" | "blue" | "green" | "gold" | "purple"; className?: string }) {
@@ -237,7 +238,7 @@ export default function PVServices() {
   return (
     <section className="relative bg-[#ffffff] py-10 sm:py-14 overflow-hidden">
       {/* Background ambient light */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-primary/10 blur-[120px]" />
+      {/* <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-primary/10 blur-[120px]" /> */}
 
       <div className="container-x relative z-10">
         {/* Lined Notebook Studio Board */}
@@ -326,9 +327,13 @@ export default function PVServices() {
                   </motion.div>
                 );
               })}
+              
             </div>
+            
           </div>
+          <PVTools />
         </div>
+        
       </div>
     </section>
   );

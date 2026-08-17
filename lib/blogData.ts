@@ -7,6 +7,15 @@ export interface StickyComment {
   noteColor: string;
 }
 
+export interface ProjectImageNote {
+  image: string;
+  title: string;
+  note: string;
+  tag?: string;
+  color?: "lime" | "yellow" | "teal" | "pink" | "orange" | "purple" | "blue" | "sky-blue" | "gray";
+  rotation?: number;
+}
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -31,6 +40,7 @@ export interface BlogPost {
   likes: number;
   commentsCount: number;
   takeaways: string[];
+  gallery?: (string | ProjectImageNote)[];
   content: {
     intro: string;
     sections: { heading: string; body: string; stickyQuote?: string }[];
@@ -80,6 +90,40 @@ export const BLOG_POSTS: BlogPost[] = [
       "Paid Ads",
       // "Consistency across web, video, and social is key.",
     ],
+    gallery: [
+      {
+        image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=1200&q=80",
+        title: "Pulsar Campaign Visual",
+        note: "High-octane social ad visual generated 1M+ impressions across Ivory Coast channels.",
+        tag: "Social Campaign",
+        color: "lime",
+        rotation: -1.5,
+      },
+      {
+        image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1200&q=80",
+        title: "Studio Lookbook Shot",
+        note: "Crisp studio lighting capturing engine geometry and sleek motorcycle aerodynamics.",
+        tag: "Studio Shoot",
+        color: "yellow",
+        rotation: 1.5,
+      },
+      {
+        image: "https://images.unsplash.com/photo-1508974239320-0a029497e820?w=1200&q=80",
+        title: "Urban Street Lifestyle",
+        note: "Dynamic street shoot highlighting urban commute freedom and youth culture.",
+        tag: "Brand Content",
+        color: "teal",
+        rotation: -2,
+      },
+      {
+        image: "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=1200&q=80",
+        title: "Performance Paid Creative",
+        note: "A/B tested high-converting creative delivering 3.8x ROAS across Meta and YouTube.",
+        tag: "Paid Advertising",
+        color: "pink",
+        rotation: 2,
+      },
+    ],
     content: {
       intro: "In an overcrowded digital landscape, standing out isn’t about being the loudest voice in the room—it’s about having the clearest frequency. Rebranding isn't a simple facelift; it's a strategic alignment of vision, visuals, and user emotion.",
       sections: [
@@ -88,14 +132,6 @@ export const BLOG_POSTS: BlogPost[] = [
           body: "Bajaj Auto is a prominent player in the automotive industry, known for its innovative Bikes. We manage their social media pages in Ivory Coast, where our strategic approach has generated around 1 million impressions in a short period. Our efforts focus on engaging content that resonates with the audience, enhancing brand visibility and driving customer interaction.",
           // stickyQuote: "A brand identity is a living ecosystem—not a static PDF brand book.",
         },
-        // {
-        //   heading: "2. The Psychology of High-Vibrancy Colors",
-        //   body: "Color drives quick subconscious decisions. Utilizing high-energy lime accents against high-contrast obsidian dark tones signals innovation, agility, and forward motion. It tells your customer that you are built for the modern internet.",
-        // },
-        // {
-        //   heading: "3. Translating Brand into Conversion",
-        //   body: "Great aesthetics build affinity, but strategic UX closes sales. By marrying bold typography with fluid micro-animations, users stay engaged 2.5x longer on brand touchpoints.",
-        // },
       ],
       conclusion: "Automotive Manufacturers",
     },
@@ -142,8 +178,40 @@ export const BLOG_POSTS: BlogPost[] = [
     commentsCount: 12,
     takeaways: [
       "Web development",
-      // "Tailwind + Framer Motion = unbeatable web fluid design.",
-      // "Keep dynamic animations under 300ms for crisp responsiveness.",
+    ],
+    gallery: [
+      {
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+        title: "Luxury Villa Minimalist UI",
+        note: "Full-bleed hero layout reflecting TAC's architectural purity and serene spatial aesthetics.",
+        tag: "Web Architecture",
+        color: "yellow",
+        rotation: -1.5,
+      },
+      {
+        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+        title: "Interior Portfolio Showcase",
+        note: "Curated interactive gallery highlighting bespoke interior materials and lighting.",
+        tag: "UI Portfolio",
+        color: "lime",
+        rotation: 1.5,
+      },
+      {
+        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80",
+        title: "High-Rise Masterplan Page",
+        note: "Smooth scroll experience with interactive architectural schematics and floorplans.",
+        tag: "Interactive Map",
+        color: "teal",
+        rotation: -2,
+      },
+      {
+        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200&q=80",
+        title: "Design System & Type Rules",
+        note: "Harmonious Swiss typography paired with warm architectural textures and clean gridlines.",
+        tag: "Design System",
+        color: "purple",
+        rotation: 2,
+      },
     ],
     content: {
       intro: "Web development has evolved from simple markup and styling to interactive digital art. Today's web user expects subtle feedback, smooth state transitions, and tactile interfaces that feel alive under their fingertips.",

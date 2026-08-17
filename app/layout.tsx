@@ -18,9 +18,9 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Dixor - Creative Digital Agency",
+  title: "Bright Media | Digital Powerhouse",
   description:
-    "Dixor is a creative digital agency delivering branding, marketing, design, and development.",
+    "Bright Media is a creative digital agency delivering branding, marketing, design, and development.",
 };
 
 export default function RootLayout({

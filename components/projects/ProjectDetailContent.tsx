@@ -214,9 +214,8 @@ export default function ProjectDetailContent({ id }: { id: string }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className={`relative overflow-hidden rounded-xl ${
-                  i === 0 ? "sm:col-span-2 lg:col-span-1 h-72 lg:h-80" : "h-60 lg:h-64"
-                }`}
+                className={`relative overflow-hidden rounded-xl ${i === 0 ? "sm:col-span-2 lg:col-span-1 h-72 lg:h-80" : "h-60 lg:h-64"
+                  }`}
               >
                 <Image
                   src={img}

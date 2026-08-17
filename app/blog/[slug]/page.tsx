@@ -16,7 +16,9 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: PageProps) {
-  const post = BLOG_POSTS.find((p) => p.slug === params.slug);
+  const post = BLOG_POSTS.find(
+    (p) => p.slug.toLowerCase() === decodeURIComponent(params.slug).toLowerCase()
+  );
   if (!post) return { title: "Post Not Found" };
   return {
     title: `${post.title} | Dixor Blog`,
@@ -25,7 +27,9 @@ export function generateMetadata({ params }: PageProps) {
 }
 
 export default function BlogSlugPage({ params }: PageProps) {
-  const post = BLOG_POSTS.find((p) => p.slug === params.slug);
+  const post = BLOG_POSTS.find(
+    (p) => p.slug.toLowerCase() === decodeURIComponent(params.slug).toLowerCase()
+  );
 
   if (!post) {
     notFound();

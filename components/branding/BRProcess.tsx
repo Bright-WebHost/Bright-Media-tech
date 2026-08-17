@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
 import SMTools from "../social-media/SMTools";
+import BRTools from "./BRTools";
 
 const steps = [
   {
@@ -107,7 +108,7 @@ export default function BRProcess() {
           })}
         </div>
       </div>
-      <SMTools />
+      <BRTools />
     </section>
   );
 }
