@@ -140,7 +140,7 @@ export default function Footer() {
         <p
           className="whitespace-nowrap text-center font-extrabold uppercase tracking-tight"
           style={{
-            fontSize: "clamp(50px, 16vw, 180px)",
+            fontSize: "clamp(50px, 16vw, 200px)",
             background:
               "linear-gradient(to bottom, rgba(214, 255, 52, 0.43) 0%, rgba(255,255,255,0.01) 100%)",
             WebkitBackgroundClip: "text",

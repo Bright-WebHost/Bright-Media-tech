@@ -99,7 +99,7 @@ export default function ContactPageContent() {
                 <div className="tape-strip -top-3 right-8 rotate-3" />
 
                 {/* Airmail Envelope Stripe Header Accent */}
-                <div className="h-2.5 w-full bg-[repeating-linear-gradient(45deg,#ef4444,#ef4444_15px,#ffffff_15px,#ffffff_25px,#3b82f6_25px,#3b82f6_40px,#ffffff_40px,#ffffff_50px)] rounded-t-lg mb-6" />
+                <div className="h-2.5 w-full bg-[repeating-linear-gradient(45deg,#C9F31D,#C9F31D_15px,#ffffff_15px,#ffffff_25px,#000000_25px,#000000_40px,#ffffff_40px,#ffffff_50px)] rounded-t-lg mb-6" />
 
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-black/10 pb-4">
                   <div>
@@ -266,11 +266,11 @@ export default function ContactPageContent() {
                   <div className="flex items-center justify-between border-b border-black/10 pb-3">
                     <div className="flex items-center gap-2">
                       <i className="fas fa-map-pin text-[#c9f31d] text-lg" />
-                      <h3 className="font-black text-lg text-gray-900">{loc.country} OFFICE</h3>
+                      <h3 className="font-black text-lg text-gray-900">{loc.country} OFFICE </h3>
                     </div>
-                    <span className="font-handwriting text-lg font-bold text-gray-500">
+                    {/* <span className="font-handwriting text-lg font-bold text-gray-500">
                       Studio #{i + 1}
-                    </span>
+                    </span> */}
                   </div>
 
                   <p className="mt-3 text-sm font-semibold text-gray-700 leading-relaxed">

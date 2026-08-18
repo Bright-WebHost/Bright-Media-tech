@@ -1,5 +1,5 @@
 import SiteShell from "@/components/SiteShell";
-import BlogPageContent from "@/components/blog/BlogPageContent";
+import BlogPageContent from "@/components/project/BlogPageContent";
 import ProjectsPageContent from "@/components/projects/ProjectsPageContent";
 
 export const metadata = {

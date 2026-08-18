@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
-import BlogPageContent from "@/components/blog/BlogPageContent";
+import BlogPageContent from "@/components/project/BlogPageContent";
 
 export const metadata: Metadata = {
   title: "Blog - Bright Side Creative Sticky Notes | Dixor",

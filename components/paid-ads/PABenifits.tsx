@@ -162,7 +162,7 @@ export default function PABenefits() {
                 <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">
                   {/* Facebook Icon Image Badge */}
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1877F2] text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110">
-                    <img src="/assets/img/icon/sem.webp" className="rounded-2xl"/>
+                    <img src="/assets/img/icon/24 copy.png" className="rounded-2xl"/>
                   </div>
                   {/* Title Below Image */}
                   <span className="mt-2.5 text-[11px] font-bold text-black/100">Meta Ads Manager</span>
@@ -176,7 +176,7 @@ export default function PABenefits() {
                     className="flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110 bg-white"
                     
                   >
-                    <img src="/assets/img/icon/hs.webp" className="rounded-2xl"/>
+                    <img src="/assets/img/icon/25 copy.png" className="rounded-2xl"/>
                   </div>
                   {/* Title Below Image */}
                   <span className="mt-2.5 text-[11px] font-bold text-black/100">Google Ads</span>
@@ -187,7 +187,7 @@ export default function PABenefits() {
                 <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">
                   {/* LinkedIn Icon Image Badge */}
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0A66C2] text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110">
-                    <img src="/assets/img/icon/ps.webp" className="rounded-2xl"/>
+                    <img src="/assets/img/icon/26 copy.png" className="rounded-2xl"/>
                   </div>
                   {/* Title Below Image */}
                   <span className="mt-2.5 text-[11px] font-bold text-black/100">Google Analytics</span>
@@ -198,7 +198,7 @@ export default function PABenefits() {
                 <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">
                   {/* Meta Icon Image Badge */}
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110">
-                    <img src="/assets/img/icon/mbs.webp" className="rounded-2xl"/>
+                    <img src="/assets/img/icon/27 copy.png" className="rounded-2xl"/>
                   </div>
                   {/* Title Below Image */}
                   <span className="mt-2.5 text-[11px] font-bold text-black/100">Snapchat Ads</span>

@@ -375,7 +375,7 @@ export default function Portfolio() {
                 className={`relative ${work.yOffset} transition-all duration-300`}
               >
                 <Link
-                  href={`/blog/${work.slug}`}
+                  href={`/project/${work.slug}`}
                   className={`group/card relative flex flex-col justify-between rounded-xl sm:rounded-2xl p-1.5 sm:p-2.5 lg:p-3 ${work.bgColor} border border-black/20 sm:border-2 shadow-md sm:shadow-xl hover:shadow-2xl transition-all duration-300 text-left h-full block cursor-pointer select-none`}
                   style={{
                     boxShadow:
