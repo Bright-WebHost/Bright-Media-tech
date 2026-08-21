@@ -16,7 +16,7 @@ export default function BrandingPage() {
     <SiteShell>
       <Breadcrumb
         title="Brand Identity"
-        subtitle="Built on Precision & Soul"
+        subtitle="Make your brand impossible to miss"
         badge="BRANDING // PILLAR 01"
         description="Make your brand stand out from the rest. We specialize in crafting quality brand identities that resonate with your audience and set you apart from the competition."
       />

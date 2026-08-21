@@ -245,17 +245,17 @@ export default function AboutTestimonials() {
 
           <Reveal delay={0.1} className="grid gap-6 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8 space-y-2">
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-heading dark:text-white leading-[1.04]">
-                What Our Partners Say About{" "}
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-heading dark:text-white leading-[1.04]">
+                What Our Clients Say About{" "}
                 <span className="font-handwriting text-4xl sm:text-6xl lg:text-7xl text-emerald-700 dark:text-[#c9f31d] underline decoration-wavy decoration-[#c9f31d] dark:decoration-emerald-500 normal-case inline-block mt-1">
-                  Our Craft.
+                  The Work.
                 </span>
               </h2>
             </div>
 
             <div className="lg:col-span-4 lg:pb-1">
               <p className="text-sm sm:text-base text-black/70 dark:text-white/70 font-medium">
-                Unfiltered feedback from founders, marketing leaders, and enterprise directors who trusted us to transform their digital presence.
+                A few words from the people we've had the pleasure of building with.
               </p>
             </div>
           </Reveal>

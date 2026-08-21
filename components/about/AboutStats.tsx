@@ -26,15 +26,15 @@ export default function AboutStats() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#15803d] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#15803d]" />
               </span>
-              <span>📌 STUDIO MANIFESTO • PHILOSOPHY</span>
+              <span>📌 BRIGHT MEDIA • HOW WE THINK</span>
             </div>
 
             <div className="hidden sm:inline-flex postmark-stamp text-black border-black/25 bg-white/80 shadow-xs">
               <span className="text-[8px] font-bold uppercase tracking-widest text-black/60">
-                DISCIPLINE &amp; IDENTITY
+                HOW WE WORK 
               </span>
               <span className="font-handwriting text-base font-bold text-black">
-                ✦ 100% In-House Craft
+                ✦ 100% Made by Us
               </span>
             </div>
           </div>
@@ -42,19 +42,19 @@ export default function AboutStats() {
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7 space-y-2">
               <span className="font-mono text-xs font-bold uppercase tracking-widest text-black/50 block">
-                ABOUT BRIGHT MEDIA
+                A LITTLE ABOUT US
               </span>
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase text-black leading-[1.02] tracking-tight">
-                We Engineer Distinct Brands &amp;{" "}
+                WE MAKE BRANDS {" "}
                 <span className="font-handwriting text-4xl sm:text-5xl md:text-6xl text-emerald-950 underline decoration-wavy decoration-[#c9f31d] normal-case inline-block">
-                  Digital Solutions.
+                  Worth Remembering.
                 </span>
               </h2>
             </div>
 
             <div className="lg:col-span-5 lg:pb-1">
               <p className="text-sm sm:text-base md:text-lg text-black/75 leading-relaxed font-medium">
-                We at Bright Media are a team of highly creative, skilled and dedicated individuals, focusing on adding value to our clients&apos; brands by optimizing, innovating, and leveraging cutting-edge creative craft.
+                We're a bunch of curious minds who like making things — brands, campaigns, content and digital experiences. We mix good ideas with solid strategy to help businesses look better, communicate better and grow.
               </p>
             </div>
           </div>
@@ -103,13 +103,13 @@ export default function AboutStats() {
                     Our Vision
                   </h3>
                   <p className="font-handwriting text-lg sm:text-xl font-bold text-black/75 mt-0.5">
-                    ~ transforming ambitious ideas into iconic global brands
+                    ~ turning big ideas into brands people remember 
                   </p>
                 </div>
 
                 {/* Narrative Body */}
                 <p className="text-sm sm:text-base leading-relaxed font-medium text-black/90">
-                  To become a globally trusted creative digital agency that transforms ambitious ideas into impactful brands through innovation, design excellence, and cutting-edge technology. We envision a future where every business, regardless of size, has access to world-class digital experiences that inspire, engage, and drive meaningful growth.
+                  We want to build brands that people notice, remember and come back to. No matter how big or small the business, every good idea deserves great creative, thoughtful design and a digital presence that does it justice.
                 </p>
 
                 {/* 3 Strategic Pillars */}
@@ -129,10 +129,10 @@ export default function AboutStats() {
               {/* Bottom Signature Footnote */}
               <div className="relative z-10 mt-8 pt-4 border-t border-black/15 flex items-center justify-between">
                 <span className="font-handwriting text-lg sm:text-xl font-bold text-black">
-                  ~ shaping the future of digital craft ✨
+                  ~ making good ideas go further ✨
                 </span>
                 <span className="font-mono text-[10px] font-black text-black/60 uppercase">
-                  BM-VISION-2026
+                  BM-VISION
                 </span>
               </div>
             </div>
@@ -175,13 +175,13 @@ export default function AboutStats() {
                     Our Mission
                   </h3>
                   <p className="font-handwriting text-lg sm:text-xl font-bold text-black/75 mt-0.5">
-                    ~ empowering businesses with measurable digital impact
+                    ~ helping good businesses look as good as they are
                   </p>
                 </div>
 
                 {/* Narrative Body */}
                 <p className="text-sm sm:text-base leading-relaxed font-medium text-black/85">
-                  Our mission is to empower businesses with strategic branding, exceptional web experiences, and data-driven digital marketing solutions. By combining creativity, technology, and measurable results, we help our clients build lasting relationships with their audiences, strengthen their online presence, and achieve sustainable success in an ever-evolving digital world.
+                  Our job is simple: understand your business, find what makes it interesting and bring that to life. From branding and content to websites and campaigns, we create work that looks good, feels right and gets the job done.
                 </p>
 
                 {/* 3 Strategic Pillars */}
@@ -201,10 +201,10 @@ export default function AboutStats() {
               {/* Bottom Signature Footnote */}
               <div className="relative z-10 mt-8 pt-4 border-t border-black/10 flex items-center justify-between">
                 <span className="font-handwriting text-lg sm:text-xl font-bold text-black">
-                  ~ precision in every execution 📌
+                  ~ good ideas. Done properly. 📌
                 </span>
                 <span className="font-mono text-[10px] font-black text-black/50 uppercase">
-                  BM-MISSION-2026
+                  BM-MISSION
                 </span>
               </div>
             </div>

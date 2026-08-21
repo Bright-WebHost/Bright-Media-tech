@@ -7,32 +7,32 @@ import Lanyard from "@/components/Lanyard";
 const benefits = [
   {
     icon: "fas fa-eye",
-    title: "Increased Brand Awareness",
+    title: "Get Seen",
     desc: "Consistent, strategic posting puts your brand in front of more eyeballs every single day.",
   },
   {
     icon: "fas fa-heart",
-    title: "Enhanced Audience Engagement",
+    title: "Get People Talking",
     desc: "When you show up authentically, your audience becomes your most powerful advocates.",
   },
   {
     icon: "fas fa-funnel-dollar",
-    title: "Growth in Followership",
+    title: "Build A Real Following",
     desc: "Engaged audiences trust your brand more — and trust drives sales more than any other factor.",
   },
   {
     icon: "fas fa-dollar-sign",
-    title: "Higher Website Traffic",
+    title: "Turn Social Into Traffic",
     desc: "Organic + paid social working together creates a compounding effect that maximises every spend.",
   },
   {
     icon: "fas fa-seedling",
-    title: "Measurable Results",
+    title: "Know What's Working",
     desc: "Unlike one-time campaigns, a strong social presence compounds over time — your asset, not a cost.",
   },
   {
     icon: "fas fa-trophy",
-    title: "Improved Brand Reputation",
+    title: "Build a Brand People Trust",
     desc: "Position your brand as the definitive authority in your space, making competitors an afterthought.",
   },
 ];
@@ -150,29 +150,29 @@ export default function SMBenefits() {
               {/* 4 Tools Grid (Image / Icon + Title below) */}
               <div className="grid grid-cols-2 gap-3.5 pt-5">
                 {/* 1. Facebook */}
-                <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">
+                {/* <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105"> */}
                   {/* Facebook Icon Image Badge */}
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1877F2] text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110">
+                  {/* <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1877F2] text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110">
                     <img src="/assets/img/icon/sem.webp" className="rounded-2xl"/>
-                  </div>
+                  </div> */}
                   {/* Title Below Image */}
-                  <span className="mt-2.5 text-[11px] font-bold text-black/100">SemRush</span>
+                  {/* <span className="mt-2.5 text-[11px] font-bold text-black/100">SemRush</span> */}
                   {/* <span className="text-[10px] font-bold text-black/60">Community &amp; Ads</span> */}
-                </div>
+                {/* </div> */}
 
                 {/* 2. Instagram */}
-                <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">
+                {/* <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105"> */}
                   {/* Instagram Icon Image Badge (Gradient) */}
-                  <div
+                  {/* <div
                     className="flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-md transition-transform duration-300 group-hover/tool:scale-110 bg-white"
                     
                   >
                     <img src="/assets/img/icon/hs.webp" className="rounded-2xl"/>
-                  </div>
+                  </div> */}
                   {/* Title Below Image */}
-                  <span className="mt-2.5 text-[11px] font-bold text-black/100">Hootsuite</span>
+                  {/* <span className="mt-2.5 text-[11px] font-bold text-black/100">Hootsuite</span> */}
                   {/* <span className="text-[10px] font-bold text-black/60">Reels &amp; Visuals</span> */}
-                </div>
+                {/* </div> */}
 
                 {/* 3. LinkedIn */}
                 <div className="group/tool flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-black/[0.06] p-4 text-center transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105">

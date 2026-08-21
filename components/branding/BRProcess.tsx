@@ -8,31 +8,31 @@ import BRTools from "./BRTools";
 const steps = [
   {
     no: "01",
-    title: "Discovery",
+    title: "Getting to Know You",
     icon: "fas fa-search",
     color: "bg-primary text-dark",
-    desc: "We start by conducting thorough research to gain insights into your industry, competitors, and target audience.",
+    desc: "Research & discovery ",
   },
   {
     no: "02",
-    title: "Strategy",
+    title: "Finding Your Direction",
     icon: "fas fa-chess-knight",
     color: "bg-dark-secondary text-white",
-    desc: "Based on our findings, we develop a comprehensive branding strategy that outlines key messaging, positioning, and visual elements to guide the creation of your brand identity.",
+    desc: "Strategy & positioning ",
   },
   {
     no: "03",
-    title: "Concept Development",
+    title: "Bringing it to Life",
     icon: "fas fa-film",
     color: "bg-primary text-dark",
-    desc: "Our creative team brings your brand to life through innovative concept development, exploring various design options and visual elements to capture the essence of your brand.",
+    desc: "Design & identity",
   },
   {
     no: "04",
-    title: "Design Implementation",
+    title: "Ready to Show the World",
     icon: "fas fa-paper-plane",
     color: "bg-dark-secondary text-white",
-    desc: "Once the concept is finalized, we meticulously craft your brand identity, including logos, color palettes, typography, and brand guidelines, ensuring consistency across all touchpoints.",
+    desc: "Final delivery & brand rollout ",
   },
 ];
 
@@ -55,14 +55,13 @@ export default function BRProcess() {
 
       <div className="container-x relative z-10">
         <Reveal className="mb-16 text-center">
-          <h4 className="section-label justify-center">How We Work</h4>
+          <h4 className="section-label justify-center">THE PROCESS</h4>
           <h2 className="mt-3 text-3xl font-extrabold text-black md:text-5xl">
-            Our Proven Process
+            HOW WE BUILD YOUR BRAND
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-black/50">
-            At Bright Media, we believe that successful branding begins with a deep 
-            understanding of your business, audience, and objectives. Our process is 
-            collaborative and tailored to your unique needs
+            Good branding starts with understanding. We get to know your business, your audience and where you want to go, 
+            then turn that into a brand that feels right, works everywhere and is built to last. 
           </p>
         </Reveal>
 

@@ -21,9 +21,9 @@ export const NAV: NavItem[] = [
     children: [
       { label: "Social Media Marketing", href: "/services/social-media" },
       { label: "Branding", href: "/services-2/branding" },
-      { label: "Web Development", href: "/services-3" },
-      { label: "SEO", href: "/services-4" },
-      { label: "Paid Ads", href: "/service-5" },
+      { label: "Web Development", href: "/web-development" },
+      { label: "SEO", href: "/seo" },
+      { label: "Paid Ads", href: "/paid-ads" },
       { label: "Photography & Video Productions", href: "/photography-and-video-production" },
     ],
   },
@@ -45,8 +45,8 @@ export const HERO = {
 
 export const ABOUT = {
   image: "/assets/img/about/bm-neon.webp",
-  heading: "Build Strong Digital Brand",
-  text: "It involves crafting a unique identity, engaging storytelling, and consistent online presence to connect with audiences and drive sustainable growth.",
+  heading: "BUILD A BRAND PEOPLE REMEMBER ",
+  text: "Your brand should look like you, sound like you and stay with people long after they scroll away.",
   services: [
     { no: "01", label: "Social Media" },
     { no: "02", label: "Branding" },
@@ -70,12 +70,12 @@ export const SERVICES: Service[] = [
   {
     id: 1,
     no: "01",
-    title: "Static & Dynamic Websites",
+    title: "Websites that do more ",
     tag: "Web Solutions",
     icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9SHMsaH7-ZApYkJxK6wPVEb2Mz2GXCfTfAVkC0xvzFA&s=10",
     iconLight: "/assets/img/icon/23.png",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
-    desc: "They feature dynamic content that can change based on user interactions or data input. They are typically built using HTML and CSS and are suitable for businesses or Corporates who require an online presence to showcase their products or services.",
+    image: "/assets/img/about/28.webp",
+    desc: "Clean, responsive websites built around your business and your users.",
     features: [
       "Blazing Fast Performance & SEO",
       "Responsive Layouts Across All Devices",
@@ -86,12 +86,12 @@ export const SERVICES: Service[] = [
   {
     id: 2,
     no: "02",
-    title: "E-commerce",
+    title: "Sell online, without the headache",
     tag: "Online Store",
     icon: "/assets/img/icon/2.png",
     iconLight: "/assets/img/icon/24.png",
-    image: "https://images.unsplash.com/photo-1556742049-0a67c57750c9?w=1200&q=80",
-    desc: "E-commerce websites allow businesses to sell products or services online. They include features such as shopping carts, secure payment gateways, and inventory management systems to facilitate online transactions.",
+    image: "/assets/img/about/29.webp",
+    desc: "E-commerce experiences that make browsing and buying simple.",
     features: [
       "Seamless Checkout & Cart UX",
       "Secure Multi-Currency Gateways",
@@ -102,12 +102,12 @@ export const SERVICES: Service[] = [
   {
     id: 3,
     no: "03",
-    title: "CMS",
+    title: "Update it yourself",
     tag: "Content Management",
     icon: "/assets/img/icon/3.png",
     iconLight: "/assets/img/icon/25.png",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80",
-    desc: "Content Management Systems websites are built using platforms like WordPress, Joomla, or Drupal, which allow users to easily create, manage, and update website content without extensive technical knowledge. CMS websites are ideal for blogs, news sites, and small to medium-sized businesses.",
+    image: "/assets/img/about/30.webp",
+    desc: "Easy-to-manage websites that put your content back in your hands.",
     features: [
       "Intuitive Drag-and-Drop Editing",
       "Custom Themes & Flexible Plugins",
@@ -118,12 +118,12 @@ export const SERVICES: Service[] = [
   {
     id: 4,
     no: "04",
-    title: "LMS",
+    title: "Teach. Learn. Track.",
     tag: "E-Learning Platform",
     icon: "/assets/img/icon/4.png",
     iconLight: "/assets/img/icon/26.png",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&q=80",
-    desc: "Learning Management Systems websites are designed for online learning and education. They provide a platform for instructors to create and deliver courses, manage student enrollments, track progress, and assess learning outcomes. Examples of LMS platforms include Moodle, Canvas, and Blackboard.",
+    image: "/assets/img/about/31.webp",
+    desc: "LMS platforms built to make online learning easier to manage. ",
     features: [
       "Course Builder & Multimedia Lessons",
       "Student Tracking & Analytics",
@@ -145,34 +145,34 @@ export const SERVICES1: Service1[] = [
   {
     id: 1,
     no: "01",
-    title: "Customized Strategies",
+    title: "SEO Strategy",
     icon: "/assets/img/icon/1.png",
     iconLight: "/assets/img/icon/23.png",
-    desc: "Tailored SEO solutions designed to meet your unique business needs, ensuring long-term growth and targeted audience engagement.",
+    desc: "A plan built around your business, your audience, and the searches that matter.",
   },
   {
     id: 2,
     no: "02",
-    title: "Improved Visibility",
+    title: "Search Visibility",
     icon: "/assets/img/icon/2.png",
     iconLight: "/assets/img/icon/24.png",
-    desc: "Boosting search engine rankings with optimized keywords and content to help your brand reach the right audience effectively.",
+    desc: "Get found by the right people with smarter keywords and content that earns attention.",
   },
   {
     id: 3,
     no: "03",
-    title: "Performance Optimization",
+    title: "Website Performance",
     icon: "/assets/img/icon/3.png",
     iconLight: "/assets/img/icon/25.png",
-    desc: "Enhancing website speed, mobile responsiveness, and user experience to increase engagement and improve conversion rates across devices.",
+    desc: "Faster pages, smoother experiences, and a website that works better for both users and search engines.",
   },
   {
     id: 4,
     no: "04",
-    title: "Link Building",
+    title: "Authority Building",
     icon: "/assets/img/icon/4.png",
     iconLight: "/assets/img/icon/26.png",
-    desc: "Acquiring high-quality backlinks from reputable sources to improve your website's authority, search rankings, and online visibility.",
+    desc: "Build your website’s credibility with quality links from relevant and trusted sources.",
   },
 ];
 
@@ -270,7 +270,7 @@ export const CLIENTS = {
 };
 
 export const WHY = {
-  image: "/assets/img/about/exp.webp",
+  image: "/assets/img/about/LEAD.webp",
   items: [
     {
       title: "Personalized Strategies",

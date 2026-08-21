@@ -6,6 +6,7 @@ import Reveal from "@/components/motion/Reveal";
 
 interface ProcessStep {
   no: string;
+  number:string;
   title: string;
   desc: string;
   icon: string;
@@ -28,8 +29,9 @@ interface ClientBrand {
 const STEPS: ProcessStep[] = [
   {
     no: "01",
-    title: "Strategic Planning",
-    desc: "We'll work closely with you to develop a tailored social media strategy that aligns with your brand objectives and resonates with your target audience.",
+    number:"01 - START HERE ",
+    title: "THE GAME PLAN",
+    desc: "First, we figure out what your brand needs, who you're talking to and what you actually want to achieve. Then we build the plan around it.",
     icon: "fas fa-compass",
     handwrittenTag: "✦ Discovery & Market Target",
     colorTheme: "yellow",
@@ -39,8 +41,9 @@ const STEPS: ProcessStep[] = [
   },
   {
     no: "02",
+    number:"02 - MAKE STUFF",
     title: "Content Creation",
-    desc: "Our team of creatives will craft engaging content that captivates your audience, from eye-catching visuals to compelling copywriting.",
+    desc: "This is where the ideas become posts, reels, stories and everything in between. We write it, design it and make it feel like your brand.",
     icon: "fas fa-palette",
     handwrittenTag: "🎬 4K Reels & High-Voltage Copy",
     colorTheme: "lime",
@@ -50,8 +53,9 @@ const STEPS: ProcessStep[] = [
   },
   {
     no: "03",
+    number:"03 - KEEP IT GOING",
     title: "Platform Management",
-    desc: "Leave your social media management to us—from content scheduling to community engagement, we ensure seamless brand presence across all channels.",
+    desc: "We handle the day-to-day, scheduling, posting, keeping things organised and making sure your pages never feel forgotten.",
     icon: "fas fa-sliders-h",
     handwrittenTag: "⚡ 24/7 Scheduling & Inbound DMs",
     colorTheme: "teal",
@@ -61,8 +65,9 @@ const STEPS: ProcessStep[] = [
   },
   {
     no: "04",
-    title: "Analytics and Optimization",
-    desc: "We'll track key metrics and analyze performance to continuously refine and optimize your social media strategy, ensuring maximum impact and ROI.",
+    number:"04 - SEE WHAT WORKS ",
+    title: "CHECK. LEARN. IMPROVE. ",
+    desc: "We look at what's getting attention, what's getting ignored and what's bringing results. Then we use that to make the next round better.",
     icon: "fas fa-chart-line",
     handwrittenTag: "📈 Rapid Iteration & Growth",
     colorTheme: "peach",
@@ -215,19 +220,19 @@ export default function SMProcess() {
         <Reveal className="mb-14 sm:mb-18 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-[#c9f31d] px-4 py-1.5 text-xs font-black uppercase tracking-wider text-black shadow-xs">
             <span className="h-2 w-2 rounded-full bg-red-600 animate-pulse" />
-            <span>📌 EXECUTION WORKFLOW</span>
+            <span>📌 SOCIAL MEDIA // THE PROCESS</span>
           </div>
 
           <h2 className="mt-4 text-3xl font-bold uppercase tracking-tight text-heading sm:text-5xl lg:text-6xl leading-[1.04]">
-            How We Can{" "}
+            HOW WE MAKE{" "}
             <span className="font-handwriting text-4xl sm:text-6xl lg:text-7xl text-emerald-800 underline decoration-wavy decoration-[#c9f31d] normal-case inline-block mt-1">
-              Help You?
+              It work
             </span>
           </h2>
 
           <div className="mt-3 inline-flex items-center gap-2">
             <span className="font-handwriting text-lg sm:text-xl font-bold text-amber-900 -rotate-1">
-              ✦ Sprint-based execution • Total transparency
+              ✦ Plan it • Make it • Post it • Learn from it
             </span>
           </div>
         </Reveal>
@@ -260,7 +265,7 @@ export default function SMProcess() {
 
               return (
                 <Reveal
-                  key={step.no}
+                  key={step.number}
                   delay={index * 0.09}
                   className="relative flex flex-col"
                 >
@@ -326,7 +331,7 @@ export default function SMProcess() {
                         <span
                           className={`rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider ${styles.badgeBg} shadow-xs`}
                         >
-                          PHASE // {step.no}
+                          {step.number}
                         </span>
 
                         <div

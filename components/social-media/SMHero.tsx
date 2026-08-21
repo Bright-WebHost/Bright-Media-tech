@@ -6,29 +6,29 @@ import TornEdgeDivider from "../contact/TornEdgeDivider";
 
 const STATS = [
   {
-    value: "10K+",
-    label: "Avg Engagement Rate",
+    value: "CONTENT",
+    label: "Planned with purpose. ",
     color: "lime",
     pinType: "tape",
     rotation: -1.5,
   },
   {
-    value: "99%",
-    label: "Timely Posting Accuracy",
+    value: "CONSISTENCY",
+    label: "Always something going out.",
     color: "yellow",
     pinType: "pin-red",
     rotation: 1.8,
   },
   {
-    value: "100%",
-    label: "Tailored Content Strategy",
+    value: "CREATIVITY",
+    label: "Never just another post.",
     color: "teal",
     pinType: "tape",
     rotation: -2.0,
   },
   {
-    value: "92%",
-    label: "Client Retention Rate",
+    value: "COMMUNITY",
+    label: "Built one interaction at a time",
     color: "peach",
     pinType: "pin-blue",
     rotation: 1.5,
@@ -119,10 +119,9 @@ export default function SMHero() {
 
               {/* Exact Subtitle */}
               <p className="mt-4 text-base sm:text-lg text-black/75 font-medium max-w-2xl mx-auto leading-relaxed">
-                At Bright Media, we're dedicated to giving your brand a powerful online presence. 
-                Our tailored solutions are all about making genuine connections, boosting visibility, 
-                engaging contents and bringing your brand to life in the digital world. Let's make your 
-                brand shine brighter than ever!
+                Social media shouldn't feel like a chore. We plan it, create it, post it and keep an eye on what works. 
+                From everyday content to bigger campaigns, we make sure your brand has something worth saying & people 
+                worth saying it to.
               </p>
             </div>
           </div>
@@ -187,7 +186,7 @@ export default function SMHero() {
 
                     {/* Stat Value */}
                     <div className="relative z-10 pt-1">
-                      <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight block">
+                      <span className="text-lg sm:text-xl lg:text-2xl font-black text-black tracking-tight block">
                         {stat.value}
                       </span>
                     </div>

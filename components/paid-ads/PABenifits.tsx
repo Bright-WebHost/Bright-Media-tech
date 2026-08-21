@@ -6,37 +6,37 @@ import Reveal from "@/components/motion/Reveal";
 const benefits = [
   {
     icon: "fas fa-eye",
-    title: "Increased online presence",
+    title: "Stronger Brand Visibility ",
     desc: "Consistent, strategic posting puts your brand in front of more eyeballs every single day.",
   },
   {
     icon: "fas fa-heart",
-    title: "Enhanced Audience Engagement",
+    title: "More Audience Engagement ",
     desc: "When you show up authentically, your audience becomes your most powerful advocates.",
   },
   {
     icon: "fas fa-funnel-dollar",
-    title: "Higher engagement and interactions",
+    title: "More Clicks & Interactions",
     desc: "Engaged audiences trust your brand more — and trust drives sales more than any other factor.",
   },
   {
     icon: "fas fa-dollar-sign",
-    title: "Boosted Website Traffic",
+    title: "More Quality Traffic",
     desc: "Organic + paid social working together creates a compounding effect that maximises every rupee spent.",
   },
   {
     icon: "fas fa-seedling",
-    title: "Enhanced lead generation",
+    title: "More Qualified Leads",
     desc: "Unlike one-time campaigns, a strong social presence compounds over time — your asset, not a cost.",
   },
   {
     icon: "fas fa-trophy",
-    title: "Increased Sales and conversions",
+    title: "More Sales & Conversions",
     desc: "Position your brand as the definitive authority in your space, making competitors an afterthought.",
   },
   {
     icon: "fas fa-trophy",
-    title: "Maximised Return on Investment (ROI)",
+    title: "Clear Performance Insights",
     desc: "Position your brand as the definitive authority in your space, making competitors an afterthought.",
   },
   {

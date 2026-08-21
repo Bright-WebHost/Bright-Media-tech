@@ -28,11 +28,11 @@ const ROW_1_SERVICES: ServiceItem[] = [
   {
     id: "serv-1",
     no: "01",
-    tag: "Brand Identity",
+    tag: "Brand Building",
     title: "Branding",
     shortDesc:
-      "Create Brand identity that resonates with your audience and reflects your core values.",
-    takeaways: ["Identity Design", "Core Values", "Brand Resonance"],
+      "We give your brand a look, voice and personality people can actually remember.",
+    takeaways: ["Identity", "Voice", " Visuals"],
     color: "bg-[#c9f31d] text-[#0e0f11]",
     tapeClass: "tape-strip -top-3 left-6 -rotate-6",
     pinColor: "bg-red-600",
@@ -42,16 +42,16 @@ const ROW_1_SERVICES: ServiceItem[] = [
     trashRotate: -14,
     href: "/services-2/branding",
     likes: 342,
-    statBadge: "💡 Distinct Identity",
+    statBadge: "💡 LOOKS LIKE YOU ",
   },
   {
     id: "serv-2",
     no: "02",
-    tag: "Social Growth",
-    title: "Social Media Marketing",
+    tag: "Social",
+    title: "Social Media",
     shortDesc:
-      "Engage and grow your audience with custom social media strategies to boost brand awareness and interaction.",
-    takeaways: ["Audience Growth", "Brand Awareness", "Custom Strategies"],
+      "Content people want to stop for, share and come back to. ",
+    takeaways: ["Content", "Community", "Growth"],
     color: "bg-[#feef8f] text-slate-950",
     tapeClass: "tape-strip -top-3 left-1/2 -translate-x-1/2 -rotate-2",
     pinColor: "bg-amber-600",
@@ -61,16 +61,16 @@ const ROW_1_SERVICES: ServiceItem[] = [
     trashRotate: -10,
     href: "/services/social-media",
     likes: 529,
-    statBadge: "🔥 High Engagement",
+    statBadge: "🔥 WORTH THE SCROLL",
   },
   {
     id: "serv-3",
     no: "03",
-    tag: "Web & Platforms",
+    tag: "DIGITAL SPACE",
     title: "Web Development",
     shortDesc:
-      "Build user-friendly, responsive websites designed to enhance customer experience and drive conversions effectively.",
-    takeaways: ["Responsive UI", "Customer Experience", "High Conversion"],
+      "Websites that look good, load fast and make sense to the people using them.",
+    takeaways: [" UX", "Design", "Development"],
     color: "bg-[#99f6e4] text-slate-950",
     tapeClass: "tape-strip -top-3 right-8 rotate-3",
     pinColor: "bg-blue-600",
@@ -80,7 +80,7 @@ const ROW_1_SERVICES: ServiceItem[] = [
     trashRotate: 16,
     href: "/services-3",
     likes: 418,
-    statBadge: "⚡ 60fps & Fast UX",
+    statBadge: "⚡ FAST. CLEAN. SIMPLE.",
   },
 ];
 
@@ -88,11 +88,11 @@ const ROW_2_SERVICES: ServiceItem[] = [
   {
     id: "serv-4",
     no: "04",
-    tag: "Search Dominance",
+    tag: "GET FOUND",
     title: "SEO",
     shortDesc:
-      "Optimize your online presence to improve search rankings, attract organic traffic, and increase visibility.",
-    takeaways: ["Search Rankings", "Organic Traffic", "Online Visibility"],
+      "Helping the right people find you when they're looking. ",
+    takeaways: ["Search", " Content", " Visibility"],
     color: "bg-[#bbf7d0] text-emerald-950",
     tapeClass: "tape-strip -top-3 right-8 -rotate-3",
     pinColor: "bg-teal-600",
@@ -107,11 +107,11 @@ const ROW_2_SERVICES: ServiceItem[] = [
   {
     id: "serv-5",
     no: "05",
-    tag: "Targeted Ads",
-    title: "Paid Ads",
+    tag: "PAID TO PERFORM",
+    title: "Paid Advertising",
     shortDesc:
-      "Maximize reach and return on investment with targeted advertising campaigns across various digital platforms.",
-    takeaways: ["Maximized Reach", "High ROI", "Targeted Campaigns"],
+      "The right message, in front of the right people, without wasting the budget.",
+    takeaways: ["Targeting", "Creative", "Results"],
     color: "bg-[#fecdd3] text-slate-950",
     tapeClass: "tape-strip -top-3 right-6 rotate-4",
     pinColor: "bg-emerald-600",
@@ -126,11 +126,11 @@ const ROW_2_SERVICES: ServiceItem[] = [
   {
     id: "serv-6",
     no: "06",
-    tag: "Visual Storytelling",
+    tag: "MAKE IT VISUAL ",
     title: "Photography & Video",
     shortDesc:
-      "Capture compelling visuals that tell your brand story and engage your audience across all media.",
-    takeaways: ["Compelling Visuals", "Brand Storytelling", "Multi-Media Assets"],
+      "Photos and videos that give your brand something worth looking at. ",
+    takeaways: ["Shoot", "Edit", "Create"],
     color: "bg-[#e9d5ff] text-purple-950",
     tapeClass: "tape-strip -top-3 left-8 rotate-2",
     pinColor: "bg-purple-600",
@@ -145,11 +145,11 @@ const ROW_2_SERVICES: ServiceItem[] = [
   {
     id: "serv-7",
     no: "07",
-    tag: "Custom Software",
+    tag: "BUILT FOR YOU ",
     title: "Software Development",
     shortDesc:
-      "Build scalable, reliable software solutions designed to improve business efficiency and deliver seamless user experiences.",
-    takeaways: ["Scalable Systems", "Business Efficiency", "Seamless UX"],
+      "Useful digital tools, built around the way your business actually works.",
+    takeaways: ["Build", "Automate", "Simplify"],
     color: "bg-[#fed7aa] text-orange-950",
     tapeClass: "tape-strip -top-3 left-6 -rotate-6",
     pinColor: "bg-rose-600",
@@ -256,14 +256,14 @@ export default function Services() {
             </span>
           </div>
 
-          <button
+          {/* <button
             onClick={(e) => handleLike(serv.id, e)}
             className="flex items-center gap-1 text-xs font-bold text-black/80 hover:text-black transition-colors"
             title="Like this service note"
           >
             <i className="fas fa-heart text-red-600" />
             <span>{likesState[serv.id] || serv.likes}</span>
-          </button>
+          </button> */}
         </div>
 
         {/* Service Title */}
@@ -335,13 +335,13 @@ export default function Services() {
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight">
             {/* Torn Notes Pinned Across <br /> */}
             <span className="font-handwriting text-[#c9f31d] text-2xl sm:text-4xl lg:text-5xl underline decoration-wavy decoration-[#c9f31d] normal-case inline-block">
-              Our Services Desk
+              WHAT WE'RE GOOD AT 
             </span>
           </h2>
 
           {/* Centered Description */}
           <p className="text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Scroll to watch our 7 specialized pillars assemble onto the pinboard. Toggle modes or click and drag any note!
+            Seven things we do really well. Pick a note and have a look.
           </p>
 
           {/* Centered Interactive Animation Toggle Toolbar */}

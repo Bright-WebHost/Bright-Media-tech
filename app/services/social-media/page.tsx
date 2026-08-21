@@ -19,8 +19,8 @@ export default function SocialMediaPage() {
       {/* Breadcrumb Header */}
       <Breadcrumb
         title="Social Media"
-        subtitle="Viral Reach & Engagement"
-        badge="SOCIAL MEDIA // PILLAR 02"
+        subtitle="Make people stop scrolling"
+        badge="SOCIAL MEDIA // LET'S GET SOCIAL"
         description="Engage and grow your audience with custom social media strategies, high-voltage content creation, and active community interaction."
       />
       <SMHero />

@@ -12,8 +12,8 @@ export default function WhyDixor() {
   const itemsEnriched = [
     {
       no: "01",
-      title: "Personalized Strategies",
-      body: "At Bright Media, we understand that one size doesn't fit all. We develop customized strategies tailored to each client's unique goals and target audience.",
+      title: "No Copy-Paste Plans ",
+      body: "Your business isn't like everyone else's. So why should your strategy be? We start with you, not a template.",
       badge: "🎯 Bespoke Roadmaps",
       tag: "CUSTOM FIT",
       highlightColor: "bg-[#c9f31d]",
@@ -21,8 +21,8 @@ export default function WhyDixor() {
     },
     {
       no: "02",
-      title: "Insight-Driven Decisions",
-      body: "Our strategies are backed by thorough research and analysis. We leverage data-driven insights to make informed decisions and optimize campaign performance for maximum results.",
+      title: "We Pay Attention ",
+      body: "We look at what people are doing, what they're responding to and what isn't working — then we adjust.",
       badge: "📊 Data & Analytics",
       tag: "ANALYTICAL",
       highlightColor: "bg-[#feef8f]",
@@ -30,8 +30,8 @@ export default function WhyDixor() {
     },
     {
       no: "03",
-      title: "Creative Brilliance",
-      body: "Creativity is at the heart of everything we do. Our team of skilled professionals crafts compelling content and visually stunning designs that captivate audiences and drive engagement.",
+      title: "Good Ideas Matter",
+      body: "Pretty isn't enough. We want ideas that make someone stop and think, “Okay, that's good.”",
       badge: "💡 Scroll-Stopping Design",
       tag: "ORIGINAL",
       highlightColor: "bg-[#99f6e4]",
@@ -39,8 +39,8 @@ export default function WhyDixor() {
     },
     {
       no: "04",
-      title: "Ongoing Optimization",
-      body: "We believe in the power of continuous improvement. We closely monitor campaign performance, analyze results, and refine strategies to ensure ongoing success and ROI for our clients.",
+      title: "We Don't Just Post & Leave",
+      body: "We watch what happens after launch, learn from it and keep making things better.",
       badge: "📈 Scaled ROI",
       tag: "ITERATIVE",
       highlightColor: "bg-[#fecdd3]",
@@ -77,7 +77,7 @@ export default function WhyDixor() {
                 PROVEN METHODOLOGY
               </span> */}
               <span className="font-handwriting text-base font-bold text-black">
-                ★ Why Bright Media
+                ★ Why Choose Us
               </span>
             </div>
           </div>
@@ -88,11 +88,11 @@ export default function WhyDixor() {
                 WHY BRIGHT MEDIA
               </span> */}
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold uppercase text-black leading-[1.02] tracking-tight">
-                Unlock Revenue Growth
+                WHY BRIGHT MEDIA? 
               </h2>
             </div>
             <p className="font-handwriting text-xl sm:text-2xl font-bold text-black/70 max-w-sm">
-              ~ our 4 core differentiators ripped from our strategy desk ✍️
+              ~ four things we bring to every project ✍️
             </p>
           </div>
         </div>

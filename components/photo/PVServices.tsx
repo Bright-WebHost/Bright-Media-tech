@@ -1,249 +1,135 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Camera, Film, Users, Radio, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import PVTools from "./PVTools";
 
-/** Realistic 3D Pushpin component SVG */
-function PushPin({ color = "red", className = "" }: { color?: "red" | "blue" | "green" | "gold" | "purple"; className?: string }) {
-  const colorMap = {
-    red: {
-      top: "#EF4444",
-      mid: "#DC2626",
-      dark: "#991B1B",
-      highlight: "#FCA5A5",
-    },
-    blue: {
-      top: "#3B82F6",
-      mid: "#2563EB",
-      dark: "#1E40AF",
-      highlight: "#93C5FD",
-    },
-    purple: {
-      top: "#A855F7",
-      mid: "#9333EA",
-      dark: "#6B21A8",
-      highlight: "#E9D5FF",
-    },
-    green: {
-      top: "#10B981",
-      mid: "#059669",
-      dark: "#065F46",
-      highlight: "#6EE7B7",
-    },
-    gold: {
-      top: "#F59E0B",
-      mid: "#D97706",
-      dark: "#92400E",
-      highlight: "#FDE68A",
-    },
-  };
-
-  const c = colorMap[color];
-  const pinId = `pin-grad-${color}`;
-
+/** Black Wire Paper Clip SVG Component */
+function PaperClip({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative pointer-events-none select-none ${className}`}>
-      <svg
-        width="44"
-        height="52"
-        viewBox="0 0 48 56"
+    <svg
+      width="24"
+      height="52"
+      viewBox="0 0 24 52"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`drop-shadow-sm select-none pointer-events-none ${className}`}
+    >
+      {/* Clip Shadow */}
+      <path
+        d="M7 16 V8 C7 4.2 9.5 1.8 13 1.8 C16.5 1.8 19 4.2 19 8 V38 C19 42.5 15.5 46 11 46 C6.5 46 3 42.5 3 38 V14"
+        stroke="rgba(0,0,0,0.25)"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+        transform="translate(1.2, 1.8)"
+      />
+      {/* Outer loop */}
+      <path
+        d="M7 16 V8 C7 4.2 9.5 1.8 13 1.8 C16.5 1.8 19 4.2 19 8 V38 C19 42.5 15.5 46 11 46 C6.5 46 3 42.5 3 38 V14"
+        stroke="#18181B"
+        strokeWidth="2.5"
+        strokeLinecap="round"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="drop-shadow-md overflow-visible"
-      >
-        <defs>
-          <radialGradient id={pinId} cx="35%" cy="30%" r="65%">
-            <stop offset="0%" stopColor={c.highlight} />
-            <stop offset="40%" stopColor={c.top} />
-            <stop offset="85%" stopColor={c.mid} />
-            <stop offset="100%" stopColor={c.dark} />
-          </radialGradient>
-          <linearGradient id="needle-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#CBD5E1" />
-            <stop offset="50%" stopColor="#F8FAFC" />
-            <stop offset="100%" stopColor="#64748B" />
-          </linearGradient>
-        </defs>
-
-        {/* Pin Shadow on card */}
-        <ellipse cx="32" cy="46" rx="10" ry="4" fill="rgba(0,0,0,0.22)" filter="blur(1.5px)" />
-        <ellipse cx="24" cy="48" rx="2.5" ry="1" fill="rgba(0,0,0,0.4)" />
-
-        {/* Needle */}
-        <path d="M 23 28 L 24 48 L 25 28 Z" fill="url(#needle-grad)" stroke="#475569" strokeWidth="0.5" />
-
-        {/* Pin Knob */}
-        <ellipse cx="24" cy="28" rx="8" ry="2.5" fill={c.dark} />
-        <path d="M 18 28 L 19.5 16 L 28.5 16 L 30 28 Z" fill={`url(#${pinId})`} />
-        <ellipse cx="24" cy="16" rx="7.5" ry="2.2" fill={c.top} />
-        <circle cx="24" cy="11" r="7.5" fill={`url(#${pinId})`} />
-        <ellipse cx="21.5" cy="8.5" rx="2.5" ry="1.5" fill="white" opacity="0.7" transform="rotate(-20 21.5 8.5)" />
-      </svg>
-    </div>
+      />
+      {/* Inner loop */}
+      <path
+        d="M7 16 V35 C7 37.5 9 39.5 11.5 39.5 C14 39.5 16 37.5 16 35 V12 C16 10 14.5 8.5 12.5 8.5 C10.5 8.5 9 10 9 12 V30"
+        stroke="#18181B"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* Metal highlight line */}
+      <path
+        d="M18 10 V34"
+        stroke="rgba(255,255,255,0.4)"
+        strokeWidth="0.8"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }
 
-/** Sticky Note Data */
+/** Ripped Paper Top Edge */
+function TornPaperTop() {
+  return (
+    <svg
+      viewBox="0 0 300 10"
+      className="w-full h-2.5 block select-none pointer-events-none fill-white"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 10 L0 5 L10 2 L20 6 L30 1 L40 5 L50 2 L60 6 L70 1 L80 5 L90 2 L100 6 L110 1 L120 5 L130 2 L140 6 L150 1 L160 5 L170 2 L180 6 L190 1 L200 5 L210 2 L220 6 L230 1 L240 5 L250 2 L260 6 L270 1 L280 5 L290 2 L300 5 L300 10 Z" />
+    </svg>
+  );
+}
+
+/** Ripped Paper Bottom Edge */
+function TornPaperBottom() {
+  return (
+    <svg
+      viewBox="0 0 300 14"
+      className="w-full h-3.5 block select-none pointer-events-none fill-white -mt-[1px]"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 0 L300 0 L300 6 L290 2 L280 7 L270 1 L260 6 L250 2 L240 7 L230 1 L220 6 L210 2 L200 7 L190 1 L180 6 L170 2 L160 7 L150 1 L140 6 L130 2 L120 7 L110 1 L100 6 L90 2 L80 7 L70 1 L60 6 L50 2 L40 7 L30 1 L20 6 L10 2 L0 7 Z" />
+    </svg>
+  );
+}
+
+/** Card Data with precise color themes matching reference image */
 const SERVICES_NOTES = [
   {
     id: "01",
     tag: "PHOTOGRAPHY",
-    title: "CREATIVE CONCEPT DEVELOPMENT",
-    desc: "We’ll collaborate with you to develop unique photography and videography concepts that reflect your brand identity and captivate your audience.",
-    icon: Camera,
-    colorTheme: {
-      bg: "bg-[#FFF7ED]",
-      border: "border-amber-200/80",
-      accent: "#EA580C",
-      textDark: "text-slate-900",
-      textMuted: "text-slate-600",
-      badge: "bg-orange-100 text-orange-800",
-    },
-    pinColor: "red" as const,
-    rotation: "-rotate-4",
-    alignClassMobile: "mr-auto lg:mr-0", // Left on mobile, grid item on desktop
-    staggerDesktop: "lg:translate-y-0",
+    title: "THE BIG IDEA",
+    desc: "We start with the concept, planning the look, mood and direction to make every frame feel like your brand.",
+    bgColor: "#C9F31D",
+    textColor: "#365314",
+    badgeBg: "rgba(201, 243, 29, 0.35)",
+    badgeBorder: "rgba(163, 230, 53, 0.8)",
   },
   {
     id: "02",
     tag: "PRODUCTION",
-    title: "HIGH-QUALITY PRODUCTION",
-    desc: "Our team ensures every shot and frame is crafted with precision and creativity, delivering exceptional visual content tailored to your needs.",
-    icon: Film,
-    colorTheme: {
-      bg: "bg-[#EFF6FF]",
-      border: "border-blue-200/80",
-      accent: "#2563EB",
-      textDark: "text-slate-900",
-      textMuted: "text-slate-600",
-      badge: "bg-blue-100 text-blue-800",
-    },
-    pinColor: "blue" as const,
-    rotation: "rotate-3",
-    alignClassMobile: "ml-auto lg:ml-0", // Right on mobile, grid item on desktop
-    staggerDesktop: "lg:translate-y-14",
+    title: "SHOOT & PRODUCE",
+    desc: "From the setup to the final shot, we bring the concept to life with the right people, tools and attention to detail.",
+    bgColor: "#FEEF8F",
+    textColor: "#B45309",
+    badgeBg: "rgba(249, 158, 26, 0.18)",
+    badgeBorder: "rgba(249, 158, 26, 0.5)",
   },
   {
     id: "03",
     tag: "STORYTELLING",
-    title: "TAILORED BRAND STORYTELLING",
-    desc: "We bring your brand’s story to life through visuals that evoke emotion, inspire action, and leave a lasting impression on your audience.",
-    icon: Users,
-    colorTheme: {
-      bg: "bg-[#FAF5FF]",
-      border: "border-purple-200/80",
-      accent: "#9333EA",
-      textDark: "text-slate-900",
-      textMuted: "text-slate-600",
-      badge: "bg-purple-100 text-purple-800",
-    },
-    pinColor: "purple" as const,
-    rotation: "-rotate-3",
-    alignClassMobile: "mr-auto lg:mr-0", // Left on mobile, grid item on desktop
-    staggerDesktop: "lg:-translate-y-2",
+    title: "TELL YOUR STORY",
+    desc: "We turn your message into visuals that feel natural, connect with your audience and give your brand something worth remembering.",
+    bgColor: "#FED7AA",
+    textColor: "#0E4B5C",
+    badgeBg: "rgba(28, 103, 126, 0.16)",
+    badgeBorder: "rgba(28, 103, 126, 0.45)",
   },
   {
     id: "04",
     tag: "POST-PRODUCTION",
-    title: "POST-PRODUCTION EXCELLENCE",
-    desc: "From editing to color grading, we enhance your visuals with professional post-production techniques that make your content truly stand out.",
-    icon: Radio,
-    colorTheme: {
-      bg: "bg-[#F0FDF4]",
-      border: "border-emerald-200/80",
-      accent: "#059669",
-      textDark: "text-slate-900",
-      textMuted: "text-slate-600",
-      badge: "bg-emerald-100 text-emerald-800",
-    },
-    pinColor: "green" as const,
-    rotation: "rotate-4",
-    alignClassMobile: "ml-auto lg:ml-0", // Right on mobile, grid item on desktop
-    staggerDesktop: "lg:translate-y-16",
+    title: "THE FINAL TOUCH",
+    desc: "Editing, colour, sound and finishing , we polish every detail until the final piece is ready to make an impact.",
+    bgColor: "#99F6E4",
+    textColor: "#0F766E",
+    badgeBg: "rgba(34, 184, 184, 0.16)",
+    badgeBorder: "rgba(34, 184, 184, 0.45)",
   },
 ];
-
-/** SVG Connectors for Mobile (S-curve vertical) and Desktop (Zig-zag horizontal) */
-function DottedPinConnectors() {
-  return (
-    <>
-      {/* Mobile/Tablet Vertical S-Curve Connector */}
-      <svg
-        className="pointer-events-none absolute inset-0 w-full h-full z-10 lg:hidden block overflow-visible"
-        viewBox="0 0 400 1150"
-        preserveAspectRatio="none"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M 120 40 C 260 120, 260 210, 280 310 C 140 400, 140 490, 120 590 C 260 680, 260 770, 280 870"
-          stroke="rgba(0, 0, 0, 0.12)"
-          strokeWidth="3"
-          strokeDasharray="6 6"
-          strokeLinecap="round"
-          fill="none"
-          transform="translate(2, 3)"
-        />
-        <path
-          d="M 120 40 C 260 120, 260 210, 280 310 C 140 400, 140 490, 120 590 C 260 680, 260 770, 280 870"
-          stroke="#94A3B8"
-          strokeWidth="2.5"
-          strokeDasharray="7 5"
-          strokeLinecap="round"
-          fill="none"
-          opacity="0.85"
-        />
-      </svg>
-
-      {/* Desktop Horizontal Zig-Zag Connector */}
-      <svg
-        className="pointer-events-none absolute inset-0 w-full h-full z-10 hidden lg:block overflow-visible"
-        viewBox="0 0 1000 480"
-        preserveAspectRatio="none"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M 125 40 Q 250 185 375 175 Q 500 40 625 30 Q 750 190 875 195"
-          stroke="rgba(0, 0, 0, 0.12)"
-          strokeWidth="3"
-          strokeDasharray="6 6"
-          strokeLinecap="round"
-          fill="none"
-          transform="translate(2, 3)"
-        />
-        <path
-          d="M 125 40 Q 250 185 375 175 Q 500 40 625 30 Q 750 190 875 195"
-          stroke="#94A3B8"
-          strokeWidth="2.5"
-          strokeDasharray="7 5"
-          strokeLinecap="round"
-          fill="none"
-          opacity="0.85"
-        />
-
-        {/* Pin knots */}
-        <circle cx="125" cy="40" r="4" fill="#94A3B8" />
-        <circle cx="375" cy="175" r="4" fill="#94A3B8" />
-        <circle cx="625" cy="30" r="4" fill="#94A3B8" />
-        <circle cx="875" cy="195" r="4" fill="#94A3B8" />
-      </svg>
-    </>
-  );
-}
 
 export default function PVServices() {
   return (
     <section className="relative bg-[#ffffff] py-10 sm:py-14 overflow-hidden">
-      {/* Background ambient light */}
-      {/* <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-primary/10 blur-[120px]" /> */}
-
       <div className="container-x relative z-10">
         {/* Lined Notebook Studio Board */}
         <div
-          className="relative rounded-3xl p-4 sm:p-10 md:p-12 pb-16 lg:pb-12 border border-slate-200 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] overflow-hidden"
+          className="relative rounded-3xl p-4 sm:p-8 md:p-10 pb-16 lg:pb-12 border border-slate-200 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] overflow-hidden"
           style={{
             backgroundColor: "#FAF8F5",
             backgroundImage: `
@@ -257,84 +143,138 @@ export default function PVServices() {
           <div className="pointer-events-none absolute -top-3 right-10 h-8 w-32 rotate-3 bg-white/70 backdrop-blur-xs border border-amber-200/60 shadow-xs opacity-90" />
 
           {/* Section Header */}
-          <Reveal className="mb-12 sm:mb-16 text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-sm bg-amber-200/60 border border-amber-400/40 text-amber-900 text-xs font-mono tracking-widest uppercase mb-4 shadow-xs transform -rotate-1">
-              <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+          <Reveal className="mb-14 sm:mb-16 text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-sm bg-lime-200/60 border border-lime-400/40 text-lime-900 text-xs font-mono tracking-widest uppercase mb-4 shadow-xs transform -rotate-1">
+              <Sparkles className="w-3.5 h-3.5 text-lime-700" />
               <span>Production Board &bull; Bright Media</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 font-serif">
-              How we can <span className="underline decoration-[#C9F31D]/80 decoration-wavy decoration-2">help you?</span>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-black leading-[1.06]">
+              FROM FIRST SHOT{" "}
+              <span className="font-handwriting text-4xl sm:text-6xl lg:text-7xl text-emerald-800 underline decoration-wavy decoration-[#c9f31d] normal-case inline-block">
+                to final cut
+              </span>{" "}
+              {/* Do */}
             </h2>
           </Reveal>
 
-          {/* Cards Wrapper: Vertical alternating on Mobile, Horizontal 4-Column Grid on Desktop */}
-          <div className="relative max-w-3xl lg:max-w-none mx-auto pt-4 pb-12">
-            {/* Dotted Thread overlay for both Mobile and Desktop */}
-            <DottedPinConnectors />
-
-            <div className="relative z-20 space-y-6 sm:space-y-4 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-6">
-              {SERVICES_NOTES.map((note, index) => {
-                            const IconComp = note.icon;
+          {/* 4 Cards Grid - No Thread, matching reference layout */}
+          <div className="relative max-w-lg lg:max-w-none mx-auto pt-6 pb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:gap-5 xl:gap-6">
+              {SERVICES_NOTES.map((card, index) => {
                 return (
                   <motion.div
-                    key={note.id}
-                                    initial={{ opacity: 0, y: 30, rotate: 0 }}
+                    key={card.id}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.5, delay: index * 0.12 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{
-                      scale: 1.04,
-                      rotate: 0,
-                      zIndex: 40,
+                      y: -6,
                       transition: { type: "spring", stiffness: 350, damping: 22 },
                     }}
-                    className={`relative w-[88%] sm:w-[68%] lg:w-full ${note.alignClassMobile} ${note.rotation} ${index > 0 ? "-mt-8 sm:-mt-12 lg:mt-0" : ""} ${note.staggerDesktop} transition-shadow duration-300 cursor-pointer select-none`}
+                    className="relative select-none group"
                   >
-                    {/* Double Layered Card: Outer White Frame */}
-                    <div className="bg-white/95 backdrop-blur-xs rounded-2xl p-3.5 sm:p-5 shadow-[0_12px_32px_-6px_rgba(0,0,0,0.1)] border border-slate-200/80 relative">
-                      {/* Push Pin placed top center */}
-                      <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-30 transition-transform duration-300 group-hover:scale-110">
-                        <PushPin color={note.pinColor} />
+                    {/* Outer Colored Card Base */}
+                    <div
+                      className="relative rounded-2xl p-4 sm:p-5 pt-8 pb-6 shadow-[0_16px_32px_-6px_rgba(0,0,0,0.18),_0_6px_12px_-2px_rgba(0,0,0,0.08)] transition-all duration-300 group-hover:shadow-[0_24px_42px_-8px_rgba(0,0,0,0.25)]"
+                      style={{ backgroundColor: card.bgColor }}
+                    >
+                      {/* Black Wire Paper Clip on Top Left */}
+                      <div className="absolute -top-3.5 left-5 sm:left-6 z-30 transition-transform duration-300 group-hover:-translate-y-1">
+                        <PaperClip />
                       </div>
 
-                      {/* Inner Tinted Box */}
-                      <div className={`rounded-xl p-4 sm:p-5 ${note.colorTheme.bg} border ${note.colorTheme.border} relative z-10 pt-4`}>
-                        {/* Number #01, #02... */}
-                        <div className="flex items-center justify-between gap-2 mb-2">
-                          <span
-                            className="font-serif italic font-bold text-2xl sm:text-3xl leading-none"
-                            style={{ color: note.colorTheme.accent }}
-                          >
-                            {note.id}
-                          </span>
-                          <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider ${note.colorTheme.badge}`}>
-                            {note.tag}
-                          </span>
+                      {/* Circular Number Badge on Top Center */}
+                      <div
+                        className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 sm:w-13 sm:h-13 rounded-full border-[3.5px] border-white shadow-[0_6px_14px_rgba(0,0,0,0.2)] flex items-center justify-center z-30 transition-transform duration-300 group-hover:scale-105"
+                        style={{ backgroundColor: card.bgColor }}
+                      >
+                        <span className="text-white font-black text-lg sm:text-xl tracking-tight leading-none">
+                          {card.id}
+                        </span>
+                      </div>
+
+                      {/* Bottom-right lifted paper curl shadow onto card background */}
+                      <div className="absolute bottom-2.5 right-3 w-32 h-8 bg-black/40 blur-[6px] rounded-full transform rotate-2 pointer-events-none z-0 opacity-80 group-hover:opacity-95 transition-opacity" />
+
+                      {/* Inner Torn Paper Sheet (White Notepad Paper) */}
+                      <div className="relative z-10 drop-shadow-[0_4px_10px_rgba(0,0,0,0.12)]">
+                        {/* Torn Top Edge */}
+                        <TornPaperTop />
+
+                        {/* White Sheet Middle Area with Ruled Lines & Binder Holes */}
+                        <div
+                          className="relative bg-white px-5 sm:px-6 pt-6 pb-3"
+                          style={{
+                            backgroundImage: `
+                              repeating-linear-gradient(
+                                to bottom,
+                                transparent,
+                                transparent 21px,
+                                rgba(0, 0, 0, 0.055) 21px,
+                                rgba(0, 0, 0, 0.055) 22px
+                              )
+                            `,
+                          }}
+                        >
+                          {/* Spiral / Binder Punch Square Holes on Left Margin */}
+                          <div className="absolute left-2.5 top-2 bottom-2 flex flex-col justify-between items-center z-20 pointer-events-none">
+                            {Array.from({ length: 9 }).map((_, i) => (
+                              <div
+                                key={i}
+                                className="w-2.5 h-1.5 rounded-[1px] shadow-inner"
+                                style={{ backgroundColor: card.bgColor }}
+                              />
+                            ))}
+                          </div>
+
+                          {/* Content inside white sheet */}
+                          <div className="pl-3.5 pr-1 text-center">
+                            {/* Unique Styled Tag Badge - Single Line */}
+                            <div className="mb-2 flex justify-center">
+                              <span
+                                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-mono font-bold tracking-wider uppercase whitespace-nowrap border shadow-2xs transition-transform duration-200 group-hover:scale-105"
+                                style={{
+                                  backgroundColor: card.badgeBg,
+                                  borderColor: card.badgeBorder,
+                                  color: card.textColor,
+                                }}
+                              >
+                                <span
+                                  className="w-1 h-1 rounded-full shrink-0"
+                                  style={{ backgroundColor: card.textColor }}
+                                />
+                                <span className="truncate">{card.tag}</span>
+                              </span>
+                            </div>
+
+                            {/* Service Title */}
+                            <h4 className="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight leading-snug mb-2 font-sans">
+                              {card.title}
+                            </h4>
+
+                            {/* Description */}
+                            <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed font-sans line-clamp-4">
+                              {card.desc}
+                            </p>
+                          </div>
                         </div>
 
-                        {/* Title */}
-                        <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 mb-2 font-sans">
-                          {note.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
-                          {note.desc}
-                        </p>
+                        {/* Torn Bottom Edge */}
+                        <TornPaperBottom />
                       </div>
                     </div>
                   </motion.div>
                 );
               })}
-              
             </div>
-            
           </div>
+
           <PVTools />
         </div>
-        
       </div>
     </section>
   );
 }
+

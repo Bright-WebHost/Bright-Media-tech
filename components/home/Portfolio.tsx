@@ -9,8 +9,8 @@ import { motion } from "framer-motion";
 const PROCESS_STEPS = [
   {
     step: "01",
-    title: "CONSULTATION",
-    subtitle: "Discovery & Goals",
+    title: "LET'S TALK",
+    subtitle: "Tell us what's on your mind.",
     desc: "Deep-dive alignment on your brand vision, target audience, competitive landscape, and KPIs.",
     color: "bg-[#c9f31d] text-black",
     tape: "tape-strip -top-2 sm:-top-3 left-2 sm:left-4 -rotate-6 !w-7 sm:!w-14 !h-2 sm:!h-4",
@@ -19,8 +19,8 @@ const PROCESS_STEPS = [
   },
   {
     step: "02",
-    title: "STRATEGY DEVELOPMENT",
-    subtitle: "Architecture & Blueprint",
+    title: "MAKE A PLAN",
+    subtitle: "We turn the idea into a clear direction.",
     desc: "Crafting multi-channel creative blueprints, visual direction, technical specifications, and timeline roadmaps.",
     color: "bg-[#feef8f] text-slate-900",
     tape: "tape-strip -top-2 sm:-top-3 right-2 sm:right-4 rotate-3 !w-7 sm:!w-14 !h-2 sm:!h-4",
@@ -29,8 +29,8 @@ const PROCESS_STEPS = [
   },
   {
     step: "03",
-    title: "EXECUTION",
-    subtitle: "High-Octane Production",
+    title: "MAKE IT HAPPEN",
+    subtitle: "This is where the ideas become real.",
     desc: "Rapid design, high-velocity Next.js development, 4K commercial shoots, and precision asset creation.",
     color: "bg-[#99f6e4] text-slate-950",
     tape: "tape-strip -top-2 sm:-top-3 left-1/2 -translate-x-1/2 -rotate-2 !w-7 sm:!w-14 !h-2 sm:!h-4",
@@ -39,8 +39,8 @@ const PROCESS_STEPS = [
   },
   {
     step: "04",
-    title: "MONITORING & OPTIMIZATION",
-    subtitle: "Analytics & Scaling",
+    title: "WATCH & TWEAK ",
+    subtitle: "See what's working. Make it better.",
     desc: "Granular A/B testing, real-time ROAS tracking, speed optimization, and data-driven iterations.",
     color: "bg-[#fecdd3] text-slate-950",
     tape: "tape-strip -top-2 sm:-top-3 right-2 sm:right-6 rotate-4 !w-7 sm:!w-14 !h-2 sm:!h-4",
@@ -49,8 +49,8 @@ const PROCESS_STEPS = [
   },
   {
     step: "05",
-    title: "REVIEW & FEEDBACK",
-    subtitle: "Deliver & Elevate",
+    title: "LOOK BACK. MOVE FORWARD.",
+    subtitle: "Take the learnings and make the next one even better. ",
     desc: "Comprehensive project review, performance feedback loops, asset delivery, and ongoing scale support.",
     color: "bg-[#e9d5ff] text-purple-950",
     tape: "tape-strip -top-2 sm:-top-3 left-2 sm:left-6 rotate-2 !w-7 sm:!w-14 !h-2 sm:!h-4",
@@ -263,20 +263,20 @@ export default function Portfolio() {
         <div className="mx-auto max-w-4xl text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16">
           {/* Centered Pill Label */}
           <div className="inline-flex items-center gap-2 rounded-full bg-black px-4 sm:px-5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-black text-[#c9f31d] uppercase tracking-wider shadow-md">
-            <i className="fas fa-thumbtack text-[10px] sm:text-xs" /> OUR MODEL &amp; WORKFLOW
+            <i className="fas fa-thumbtack text-[10px] sm:text-xs" /> HOW WE GET THINGS DONE
           </div>
 
           {/* Main Title */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-heading tracking-tight leading-[1.05]">
-            We Take Care Of{" "}
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-heading tracking-tight leading-[1.05]">
+            FROM IDEA TO {" "}
             <span className="font-handwriting text-4xl sm:text-4xl lg:text-6xl text-emerald-950 underline decoration-wavy decoration-[#c9f31d] normal-case inline-block mt-1">
-              Everything
+              Done.
             </span>
           </h2>
 
           {/* Subtitle Description */}
           <p className="text-xs sm:text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed px-2">
-            We manage all aspects of your project, ensuring seamless execution and exceptional results tailored for you.
+            You bring the idea. We figure out the rest.
           </p>
         </div>
 
@@ -341,16 +341,16 @@ export default function Portfolio() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b-2 border-black/15 pb-3 sm:pb-4 mb-6 sm:mb-10">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 rounded-full bg-[#c9f31d]/35 border border-black/15 px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-black text-black uppercase tracking-wider">
-                <i className="fas fa-palette text-[10px] sm:text-xs" /> PROVEN WORK CANVAS
+                <i className="fas fa-palette text-[10px] sm:text-xs" /> THINGS WE'VE MADE
               </div>
               <h3 className="text-xl sm:text-3xl md:text-4xl font-black text-black uppercase tracking-tight">
-                Craft Delivered With This Model
+                A FEW BRIGHT THINGS WE'VE WORKED ON
               </h3>
             </div>
 
             <div className="flex items-center gap-2 font-mono text-[10px] sm:text-xs font-bold text-gray-500">
               <span className="h-2 w-2 rounded-full bg-[#15803d]" />
-              <span>CHAOTIC DESK SWATCHES // PINNED MOODBOARD</span>
+              <span>REAL CLIENTS. REAL WORK. OUR FAVOURITE KIND.</span>
             </div>
           </div>
 
@@ -438,13 +438,13 @@ export default function Portfolio() {
           <div className="flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-3.5 sm:gap-6 pt-1.5 sm:pt-2">
             <div className="space-y-0.5 sm:space-y-1">
               <span className="font-handwriting text-sm sm:text-lg md:text-xl font-bold text-emerald-950 block">
-                ⚡ Ready to experience the model?
+                ⚡ Got an Idea?
               </span>
               <h4 className="text-base sm:text-2xl md:text-3xl font-black text-black uppercase tracking-tight leading-tight">
-                Let's Build Your Project Together
+                LET'S MAKE IT HAPPEN.
               </h4>
               <p className="text-[11px] sm:text-sm text-gray-600 max-w-xl mx-auto md:mx-0 leading-snug sm:leading-relaxed">
-                From consultation to final delivery, we take care of everything so you can focus on scale.
+                Tell us what you're thinking. We'll take it from there. 
               </p>
             </div>
 
@@ -452,7 +452,7 @@ export default function Portfolio() {
               href="/contact"
               className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-black px-4 sm:px-7 py-2 sm:py-3.5 text-[10px] sm:text-xs font-black uppercase text-[#c9f31d] tracking-wider shadow-md sm:shadow-xl transition-all hover:bg-[#c9f31d] hover:text-black hover:scale-105 shrink-0"
             >
-              <i className="fas fa-paper-plane text-[9px] sm:text-xs" /> Start A Consultation
+              <i className="fas fa-paper-plane text-[9px] sm:text-xs" /> LET'S TALK
             </Link>
           </div>
         </div>

@@ -15,7 +15,7 @@ export default function PhotographyAndVideoProductionPage() {
     <SiteShell>
       <Breadcrumb
         title="Photography & Video"
-        subtitle="4K Cinematic Commercials"
+        subtitle="Visuals that make people look twice"
         badge="VISUAL CRAFT // PILLAR 06"
         description="Capture compelling visuals, commercial videos, and studio photoshoots that tell your brand story and engage audiences across all digital channels."
       />

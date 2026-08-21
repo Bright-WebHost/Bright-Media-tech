@@ -110,13 +110,13 @@ export default function About() {
                 {/* 3 Sticky Sticker Tags */}
                 <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 pt-2 ">
                   <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-xs font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
-                    <span className="text-black text-sm">✦</span> Bespoke Identity
+                    <span className="text-black text-sm">✦</span> Made To Be Yours 
                   </div>
                   <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-xs font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
-                    <span className="text-black text-sm">✦</span> Omni-Channel Story
+                    <span className="text-black text-sm">✦</span> One Story, Everywhere
                   </div>
                   <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-xs font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
-                    <span className="text-black text-sm">✦</span> Scaled Growth
+                    <span className="text-black text-sm">✦</span> Room To Grow
                   </div>
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default function About() {
               {/* Sticky Footnote & Hand-drawn Note */}
               <div className="relative z-10 mt-8 pt-4 border-t border-black/15 flex flex-wrap items-center justify-between gap-2">
                 <span className="font-handwriting text-xl sm:text-2xl font-bold text-black">
-                  ~ crafted with intent, passion &amp; precision ✨
+                  ~ thought through, made well &amp; built to last ✨
                 </span>
                 <span className="font-mono text-[10px] font-black text-black/60 uppercase tracking-widest">
                   BRIGHT MEDIA STUDIO
@@ -171,10 +171,10 @@ export default function About() {
               {/* Frame Footer Caption */}
               <div className="mt-3 px-1 flex items-center justify-between">
                 <span className="font-handwriting text-xl font-bold text-gray-900">
-                  Visual Excellence in Action ✨
+                 A Brand Coming Together  ✨
                 </span>
                 <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest font-mono">
-                  GLOBAL AGENCY
+                  BUILT FOR EVERYWHERE
                 </span>
               </div>
             </div>

@@ -6,29 +6,29 @@ import TornEdgeDivider from "../contact/TornEdgeDivider";
 
 const STATS = [
   {
-    value: "100+",
-    label: "Unique Identities Created",
+    value: "01",
+    label: "A clear brand identity",
     color: "lime",
     pinType: "tape",
     rotation: -1.5,
   },
   {
-    value: "95%",
-    label: "Client Satisfaction ",
+    value: "02",
+    label: "A look people remember",
     color: "yellow",
     pinType: "pin-red",
     rotation: 1.8,
   },
   {
-    value: "85%",
-    label: "Growth Impact",
+    value: "03",
+    label: "Consistency across every touchpoint",
     color: "teal",
     pinType: "tape",
     rotation: -2.0,
   },
   {
-    value: "85%",
-    label: "Brand Recognition",
+    value: "04",
+    label: "A brand that feels like you",
     color: "peach",
     pinType: "pin-blue",
     rotation: 1.5,
@@ -112,17 +112,16 @@ export default function BRHero() {
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-black leading-[1.06]">
                 What{" "}
                 <span className="font-handwriting text-4xl sm:text-6xl lg:text-7xl text-emerald-800 underline decoration-wavy decoration-[#c9f31d] normal-case inline-block">
-                  We Can
+                  we build
                 </span>{" "}
-                Do
+                {/* Do */}
               </h1>
 
               {/* Exact Subtitle */}
               <p className="mt-4 text-base sm:text-lg text-black/75 font-medium max-w-2xl mx-auto leading-relaxed">
-                Make your brand stand out from the rest, Let us redefine your brand by utilizing the right approach. 
-                We specialize in crafting quality brand identities that resonate with your audience and set you apart 
-                from the competition. Our strategic approach, creative expertise, and attention to detail ensure that 
-                your brand leaves a lasting impression and drives meaningful connections with your target market.
+                A brand should be recognisable before anyone sees the name. We build the pieces that make that happen, 
+                your visual identity, logo, colours, typography and the little details that make everything feel 
+                unmistakably yours.
               </p>
             </div>
           </div>

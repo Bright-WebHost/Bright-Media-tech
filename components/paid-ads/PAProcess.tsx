@@ -7,31 +7,31 @@ import PVTools from "../photo/PVTools";
 const steps = [
   {
     no: "01",
-    title: "Strategic Planning",
+    title: "Campaign Strategy",
     icon: "fas fa-search",
     color: "bg-primary text-dark",
-    desc: "Our team carries out research that is comprehensive in order to identify the right places for advertising, ad forms and options of targeting for your campaigns.",
+    desc: "We define your goals, audience, platforms and budget to build a campaign with a clear direction from day one.",
   },
   {
     no: "02",
-    title: "Creative Execution",
+    title: "Ad Creation",
     icon: "fas fa-chess-knight",
     color: "bg-dark-secondary text-white",
-    desc: "Through persuasive copywriting, engaging visuals and clear calls-to-action we manage to grab attention and motivate users to respond.",
+    desc: "From scroll-stopping visuals to sharp copy, we create ads designed to grab attention and drive action.",
   },
   {
     no: "03",
-    title: "Continuous Optimization",
+    title: "Launch & Test",
     icon: "fas fa-film",
     color: "bg-primary text-dark",
-    desc: "Based on data insights, we continuously optimize your campaigns to improve performance and maximize ROI.",
+    desc: "We launch your campaigns, test different creatives and audiences, and quickly spot what’s working best.",
   },
   {
     no: "04",
-    title: "Transparent Reporting",
+    title: "Optimize & Scale",
     icon: "fas fa-paper-plane",
     color: "bg-dark-secondary text-white",
-    desc: "Our reports highlight key metrics, insights, and recommendations for future optimizations.",
+    desc: "We track the numbers, cut what’s not working and scale the campaigns that bring in better results. ",
   },
 ];
 
@@ -54,14 +54,13 @@ export default function PAProcess() {
 
       <div className="container-x relative z-10">
         <Reveal className="mb-16 text-center">
-          <h4 className="section-label justify-center">How We Work</h4>
+          <h4 className="section-label justify-center">HOW WE BUILD YOUR CAMPAIGN</h4>
           <h2 className="mt-3 text-3xl font-extrabold text-black md:text-5xl">
-            Our Proven Process
+            From Idea to Impact
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-black/50">
-            At Bright Media, we believe that successful branding begins with a deep
-            understanding of your business, audience, and objectives. Our process is
-            collaborative and tailored to your unique needs
+            Every campaign starts with a clear goal. We plan, build, test and refine your 
+            ads to reach the right audience and turn clicks into real results.
           </p>
         </Reveal>
 

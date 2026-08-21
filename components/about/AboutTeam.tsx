@@ -271,13 +271,13 @@ export default function AboutTeam() {
         <Reveal className="mb-14 sm:mb-18 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-[#c9f31d] px-4 py-1.5 text-xs font-black uppercase tracking-wider text-black shadow-xs dark:border-white/20">
             <span className="h-2 w-2 rounded-full bg-red-600 animate-pulse" />
-            <span>📌 TEAM DIRECTORY // CORE MINDS</span>
+            <span>📌 TEAM BOARD // THE PEOPLE BEHIND IT</span>
           </div>
 
           <h2 className="mt-4 text-3xl font-bold uppercase tracking-tight text-heading dark:text-white sm:text-5xl lg:text-6xl leading-[1.05]">
-            The Creative Minds Behind{" "}
+            MEET THE PEOPLE BEHIND {" "}
             <span className="font-handwriting text-4xl sm:text-6xl lg:text-7xl text-emerald-700 dark:text-[#c9f31d] underline decoration-wavy decoration-[#c9f31d] dark:decoration-emerald-500 normal-case inline-block mt-1">
-              Every Masterpiece.
+              The bright ideas.
             </span>
           </h2>
 
@@ -288,7 +288,7 @@ export default function AboutTeam() {
           {/* Handwritten Sub-Note */}
           <div className="mt-3 inline-flex items-center gap-2">
             <span className="font-handwriting text-xl sm:text-2xl font-bold text-amber-800 dark:text-amber-300 -rotate-2">
-              ✨ 100% In-house craft • Passion-driven team
+              ✨ 100% In-house • Always Curious • Always Creating 
             </span>
           </div>
         </Reveal>
