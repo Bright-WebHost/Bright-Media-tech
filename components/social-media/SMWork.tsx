@@ -176,7 +176,6 @@ const TORN_PAPER_BOTTOM_CLIP =
 export default function SMWork() {
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [flippedCard, setFlippedCard] = useState<string | null>(null);
 
   const getThemeStyles = (theme: WorkProject["colorTheme"]) => {
     switch (theme) {
@@ -185,56 +184,44 @@ export default function SMWork() {
           bg: "bg-[#d8f938] text-[#0e0f11]",
           border: "border-black/20",
           tagBg: "bg-black text-[#c9f31d]",
-          backBg: "bg-[#c4ea27] text-black",
         };
       case "yellow":
         return {
           bg: "bg-[#fef08a] text-stone-900",
           border: "border-yellow-600/20",
           tagBg: "bg-stone-900 text-yellow-300",
-          backBg: "bg-[#fde047] text-stone-900",
         };
       case "teal":
         return {
           bg: "bg-[#99f6e4] text-stone-900",
           border: "border-teal-700/20",
           tagBg: "bg-stone-900 text-teal-300",
-          backBg: "bg-[#5eead4] text-stone-900",
         };
       case "pink":
         return {
           bg: "bg-[#fecdd3] text-stone-900",
           border: "border-pink-700/20",
           tagBg: "bg-stone-900 text-pink-300",
-          backBg: "bg-[#fda4af] text-stone-900",
         };
       case "peach":
         return {
           bg: "bg-[#fed7aa] text-stone-900",
           border: "border-orange-700/20",
           tagBg: "bg-stone-900 text-orange-300",
-          backBg: "bg-[#fdba74] text-stone-900",
         };
       case "blue":
         return {
           bg: "bg-[#bae6fd] text-stone-900",
           border: "border-sky-700/20",
           tagBg: "bg-stone-900 text-sky-300",
-          backBg: "bg-[#7dd3fc] text-stone-900",
         };
       case "green":
         return {
           bg: "bg-[#bbf7d0] text-stone-900",
           border: "border-emerald-700/20",
           tagBg: "bg-stone-900 text-emerald-300",
-          backBg: "bg-[#86efac] text-stone-900",
         };
     }
-  };
-
-  const toggleFlip = (id: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    setFlippedCard((prev) => (prev === id ? null : id));
   };
 
   return (
@@ -260,7 +247,7 @@ export default function SMWork() {
         </Reveal>
 
         {/* ============================================================ */}
-        {/* 3D FLIP COVERFLOW CAROUSEL WITH TORN STICKY NOTES */}
+        {/* 3D COVERFLOW CAROUSEL WITH TORN STICKY NOTES */}
         {/* ============================================================ */}
         <Reveal delay={0.1} className="relative">
           <Swiper
@@ -291,28 +278,24 @@ export default function SMWork() {
           >
             {WORKS.map((work) => {
               const styles = getThemeStyles(work.colorTheme);
-              const isFlipped = flippedCard === work.id;
 
               return (
                 <SwiperSlide key={work.id} className="h-auto">
                   <div
-                    onClick={(e) => toggleFlip(work.id, e)}
                     style={{
                       transform: `rotate(${work.rotation}deg)`,
                       transition: "all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",
                       filter:
                         "drop-shadow(0 14px 18px rgba(0,0,0,0.12)) drop-shadow(0 4px 6px rgba(0,0,0,0.05))",
                     }}
-                    className="group relative flex flex-col h-full cursor-pointer select-none"
+                    className="group relative flex flex-col h-full select-none"
                   >
                     {/* Torn Paper Sheet Container */}
                     <div
                       style={{
                         clipPath: TORN_PAPER_BOTTOM_CLIP,
                       }}
-                      className={`relative flex flex-col justify-between h-full overflow-hidden rounded-t-2xl p-3.5 sm:p-5 pb-10 sm:pb-12 transition-all duration-500 ${
-                        isFlipped ? styles.backBg : styles.bg
-                      } ${styles.border} border-t-2 border-l-2 border-r-2`}
+                      className={`relative flex flex-col justify-between h-full overflow-hidden rounded-t-2xl p-3.5 sm:p-5 pb-10 sm:pb-12 ${styles.bg} ${styles.border} border-t-2 border-l-2 border-r-2`}
                     >
                       {/* Faint Graph/Ruled Lines on Note */}
                       <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_bottom,rgba(0,0,0,0.4)_1px,transparent_1px),linear-gradient(to_right,rgba(0,0,0,0.4)_1px,transparent_1px)] [background-size:22px_22px]" />
@@ -354,75 +337,31 @@ export default function SMWork() {
                         </div>
                       )}
 
-                      {/* FRONT VIEW OR FLIPPED VIEW */}
-                      {!isFlipped ? (
-                        <div className="relative z-10 flex-1 flex flex-col justify-between pt-1">
-                          {/* Polaroid Framed Logo with Responsive Aspect Ratio */}
-                          <div className="relative w-full overflow-hidden rounded-xl bg-white p-1.5 shadow-sm border border-black/10 mb-3">
-                            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-[#FAF8F5] p-2 flex items-center justify-center border border-black/5">
-                              <Image
-                                src={work.image}
-                                alt={work.name}
-                                fill
-                                sizes="(max-width: 640px) 60vw, (max-width: 1024px) 35vw, 25vw"
-                                className="object-contain p-1.5 transition-transform duration-300 group-hover:scale-105"
-                              />
-                            </div>
-                          </div>
-
-                          {/* Brand Name & Industry */}
-                          <div className="text-center space-y-0.5 pb-1">
-                            <h3 className="text-base sm:text-lg font-black uppercase tracking-tight text-black leading-tight truncate">
-                              {work.name}
-                            </h3>
-                            <p className="font-handwriting text-sm sm:text-base font-bold text-stone-800 truncate">
-                              {work.industry}
-                            </p>
+                      {/* Card Content */}
+                      <div className="relative z-10 flex-1 flex flex-col justify-between pt-1">
+                        {/* Polaroid Framed Logo with Responsive Aspect Ratio */}
+                        <div className="relative w-full overflow-hidden rounded-xl bg-white p-1.5 shadow-sm border border-black/10 mb-3">
+                          <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-[#FAF8F5] p-2 flex items-center justify-center border border-black/5">
+                            <Image
+                              src={work.image}
+                              alt={work.name}
+                              fill
+                              sizes="(max-width: 640px) 60vw, (max-width: 1024px) 35vw, 25vw"
+                              className="object-contain p-1.5 transition-transform duration-300 group-hover:scale-105"
+                            />
                           </div>
                         </div>
-                      ) : (
-                        /* FLIPPED BACK VIEW */
-                        <div className="relative z-10 flex-1 flex flex-col justify-between py-1 animate-fade-down">
-                          <div className="space-y-2">
-                            <div className="border-b border-black/20 pb-1.5">
-                              <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-black/60 block">
-                                CAMPAIGN HIGHLIGHTS
-                              </span>
-                              <h4 className="text-base sm:text-lg font-black uppercase text-black truncate">
-                                {work.name}
-                              </h4>
-                              <p className="font-handwriting text-xs sm:text-sm font-bold text-black/80 truncate">
-                                {work.industry}
-                              </p>
-                            </div>
 
-                            {/* Deliverables List */}
-                            <div className="space-y-1">
-                              {work.deliverables.map((item) => (
-                                <div
-                                  key={item}
-                                  className="flex items-center gap-1.5 rounded-md bg-black/10 px-2 py-0.5 text-[11px] font-bold text-black"
-                                >
-                                  <span>✦</span>
-                                  <span className="truncate">{item}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* Verified Result Badge */}
-                          <div className="mt-3 pt-2 border-t border-black/20">
-                            <div className="rounded-lg bg-black px-2.5 py-1.5 text-center text-[#c9f31d] shadow">
-                              <span className="text-[8px] font-bold uppercase tracking-widest block opacity-70">
-                                OUTCOME
-                              </span>
-                              <span className="text-[11px] sm:text-xs font-black block truncate">
-                                {work.result}
-                              </span>
-                            </div>
-                          </div>
+                        {/* Brand Name & Industry */}
+                        <div className="text-center space-y-0.5 pb-1">
+                          <h3 className="text-base sm:text-lg font-black uppercase tracking-tight text-black leading-tight truncate">
+                            {work.name}
+                          </h3>
+                          <p className="font-handwriting text-sm sm:text-base font-bold text-stone-800 truncate">
+                            {work.industry}
+                          </p>
                         </div>
-                      )}
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>

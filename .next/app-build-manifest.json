@@ -26,47 +26,39 @@
     "/services-2/branding/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/services-2/branding/page.css",
       "static/chunks/app/services-2/branding/page.js"
-    ],
-    "/photography-and-video-production/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/photography-and-video-production/page.js"
     ],
     "/projects/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/projects/page.js"
     ],
-    "/paid-ads/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/paid-ads/page.js"
-    ],
-    "/seo/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/seo/page.js"
-    ],
-    "/web-development/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/web-development/page.js"
-    ],
-    "/contact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/contact/page.js"
-    ],
     "/project/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/project/[slug]/page.js"
     ],
-    "/_not-found/page": [
+    "/photography-and-video-production/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/photography-and-video-production/page.js"
+    ],
+    "/web-development/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/web-development/page.css",
+      "static/chunks/app/web-development/page.js"
+    ],
+    "/services/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/page.js"
+    ],
+    "/seo/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/seo/page.js"
     ]
   }
 }

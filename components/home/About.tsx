@@ -109,13 +109,13 @@ export default function About() {
 
                 {/* 3 Sticky Sticker Tags */}
                 <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 pt-2 ">
-                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-xs font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
+                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-[10.5px] lg:text-[13px] font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
                     <span className="text-black text-sm">✦</span> Made To Be Yours 
                   </div>
-                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-xs font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
+                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-[10.5px] lg:text-[13px] font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
                     <span className="text-black text-sm">✦</span> One Story, Everywhere
                   </div>
-                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-xs font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
+                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-[10.5px] lg:text-[13px] font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
                     <span className="text-black text-sm">✦</span> Room To Grow
                   </div>
                 </div>

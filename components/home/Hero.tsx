@@ -129,7 +129,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-[3.4rem] sm:text-6xl md:text-7xl lg:text-[4.8rem] xl:text-[5.4rem] font-bold uppercase tracking-tight text-black leading-[0.94] text-left"
+                className="text-[3rem] sm:text-6xl md:text-7xl lg:text-[4.8rem] xl:text-[5.4rem] font-bold uppercase tracking-tight text-black leading-[0.94] text-left"
               >
                 MAKING BRANDS <br />
                 <span className="inline-flex items-center justify-start gap-2 flex-nowrap text-left">
@@ -197,18 +197,28 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT 5 COLS: TACTILE DESK ARTBOARD (Polaroid & Live Case Sticky) */}
-          <div className="lg:col-span-5 relative mt-4 lg:mt-0 w-full">
-            <div className="relative mx-auto max-w-md lg:max-w-none space-y-4 sm:space-y-6">
-              {/* Card 1: Polaroid Studio Photo */}
+          {/* RIGHT 5 COLS: TACTILE DESK ARTBOARD (Exact Reference Style) */}
+          <div className="lg:col-span-5 relative mt-6 lg:mt-0 w-full">
+            <div className="relative mx-auto max-w-md lg:max-w-none flex flex-col items-center">
+              {/* Card 1: Polaroid Studio Photo Card */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative rounded-3xl bg-white p-3 sm:p-4 text-black shadow-xl border border-black/10 transition-all duration-300"
+                initial={{ opacity: 0, y: 20, rotate: -2.5 }}
+                animate={{ opacity: 1, y: 0, rotate: -2.5 }}
+                whileHover={{ scale: 1.02, rotate: -1, zIndex: 20 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="relative w-full rounded-3xl bg-white p-3.5 sm:p-4 text-black shadow-xl border border-black/10 transition-transform duration-300"
+                style={{
+                  filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.08)) drop-shadow(0 4px 6px rgba(0,0,0,0.04))",
+                }}
               >
+                {/* Top-Left Frosted Tape Strip */}
+                <div className="tape-strip -top-3 left-4 -rotate-12 opacity-80 z-20 !w-16 !h-4 sm:!w-20 sm:!h-5" />
+
+                {/* Top-Right Diagonal Tape Strip */}
+                <div className="absolute -top-2 -right-3 w-20 sm:w-24 h-6 sm:h-7 bg-white/45 border border-white/35 backdrop-blur-[2px] shadow-xs rotate-45 z-20 pointer-events-none" />
+
                 {/* Polaroid Media Viewport */}
-                <div className="relative h-56 sm:h-64 md:h-72 w-full overflow-hidden rounded-2xl bg-gray-900 border border-black/10">
+                <div className="relative h-60 sm:h-66 md:h-72 w-full overflow-hidden rounded-2xl bg-gray-900 border border-black/10">
                   <Image
                     src="/media/1.147b1ea1.jpg"
                     alt="Bright Media Studio Workspace"
@@ -216,56 +226,78 @@ export default function Hero() {
                     className="object-cover"
                     priority
                   />
+                  {/* Top-Left BRIGHT MEDIA Badge with Pushpin */}
                   <div className="absolute top-3 left-3 rounded-full bg-black/90 backdrop-blur-xs px-3 py-1 text-[10px] font-black text-[#c9f31d] uppercase tracking-wider shadow flex items-center gap-1.5">
-                    <span>📌</span> BRIGHT MEDIA
+                    <span className="text-[#ec4899] text-xs">📌</span>
+                    <span>BRIGHT MEDIA</span>
                   </div>
+
+                  {/* Bottom-Right LIVE Badge */}
                   <div className="absolute bottom-3 right-3 rounded-full bg-[#c9f31d] px-3 py-1 text-[10px] font-black text-black uppercase shadow flex items-center gap-1">
-                    <span>⚡</span> LIVE
+                    <span className="text-black font-black">⚡</span>
+                    <span>LIVE</span>
                   </div>
                 </div>
 
                 {/* Below Photo Info Row */}
                 <div className="mt-3 flex items-center justify-between px-1 pt-1 text-left">
                   <div className="text-left">
-                    <p className="font-handwriting text-lg sm:text-xl font-bold text-slate-900 leading-tight">
-                      A little look behind the work ✨
+                    <p className="font-handwriting text-xl sm:text-2xl font-bold text-slate-900 leading-tight flex items-center gap-1.5">
+                      <span>A little look behind the work</span>
+                      <span className="text-amber-400">✨</span>
                     </p>
-                    <p className="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest font-mono mt-0.5">
-                      CREATIVE MINDS • BIG IDEAS • EVERYWHERE
+                    <p className="text-[9.5px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest font-mono mt-0.5">
+                      CREATIVE MINDS • BIG IDEAS • EVERYWHERE 
                     </p>
                   </div>
-                  <span className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200/60 flex items-center justify-center text-slate-700 shadow-2xs shrink-0 ml-2">
-                    <i className="fas fa-user text-xs text-[#15803d]" />
+                  <span className="w-8 h-8 rounded-xl bg-slate-100/90 border border-slate-200/80 flex items-center justify-center text-[#15803d] shadow-2xs shrink-0 ml-2 hover:bg-[#c9f31d]/20 transition-colors">
+                    <i className="fas fa-inbox text-xs" />
                   </span>
                 </div>
               </motion.div>
 
-              {/* Card 2: Floating Sticky Case Win Note (Lime Pop Accent) */}
+              {/* Card 2: Client Win Note Sticky Card with Spacing and Red Pin */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                className="relative rounded-3xl bg-[#c9f31d] p-4 sm:p-5 text-[#0e0f11] shadow-lg border border-black/15 text-left"
+                initial={{ opacity: 0, y: 25, rotate: 1.8 }}
+                animate={{ opacity: 1, y: 0, rotate: 1.8 }}
+                whileHover={{ scale: 1.02, rotate: 0.5, zIndex: 25 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="relative mt-5 sm:mt-6 w-full rounded-3xl bg-[#c9f31d] p-5 sm:p-6 text-[#0e0f11] shadow-xl border border-black/15 text-left transition-transform duration-300"
+                style={{
+                  filter: "drop-shadow(0 14px 18px rgba(0,0,0,0.12)) drop-shadow(0 4px 6px rgba(0,0,0,0.06))",
+                }}
               >
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-black px-3 py-1 text-[9px] font-black uppercase text-[#c9f31d] tracking-wider flex items-center gap-1">
-                    <span>⚡</span> ONE FOR THE WIN
+                {/* Red Pushpin pinned at top center */}
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                  <div className="w-4 h-4 rounded-full bg-[#dc2626] border-2 border-white shadow-md flex items-center justify-center">
+                    <div className="w-1 h-1 rounded-full bg-white/80" />
+                  </div>
+                </div>
+
+                {/* Top Row: Pill Tag + Verified ROI */}
+                <div className="flex items-center justify-between ">
+                  <span className="rounded-full bg-black px-3 py-1 text-[9.5px] font-black uppercase text-[#c9f31d] tracking-wider flex items-center gap-1 shadow-xs">
+                    <span className="text-[#c9f31d]">⚡</span> ONE FOR THE WIN  
                   </span>
-                  <span className="font-handwriting text-sm font-bold text-black/80 italic">
+                  <span className="font-handwriting text-sm sm:text-base font-bold text-black/85 italic">
                     Verified ROI
                   </span>
                 </div>
 
-                <h4 className="mt-3 font-black text-base sm:text-lg uppercase tracking-tight leading-tight">
+                {/* White Bold Headline */}
+                <h4 className="mt-2.5 font-black text-lg sm:text-xl text-white tracking-tight leading-tight border-t border-black/20 flex items-center justify-between">
                   BIG REACH. REAL ATTENTION.
                 </h4>
-                <p className="mt-1 text-xs font-medium leading-snug text-black/80">
+
+                {/* Description */}
+                <p className="mt-1.5 text-xs sm:text-[13px] font-semibold leading-relaxed text-black/85">
                   A social campaign that got people talking, watching and remembering.
                 </p>
 
-                <div className="mt-3 pt-2.5 border-t border-dashed border-black/20 flex items-center justify-between text-xs font-bold font-mono">
-                  <span className="flex items-center gap-1.5">
-                    <span>☑</span> +340% Recall
+                {/* Bottom Metric Divider & Tag */}
+                <div className="mt-3.5 pt-2.5 border-t border-black/20 flex items-center justify-between text-xs font-bold font-mono">
+                  <span className="flex items-center gap-1.5 text-slate-900">
+                    <span>📈</span> +340% Recall
                   </span>
                 </div>
               </motion.div>

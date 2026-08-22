@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import SiteShell from "@/components/SiteShell";
 import Breadcrumb from "@/components/Breadcrumb";
-import BRProcess from "@/components/branding/BRProcess";
-import SMCta from "@/components/social-media/SMCta";
 import BRHero from "@/components/branding/BRHero";
+import BRProcess from "@/components/branding/BRProcess";
+import BRWork from "@/components/branding/BRWork";
+import SMCta from "@/components/social-media/SMCta";
 
 export const metadata: Metadata = {
   title: "Branding | Bright Media",
@@ -23,6 +24,9 @@ export default function BrandingPage() {
       <BRHero />
       {/* Our Process */}
       <BRProcess />
+
+      {/* Our Works Carousel (Sticky Note Torn Theme - Dark Mode) */}
+      <BRWork />
 
       {/* CTA */}
       <SMCta />

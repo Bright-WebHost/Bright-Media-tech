@@ -2,6 +2,7 @@ import SiteShell from "@/components/SiteShell";
 import Breadcrumb from "@/components/Breadcrumb";
 import ServicesShowcase from "@/components/services/ServicesShowcase";
 import SMCta from "@/components/social-media/SMCta";
+import WDWork from "@/components/web-dev/WDWork";
 
 export const metadata = {
   title: "Web Development | Bright Media",
@@ -19,6 +20,7 @@ export default function WebDevelopmentPage() {
         description="Build user-friendly, responsive websites and web applications designed to enhance customer experience and drive conversions effectively."
       />
       <ServicesShowcase variant={3} />
+      <WDWork/>
       <SMCta />
     </SiteShell>
   );
