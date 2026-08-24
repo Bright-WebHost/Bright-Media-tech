@@ -3,6 +3,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import PVServices from "@/components/photo/PVServices";
 import SMTools from "@/components/social-media/SMTools";
 import SMCta from "@/components/social-media/SMCta";
+import WDWork from "@/components/web-dev/WDWork";
 
 export const metadata = {
   title: "Photography and Video Production | Bright Media",
@@ -20,6 +21,7 @@ export default function PhotographyAndVideoProductionPage() {
         description="Capture compelling visuals, commercial videos, and studio photoshoots that tell your brand story and engage audiences across all digital channels."
       />
       <PVServices />
+      <WDWork/>
       {/* <SMTools /> */}
       <SMCta />
     </SiteShell>
