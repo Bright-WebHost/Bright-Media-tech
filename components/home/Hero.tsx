@@ -2,469 +2,398 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import TornEdgeDivider from "@/components/contact/TornEdgeDivider";
 
-const HERO_STICKY_SERVICES = [
-  {
-    id: "s1",
-    tag: "01. Visual Branding",
-    title: "Brand Strategy & Identity",
-    desc: "Crafting iconic logos, living design systems, and high-contrast typography that build instant market affinity.",
-    color: "bg-[#c9f31d] text-[#0e0f11]",
-    tapeClass: "tape-strip -top-3 left-1/2 -translate-x-1/2 -rotate-2",
-    rotation: -2,
-    badge: "💡 340% Brand Recall",
-    link: "/services-2/branding",
-    likes: 184,
-  },
-  {
-    id: "s2",
-    tag: "02. Web & Digital",
-    title: "High-Velocity Websites",
-    desc: "Next.js server-side performance, 60fps micro-interactions, responsive layouts & tactile interfaces.",
-    color: "bg-[#feef8f] text-gray-900",
-    tapeClass: "tape-strip -top-3 right-8 rotate-3",
-    rotation: 2,
-    badge: "⚡ 60fps Fluid Motion",
-    link: "/services-3",
-    likes: 215,
-  },
-  {
-    id: "s3",
-    tag: "03. Paid Ads",
-    title: "Performance Social & Search",
-    desc: "High-converting direct response creatives, granular audience targeting, and multi-channel revenue scaling.",
-    color: "bg-[#99f6e4] text-slate-950",
-    tapeClass: "tape-strip -top-3 left-8 -rotate-6",
-    rotation: -1,
-    badge: "📈 4.8X Avg ROAS",
-    link: "/service-5",
-    likes: 142,
-  },
-  {
-    id: "s4",
-    tag: "04. Video & Photo",
-    title: "4K Commercial Storytelling",
-    desc: "Studio photoshoots, cinematic commercials, and viral vertical video reels engineered to stop the scroll.",
-    color: "bg-[#fecdd3] text-slate-950",
-    tapeClass: "tape-strip -top-3 left-1/2 -translate-x-1/2 rotate-1",
-    rotation: 3,
-    badge: "🎬 4K Cinema Craft",
-    link: "/photography-and-video-production",
-    likes: 198,
-  },
+/* ───────────────────────────────────────────────
+   DATA
+─────────────────────────────────────────────── */
+const STATS = [
+  { value: "31K", suffix: "+", label: "Projects Delivered" },
+  { value: "4.8", suffix: "×", label: "Avg ROAS" },
+  { value: "12", suffix: "+", label: "Countries" },
+  { value: "99", suffix: "%", label: "Retention" },
 ];
 
-const HERO_STATS = [
-  { value: "31K+", label: "Deliverables Completed", icon: "fas fa-check-circle" },
-  { value: "12+", label: "Global Countries", icon: "fas fa-globe-americas" },
-  { value: "1M+", label: "Monthly Impressions", icon: "fas fa-eye" },
-  { value: "99.4%", label: "Client Satisfaction", icon: "fas fa-heart" },
+const TICKER_WORDS = [
+  "BRANDING", "WEB DEV", "VIDEO PRODUCTION", "PAID ADS",
+  "SOCIAL MEDIA", "SEO", "BRIGHT MEDIA", "DESIGN",
 ];
 
+/* ───────────────────────────────────────────────
+   MARQUEE TICKER
+─────────────────────────────────────────────── */
+function Marquee({ reverse = false }: { reverse?: boolean }) {
+  const items = [...TICKER_WORDS, ...TICKER_WORDS, ...TICKER_WORDS];
+  return (
+    <div className="overflow-hidden w-full">
+      <motion.div
+        animate={{ x: reverse ? ["0%", "33.33%"] : ["0%", "-33.33%"] }}
+        transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
+        className="flex items-center whitespace-nowrap"
+      >
+        {items.map((w, i) => (
+          <span key={i} className="flex items-center">
+            <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] text-white/20 px-4 sm:px-6">
+              {w}
+            </span>
+            <span className="text-[#c9f31d] text-[10px] sm:text-xs">✦</span>
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
+/* ───────────────────────────────────────────────
+   ANIMATED COUNTER
+─────────────────────────────────────────────── */
+function Counter({ value, suffix }: { value: string; suffix: string }) {
+  const [display, setDisplay] = useState("0");
+  useEffect(() => {
+    const num = parseFloat(value);
+    const isFloat = value.includes(".");
+    const steps = 60;
+    let step = 0;
+    const timer = setInterval(() => {
+      step++;
+      const current = num * Math.min(step / steps, 1);
+      setDisplay(isFloat ? current.toFixed(1) : Math.floor(current).toString());
+      if (step >= steps) clearInterval(timer);
+    }, 20);
+    return () => clearInterval(timer);
+  }, [value]);
+  return <span>{display}{suffix}</span>;
+}
+
+/* ───────────────────────────────────────────────
+   MAIN HERO
+─────────────────────────────────────────────── */
 export default function Hero() {
-  const [likesState, setLikesState] = useState<Record<string, number>>({
-    s1: 184,
-    s2: 215,
-    s3: 142,
-    s4: 198,
-  });
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useTransform(mouseY, [-300, 300], [6, -6]);
+  const rotateY = useTransform(mouseX, [-300, 300], [-6, 6]);
 
-  const handleLike = (id: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setLikesState((prev) => ({
-      ...prev,
-      [id]: (prev[id] || 0) + 1,
-    }));
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left - rect.width / 2);
+    mouseY.set(e.clientY - rect.top - rect.height / 2);
+  };
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#fafaf8] pt-28 sm:pt-28 lg:pt-34 text-[#0e0f11]">
-      {/* ============================================================ */}
-      {/* BACKGROUND DESK CANVAS & ARCHITECTURAL GRID PATTERN */}
-      {/* ============================================================ */}
-      {/* Primary Linear Grid Pattern */}
-      <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)] [background-size:44px_44px]" />
+    <section className="relative overflow-hidden bg-[#0a0b0d] text-white flex flex-col">
 
-      {/* Secondary Fine Graph Paper Grid */}
-      <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,rgba(0,0,0,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.025)_1px,transparent_1px)] [background-size:11px_11px]" />
+      {/* ── TOP TICKER BAND ─────────────────────────── */}
+      <div className="border-b border-white/10 py-2 sm:py-2.5 bg-[#0d0e10] shrink-0 mt-[64px] sm:mt-[72px] lg:mt-[80px]">
+        {/* <Marquee /> */}
+      </div>
 
-      {/* Grid Intersection Accent Dots */}
-      <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(0,0,0,0.18)_1.2px,transparent_1.2px)] [background-size:44px_44px]" />
+      {/* ── MAIN SPLIT CANVAS ───────────────────────── */}
+      {/*
+        Mobile  : single column stack (dark → light)
+        Tablet  : single column stack (dark → light)
+        Desktop : two-column side-by-side with diagonal slash
+      */}
+      <div className="relative flex flex-col lg:flex-row min-h-[calc(100svh-88px)] lg:min-h-[calc(100svh-80px)]">
 
-      {/* Decorative Floating Tape Strips in Backdrop */}
-      <div className="tape-strip top-20 left-10 -rotate-12 hidden xl:block opacity-60" />
-      <div className="tape-strip top-40 right-16 rotate-45 hidden xl:block opacity-60" />
-      <div className="tape-strip bottom-48 left-16 rotate-6 hidden xl:block opacity-50" />
+        {/* ╔══════════════════════════════════════════╗
+            ║          LEFT / TOP — DARK COLUMN        ║
+            ╚══════════════════════════════════════════╝ */}
+        <div className="relative flex flex-col lg:flex-none lg:w-[55%] px-5 sm:px-8 lg:px-14 pt-8 sm:pt-10 pb-8 lg:pb-10 z-10 justify-between">
 
-      {/* Soft Ambient Pastel Glows */}
-      {/* <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[#c9f31d]/20 blur-[140px]" />
-      <div className="pointer-events-none absolute top-1/2 -right-40 h-[450px] w-[450px] rounded-full bg-[#38bdf8]/15 blur-[130px]" /> */}
+          {/* Faint grid overlay */}
+          <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:80px_80px]" />
 
-      <div className="container-x relative z-10 px-4 sm:px-6">
-        {/* ============================================================ */}
-        {/* 1. ASYMMETRIC HERO HEADER (Left Text + Right Desk Elements) */}
-        {/* ============================================================ */}
-        <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-12 lg:items-center text-left">
-          {/* LEFT 7 COLS: BOLD HEADLINE & ACTIONS */}
-          <div className="lg:col-span-7 space-y-4 sm:space-y-6 flex flex-col items-start text-left w-full">
-            {/* Top Solid Lime Pill Badge */}
+          {/* Vertical rotated side-label — desktop only */}
+          {/* <div className="hidden lg:flex absolute left-3 top-1/2 -translate-y-1/2 -rotate-90 items-center gap-3 origin-center pointer-events-none">
+            <span className="h-px w-8 bg-white/15" />
+            <span className="text-[9px] font-mono font-bold uppercase tracking-[0.35em] text-white/25">
+              EST. 2018 — ABIDJAN
+            </span>
+            <span className="h-px w-8 bg-white/15" />
+          </div> */}
+
+          {/* ── Top Badge ── */}
+          <motion.div
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 self-start rounded-full border border-[#c9f31d]/40 bg-[#c9f31d]/10 px-3 sm:px-4 py-1.5 text-[10px] sm:text-[11px] font-black text-[#c9f31d] uppercase tracking-widest shrink-0"
+          >
+            <span className="relative flex h-2 w-2 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c9f31d] opacity-60" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c9f31d]" />
+            </span>
+            Creative &amp; Digital Studio
+          </motion.div>
+
+          {/* ── MEGA HEADLINE ── */}
+          <div className="mt-6 sm:mt-8 lg:mt-0 lg:my-auto">
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#c9f31d] px-3.5 sm:px-4 py-1.5 text-[10px] sm:text-[11px] font-black text-black uppercase tracking-wider shadow-2xs"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <span className="w-2.5 h-2.5 rounded-full bg-[#15803d] border border-white/80 shrink-0" />
-              <span className="text-amber-600 font-black">⚡</span>
-              <span className="tracking-wide">BRIGHT MEDIA &bull; CREATIVE &amp; DIGITAL STUDIO</span>
+              {/* Eyebrow mono label */}
+              {/* <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-white/30 mb-3 sm:mb-4">
+                BRIGHT MEDIA // 2018–2026
+              </p> */}
+
+              {/* Line 1 — MAKING */}
+              <div className="overflow-hidden">
+                <motion.p
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-[2.8rem] xs:text-[3.4rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[5rem] xl:text-[6rem] font-black uppercase leading-[0.88] tracking-tighter text-white"
+                >
+                  MAKING
+                </motion.p>
+              </div>
+
+              {/* Line 2 — BRANDS (neon lime) + pill sticker */}
+              <div className="overflow-hidden">
+                <motion.div
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-center gap-3 sm:gap-4 flex-wrap"
+                >
+                  <span className="text-[2.8rem] xs:text-[3.4rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[5rem] xl:text-[6rem] font-black uppercase leading-[0.88] tracking-tighter text-[#c9f31d]">
+                    BRANDS
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 self-center rounded-full bg-[#c9f31d] px-2.5 sm:px-3 py-1 text-[10px] sm:text-[11px] font-black text-black uppercase tracking-wider -rotate-2 shadow-lg shadow-[#c9f31d]/30 shrink-0">
+                    <span className="text-pink-600">★</span> #01
+                  </span>
+                </motion.div>
+              </div>
+
+              {/* Line 3 — LOOK BRIGHT (outline ghost text) */}
+              <div className="overflow-hidden">
+                <motion.p
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-[2.8rem] xs:text-[3.4rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[5rem] xl:text-[6rem] font-black uppercase leading-[0.88] tracking-tighter"
+                  style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.30)", color: "transparent" }}
+                >
+                  LOOK BRIGHT
+                </motion.p>
+              </div>
+
+              {/* Handwriting cursive tagline */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.55 }}
+                className="mt-4 sm:mt-5 flex items-center gap-3"
+              >
+                <span className="h-px w-8 sm:w-10 bg-white/20 shrink-0" />
+                <span className="font-handwriting text-xl sm:text-2xl md:text-3xl font-bold text-white/70">
+                  Ideas. Made Visible.
+                </span>
+              </motion.div>
+
+              {/* Description paragraph */}
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.65 }}
+                className="mt-4 sm:mt-6 text-sm sm:text-base text-white/50 font-medium max-w-md leading-relaxed"
+              >
+                Full-service creative studio crafting iconic brand identities, high-velocity websites, and scroll-stopping campaigns for industry leaders across 12 countries.
+              </motion.p>
             </motion.div>
 
-            {/* Main Display Headline with Sticky Accent */}
-            <div className="relative w-full text-left">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-[3rem] sm:text-6xl md:text-7xl lg:text-[4.8rem] xl:text-[5.4rem] font-bold uppercase tracking-tight text-black leading-[0.94] text-left"
-              >
-                MAKING BRANDS <br />
-                <span className="inline-flex items-center justify-start gap-2 flex-nowrap text-left">
-                  <span>LOOK BRIGHT</span>
-                  {/* Yellow #01 STUDIO Pill Sticker Tag */}
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[#ffdf00] px-2.5 py-0.5 sm:py-1 text-[8.5px] sm:text-[9.5px] font-black text-black uppercase tracking-tight shadow-xs border border-amber-300 transform rotate-1 shrink-0">
-                    <span className="text-pink-600 text-[10px] font-black leading-none">★</span> #01 STUDIO
-                  </span>
-                </span>
-                <br />
-                
-                {/* Handwriting Cursive with Hand-Drawn Lime Zig-Zag Wavy Doodles */}
-                <span className="relative inline-block mt-1 sm:mt-2 text-left">
-                  <span className="font-handwriting text-black text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[5.8rem] font-bold normal-case leading-none block text-left">
-                    Ideas. Made Visible.
-                  </span>
-                  
-                  {/* Exact Green Zigzag / Squiggly Marker Underline */}
-                  <svg
-                    viewBox="0 0 320 20"
-                    className="w-full h-3.5 sm:h-5 mt-0.5 block select-none pointer-events-none stroke-[#c9f31d] fill-none"
-                    style={{ strokeWidth: "3.8", strokeLinecap: "round", strokeLinejoin: "round" }}
-                    preserveAspectRatio="none"
-                  >
-                    <path d="M4 14 Q 14 3, 24 14 T 44 14 T 64 14 T 84 14 T 104 14 T 124 14 T 144 14 T 164 14 T 184 14 T 204 14 T 224 14 T 244 14 T 264 14 T 284 14 T 304 14 T 316 14" />
-                  </svg>
-                </span>
-              </motion.h1>
-            </div>
-
-            {/* CTA Buttons Row - 2 buttons side by side spanning the width */}
+            {/* ── CTAs ── */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="grid grid-cols-2 gap-2.5 sm:gap-4 pt-1 w-full"
+              transition={{ duration: 0.6, delay: 0.75 }}
+              className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4"
             >
+              {/* Primary CTA — hover wipe */}
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-[#c9f31d] px-3 sm:px-7 py-3.5 text-[11px] sm:text-sm font-black text-black uppercase tracking-wider shadow-md shadow-[#c9f31d]/20 transition-all hover:bg-black hover:text-white hover:scale-105 active:scale-95 text-center"
+                className="group relative inline-flex items-center gap-2 rounded-full bg-[#c9f31d] px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-black text-black uppercase tracking-wider shadow-2xl shadow-[#c9f31d]/25 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden"
               >
-                <i className="fas fa-paper-plane text-[10px] sm:text-xs transform -rotate-12" />
-                <span className="truncate">LET'S MAKE SOMETHING</span>
+                <span className="relative z-10 flex items-center gap-2">
+                  <i className="fas fa-paper-plane text-xs -rotate-12 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  START A PROJECT
+                </span>
+                {/* Wipe-in overlay */}
+                <span className="absolute inset-0 bg-black translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300 rounded-full" />
+                <span className="absolute inset-0 flex items-center justify-center text-xs sm:text-sm font-black text-white uppercase tracking-wider z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2">
+                  <i className="fas fa-paper-plane text-xs" /> LET'S GO
+                </span>
               </Link>
 
+              {/* Ghost secondary CTA */}
               <Link
                 href="/projects"
-                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full border border-slate-200 bg-[#f0f2f5] px-3 sm:px-7 py-3.5 text-[11px] sm:text-sm font-black text-black uppercase tracking-wider transition-all hover:border-black hover:bg-[#c9f31d]/20 hover:scale-105 active:scale-95 text-center shadow-2xs"
+                className="group inline-flex items-center gap-2 text-xs sm:text-sm font-black text-white/50 uppercase tracking-wider transition-all hover:text-white"
               >
-                <i className="fas fa-sticky-note text-black text-[10px] sm:text-xs" />
-                <span className="truncate">SEE WHAT WE DO</span>
+                <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#c9f31d] group-hover:text-[#c9f31d] transition-all shrink-0">
+                  <i className="fas fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition-transform" />
+                </span>
+                View Our Work
               </Link>
             </motion.div>
+          </div>
 
-            {/* Centered Express Stamp on Mobile */}
-            <div className="pt-2 flex justify-center w-full">
-              <div className="rounded-2xl border-2 border-dashed border-[#c9f31d] bg-white/95 px-6 py-2.5 text-center shadow-xs inline-flex flex-col items-center">
-                <span className="text-[9.5px] font-bold uppercase tracking-widest text-slate-500 font-mono italic">
-                  BRIGHT MEDIA POST
-                </span>
-                <span className="font-handwriting text-base sm:text-lg font-bold text-slate-900 flex items-center gap-1 mt-0.5">
-                  <span className="text-amber-500">⚡</span> 24h Express
-                </span>
+          {/* ── STAT STRIP ── */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.85 }}
+            className="mt-8 sm:mt-10 lg:mt-0 grid grid-cols-4 gap-px border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden shrink-0"
+          >
+            {STATS.map((s, i) => (
+              <div
+                key={i}
+                className="bg-white/[0.04] hover:bg-[#c9f31d]/10 transition-colors px-2 sm:px-3 py-3 sm:py-4 text-center border-r border-white/10 last:border-r-0"
+              >
+                <div className="text-lg sm:text-xl lg:text-2xl font-black text-white">
+                  <Counter value={s.value} suffix={s.suffix} />
+                </div>
+                <div className="text-[9px] sm:text-[10px] font-bold text-white/35 uppercase tracking-wider mt-0.5 leading-tight">
+                  {s.label}
+                </div>
               </div>
-            </div>
-          </div>
-
-          {/* RIGHT 5 COLS: TACTILE DESK ARTBOARD (Exact Reference Style) */}
-          <div className="lg:col-span-5 relative mt-6 lg:mt-0 w-full">
-            <div className="relative mx-auto max-w-md lg:max-w-none flex flex-col items-center">
-              {/* Card 1: Polaroid Studio Photo Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20, rotate: -2.5 }}
-                animate={{ opacity: 1, y: 0, rotate: -2.5 }}
-                whileHover={{ scale: 1.02, rotate: -1, zIndex: 20 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="relative w-full rounded-3xl bg-white p-3.5 sm:p-4 text-black shadow-xl border border-black/10 transition-transform duration-300"
-                style={{
-                  filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.08)) drop-shadow(0 4px 6px rgba(0,0,0,0.04))",
-                }}
-              >
-                {/* Top-Left Frosted Tape Strip */}
-                <div className="tape-strip -top-3 left-4 -rotate-12 opacity-80 z-20 !w-16 !h-4 sm:!w-20 sm:!h-5" />
-
-                {/* Top-Right Diagonal Tape Strip */}
-                <div className="absolute -top-2 -right-3 w-20 sm:w-24 h-6 sm:h-7 bg-white/45 border border-white/35 backdrop-blur-[2px] shadow-xs rotate-45 z-20 pointer-events-none" />
-
-                {/* Polaroid Media Viewport */}
-                <div className="relative h-60 sm:h-66 md:h-72 w-full overflow-hidden rounded-2xl bg-gray-900 border border-black/10">
-                  <Image
-                    src="/media/1.147b1ea1.jpg"
-                    alt="Bright Media Studio Workspace"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  {/* Top-Left BRIGHT MEDIA Badge with Pushpin */}
-                  <div className="absolute top-3 left-3 rounded-full bg-black/90 backdrop-blur-xs px-3 py-1 text-[10px] font-black text-[#c9f31d] uppercase tracking-wider shadow flex items-center gap-1.5">
-                    <span className="text-[#ec4899] text-xs">📌</span>
-                    <span>BRIGHT MEDIA</span>
-                  </div>
-
-                  {/* Bottom-Right LIVE Badge */}
-                  <div className="absolute bottom-3 right-3 rounded-full bg-[#c9f31d] px-3 py-1 text-[10px] font-black text-black uppercase shadow flex items-center gap-1">
-                    <span className="text-black font-black">⚡</span>
-                    <span>LIVE</span>
-                  </div>
-                </div>
-
-                {/* Below Photo Info Row */}
-                <div className="mt-3 flex items-center justify-between px-1 pt-1 text-left">
-                  <div className="text-left">
-                    <p className="font-handwriting text-xl sm:text-2xl font-bold text-slate-900 leading-tight flex items-center gap-1.5">
-                      <span>A little look behind the work</span>
-                      <span className="text-amber-400">✨</span>
-                    </p>
-                    <p className="text-[9.5px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest font-mono mt-0.5">
-                      CREATIVE MINDS • BIG IDEAS • EVERYWHERE 
-                    </p>
-                  </div>
-                  <span className="w-8 h-8 rounded-xl bg-slate-100/90 border border-slate-200/80 flex items-center justify-center text-[#15803d] shadow-2xs shrink-0 ml-2 hover:bg-[#c9f31d]/20 transition-colors">
-                    <i className="fas fa-inbox text-xs" />
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Card 2: Client Win Note Sticky Card with Spacing and Red Pin */}
-              <motion.div
-                initial={{ opacity: 0, y: 25, rotate: 1.8 }}
-                animate={{ opacity: 1, y: 0, rotate: 1.8 }}
-                whileHover={{ scale: 1.02, rotate: 0.5, zIndex: 25 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="relative mt-5 sm:mt-6 w-full rounded-3xl bg-[#c9f31d] p-5 sm:p-6 text-[#0e0f11] shadow-xl border border-black/15 text-left transition-transform duration-300"
-                style={{
-                  filter: "drop-shadow(0 14px 18px rgba(0,0,0,0.12)) drop-shadow(0 4px 6px rgba(0,0,0,0.06))",
-                }}
-              >
-                {/* Red Pushpin pinned at top center */}
-                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                  <div className="w-4 h-4 rounded-full bg-[#dc2626] border-2 border-white shadow-md flex items-center justify-center">
-                    <div className="w-1 h-1 rounded-full bg-white/80" />
-                  </div>
-                </div>
-
-                {/* Top Row: Pill Tag + Verified ROI */}
-                <div className="flex items-center justify-between ">
-                  <span className="rounded-full bg-black px-3 py-1 text-[9.5px] font-black uppercase text-[#c9f31d] tracking-wider flex items-center gap-1 shadow-xs">
-                    <span className="text-[#c9f31d]">⚡</span> ONE FOR THE WIN  
-                  </span>
-                  <span className="font-handwriting text-sm sm:text-base font-bold text-black/85 italic">
-                    Verified ROI
-                  </span>
-                </div>
-
-                {/* White Bold Headline */}
-                <h4 className="mt-2.5 font-black text-lg sm:text-xl text-white tracking-tight leading-tight border-t border-black/20 flex items-center justify-between">
-                  BIG REACH. REAL ATTENTION.
-                </h4>
-
-                {/* Description */}
-                <p className="mt-1.5 text-xs sm:text-[13px] font-semibold leading-relaxed text-black/85">
-                  A social campaign that got people talking, watching and remembering.
-                </p>
-
-                {/* Bottom Metric Divider & Tag */}
-                <div className="mt-3.5 pt-2.5 border-t border-black/20 flex items-center justify-between text-xs font-bold font-mono">
-                  <span className="flex items-center gap-1.5 text-slate-900">
-                    <span>📈</span> +340% Recall
-                  </span>
-                </div>
-              </motion.div>
-            </div>
-          </div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* ============================================================ */}
-        {/* 2. INTERACTIVE TACTILE STICKY DESK CANVAS (Unique Centerpiece) */}
-        {/* ============================================================ */}
-        {/* <div className="mt-16 sm:mt-24">
-          <div className="flex items-center justify-between border-b border-black/10 pb-4 mb-8">
-            <div className="flex items-center gap-3">
-              <span className="flex h-3 w-3 rounded-full bg-[#15803d]" />
-              <span className="font-handwriting text-2xl sm:text-3xl font-bold text-[#0e0f11]">
-                📌 Live Desk Spread: Core Agency Services
-              </span>
-            </div>
-            <span className="text-xs font-semibold text-gray-500 hidden sm:inline">
-              Click any note to explore dedicated services &rarr;
-            </span>
-          </div>
+        {/* ── DIAGONAL SLASH (desktop only) ── */}
+        <div
+          className="hidden lg:block absolute top-0 bottom-0 z-20 pointer-events-none"
+          style={{ left: "calc(55% - 40px)", width: "80px" }}
+        >
+          <svg className="w-full h-full" viewBox="0 0 80 800" preserveAspectRatio="none">
+            <polygon points="80,0 80,800 0,800" fill="#F2F2F2" />
+          </svg>
+        </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {HERO_STICKY_SERVICES.map((s, idx) => (
-              <motion.div
-                key={s.id}
-                initial={{ opacity: 0, y: 30, rotate: s.rotation * 1.5 }}
-                animate={{ opacity: 1, y: 0, rotate: s.rotation }}
-                transition={{ duration: 0.6, delay: 0.15 * idx }}
-                whileHover={{ y: -10, rotate: 0, scale: 1.03 }}
-                className={`relative flex flex-col justify-between rounded-2xl p-6 shadow-xl ${s.color} border-2 border-black/10 cursor-pointer transition-all duration-300`}
-              > */}
-        {/* Top Tape Strip Accent */}
-        {/* <div className={s.tapeClass} />
+        {/* ╔══════════════════════════════════════════╗
+            ║      RIGHT / BOTTOM — LIGHT COLUMN       ║
+            ╚══════════════════════════════════════════╝ */}
+        <div className="relative lg:flex-1 bg-[#F2F2F2] flex flex-col items-center lg:items-start justify-center px-5 sm:px-8 lg:pl-20 lg:pr-10 py-10 sm:py-12 overflow-hidden">
 
-                <div> */}
-        {/* Top Bar: Tag & Live Like */}
-        {/* <div className="flex items-center justify-between border-b border-black/10 pb-3">
-                    <span className="rounded-full bg-black/90 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#c9f31d]">
-                      {s.tag}
-                    </span>
-                    <button
-                      onClick={(e) => handleLike(s.id, e)}
-                      className="flex items-center gap-1 text-xs font-bold text-black/80 hover:text-black transition-colors"
-                      title="Like this service note"
-                    >
-                      <i className="fas fa-heart text-red-600" />
-                      <span>{likesState[s.id] || s.likes}</span>
-                    </button>
-                  </div> */}
+          {/* Faint dot grid */}
+          <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(0,0,0,0.08)_1px,transparent_1px)] [background-size:24px_24px]" />
 
-        {/* Title & Description */}
-        {/* <h3 className="mt-4 text-xl font-black leading-tight tracking-tight text-black">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 text-xs font-medium leading-relaxed text-black/80">
-                    {s.desc}
-                  </p> */}
+          {/* Decorative tape strips — desktop only */}
+          <div className="tape-strip top-8 right-12 rotate-12 opacity-60 !w-20 !h-5 hidden lg:block" />
+          <div className="tape-strip top-40 right-6 -rotate-6 opacity-40 !w-14 !h-4 hidden lg:block" />
 
-        {/* Takeaway Tape Snippet */}
-        {/* <div className="mt-4 rounded-lg bg-black/10 p-2.5 text-[11px] font-bold text-black/90 border-l-2 border-black/50">
-                    {s.badge}
-                  </div>
-                </div> */}
+          {/* ── 3D TILT IMAGE CARD ── */}
+          <motion.div
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 800 }}
+            className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-sm xl:max-w-md mx-auto lg:mx-0 z-10"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-2xl border-2 border-black/10"
+            >
+              {/* Tape corners */}
+              <div className="tape-strip -top-3 left-5 sm:left-6 -rotate-12 opacity-90 z-20 !w-16 sm:!w-20 !h-4 sm:!h-5" />
+              <div className="tape-strip -top-3 right-5 sm:right-6 rotate-8 opacity-90 z-20 !w-16 sm:!w-20 !h-4 sm:!h-5" />
 
-        {/* Footer Action Link */}
-        {/* <div className="mt-6 pt-4 border-t border-black/10 flex items-center justify-between">
-                  <Link
-                    href={s.link}
-                    className="inline-flex items-center gap-1.5 text-xs font-black uppercase text-black hover:underline"
-                  >
-                    Explore Service <i className="fas fa-arrow-right text-[10px]" />
-                  </Link>
-                  <span className="font-handwriting text-sm font-bold text-black/60">
-                    Pinned 📌
-                  </span>
-                </div> */}
-        {/* </motion.div>
-            ))}
-          </div>
-        </div> */}
+              {/* Red pushpin */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-30 w-5 h-5 rounded-full bg-red-600 border-2 border-white shadow-md flex items-center justify-center">
+                <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+              </div>
 
-        {/* ============================================================ */}
-        {/* 3. POLAROID STUDIO BOARD & LIVE AGENCY STATS */}
-        {/* ============================================================ */}
-        {/* <div className="mt-16 sm:mt-24 rounded-3xl border-2 border-black/10 bg-white p-6 sm:p-10 shadow-xl relative overflow-hidden"> */}
-        {/* Subtle desk texture background */}
-        {/* <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:20px_20px]" /> */}
+              {/* Image viewport */}
+              <div className="relative h-52 xs:h-60 sm:h-72 lg:h-64 xl:h-80 w-full overflow-hidden group">
+                <Image
+                  src="/media/1.147b1ea1.jpg"
+                  alt="Bright Media Studio"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  priority
+                />
+                {/* Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-        {/* <div className="grid gap-10 lg:grid-cols-12 lg:items-center relative z-10"> */}
-        {/* Left Col: Polaroid Photo Card Taped to Board */}
-        {/* <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-sm rounded-2xl bg-[#fafafa] p-4 text-black shadow-xl rotate-[-2deg] hover:rotate-0 transition-transform duration-300 border-2 border-black/10"> */}
-        {/* Tape strips on Polaroid */}
-        {/* <div className="tape-strip -top-3 left-4 -rotate-12" />
-                <div className="tape-strip -top-3 right-4 rotate-12" />
-
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden rounded-lg border border-black/10 bg-gray-900">
-                  <Image
-                    src="/media/3.527ea292.jpg"
-                    alt="Bright Media Studio Work"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute top-3 right-3 rounded-full bg-[#c9f31d] px-3 py-1 text-[10px] font-black text-black uppercase shadow">
-                    Creative Lab
-                  </div>
-                </div> */}
-
-        {/* <div className="mt-3 text-center">
-                  <p className="font-handwriting text-xl sm:text-2xl font-bold text-gray-900">
-                    Behind the lens with Bright Media ✨
-                  </p>
-                  <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
-                    Ivory Coast • Dubai • Worldwide
-                  </p>
+                {/* Floating image badges */}
+                <div className="absolute top-3 left-3 rounded-full bg-black/80 backdrop-blur-sm px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-black text-[#c9f31d] uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="text-[#ec4899]">📌</span> BRIGHT MEDIA
+                </div>
+                <div className="absolute bottom-3 right-3 rounded-full bg-[#c9f31d] px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-black text-black uppercase flex items-center gap-1">
+                  ⚡ LIVE STUDIO
                 </div>
               </div>
-            </div> */}
 
-        {/* Right Col: Live Metric Counters */}
-        {/* <div className="lg:col-span-7 space-y-6">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#c9f31d]/25 border border-black/10 px-3.5 py-1 text-xs font-black text-black uppercase tracking-wider mb-2">
-                  <i className="fas fa-chart-line text-[#15803d]" /> Proven Track Record
-                </div>
-                <h3 className="text-2xl sm:text-4xl font-black text-black uppercase tracking-tight">
-                  Numbers Pinned on Our Board
-                </h3>
-                <p className="mt-2 text-sm text-gray-600 max-w-xl leading-relaxed">
-                  Every campaign, website, and visual identity is engineered for measurable real-world growth and sustained brand dominance.
+              {/* Card caption */}
+              <div className="p-3.5 sm:p-4 text-[#0e0f11]">
+                <p className="font-handwriting text-lg sm:text-xl font-bold text-slate-900">
+                  A little look behind the work ✨
                 </p>
-              </div> */}
+                <p className="text-[9.5px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">
+                  Creative Minds · Big Ideas · Everywhere
+                </p>
+              </div>
+            </motion.div>
 
-        {/* 4 Stat Boxes */}
-        {/* <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
-                {HERO_STATS.map((stat, idx) => (
-                  <div
-                    key={idx}
-                    className="rounded-2xl border-2 border-black/10 bg-[#fafafa] p-4 text-center shadow-sm hover:border-black/30 hover:shadow-md hover:bg-white transition-all"
-                  >
-                    <i className={`${stat.icon} text-lg text-black mb-2`} />
-                    <div className="text-2xl sm:text-3xl font-black text-black">
-                      {stat.value}
-                    </div>
-                    <div className="mt-1 text-[11px] font-semibold text-gray-600">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div> */}
+            {/* Floating shadow for 3D depth */}
+            <div className="absolute -bottom-5 left-6 right-6 h-10 bg-black/15 blur-xl rounded-full -z-10" />
+          </motion.div>
 
-        {/* Airmail Stripe Footer Accent */}
-        {/* <div className="h-2 w-full bg-[repeating-linear-gradient(45deg,#ef4444,#ef4444_15px,#ffffff_15px,#ffffff_25px,#3b82f6_25px,#3b82f6_40px,#ffffff_40px,#ffffff_50px)] rounded-full opacity-80 mt-4 shadow-sm" />
+          {/* ── VERIFIED ROI MINI CARD ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="relative mt-6 sm:mt-8 w-full max-w-[360px] sm:max-w-[420px] lg:max-w-sm xl:max-w-md mx-auto lg:mx-0 rounded-2xl bg-[#c9f31d] p-4 sm:p-5 border-2 border-black/20 shadow-lg z-10"
+          >
+            {/* Red pin */}
+            <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 z-10 w-4 h-4 rounded-full bg-[#dc2626] border-2 border-white shadow-md flex items-center justify-center">
+              <div className="w-1 h-1 rounded-full bg-white/80" />
             </div>
-          </div>
-        </div> */}
+
+            {/* Subtle watermark grid */}
+            <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-[0.06] [background-image:linear-gradient(to_right,rgba(0,0,0,0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.5)_1px,transparent_1px)] [background-size:16px_16px]" />
+
+            <div className="relative z-10 flex items-center justify-between gap-3">
+              <div>
+                <span className="rounded-full bg-black px-2.5 py-0.5 text-[9px] font-black uppercase text-[#c9f31d] tracking-wider">
+                  ⚡ ONE FOR THE WIN
+                </span>
+                <p className="mt-2 font-black text-base sm:text-lg text-black leading-tight">
+                  BIG REACH. REAL ATTENTION.
+                </p>
+                <p className="mt-1 text-[11px] sm:text-xs font-semibold text-black/80">
+                  A campaign that got people talking, watching &amp; remembering.
+                </p>
+              </div>
+              <div className="shrink-0 rounded-2xl bg-black/10 border border-black/15 px-3 sm:px-4 py-3 text-center">
+                <span className="block text-[9px] font-mono font-bold uppercase text-black/50">RECALL</span>
+                <span className="block text-2xl sm:text-3xl font-black text-black">📈</span>
+                <span className="block text-xs sm:text-sm font-black text-black">+340%</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* ============================================================ */}
-      {/* 4. TORN PAPER EDGE TRANSITION */}
-      {/* ============================================================ */}
-      <div className="mt-16 sm:mt-24">
-        <TornEdgeDivider fillColor="#F2F2F2" />
+      {/* ── BOTTOM TICKER BAND ── */}
+      <div className="border-t border-white/10 py-2 sm:py-2.5 bg-[#0d0e10] shrink-0">
+        <Marquee reverse />
       </div>
+
+      {/* ── TORN PAPER TRANSITION ── */}
+      <TornEdgeDivider fillColor="#F2F2F2" />
     </section>
   );
 }
