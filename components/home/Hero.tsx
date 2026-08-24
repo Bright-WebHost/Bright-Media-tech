@@ -248,7 +248,7 @@ export default function Hero() {
           </div>
 
           {/* ── STAT STRIP ── */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.85 }}
@@ -267,7 +267,7 @@ export default function Hero() {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* ── DIAGONAL SLASH (desktop only) ── */}
