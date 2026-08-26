@@ -4,7 +4,6 @@ import { FOOTER } from "@/lib/data";
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
   { label: "Contact", href: "/contact" },
 ];
@@ -40,14 +39,14 @@ export default function Footer() {
           <div className="lg:col-span-4 pr-0 lg:pr-8">
             <Link href="/" className="inline-block mb-4">
               <img
-                src="/assets/img/icon/bm-logo.webp"
+                src="https://brightmedia.tech/img/photo/all%20img/footerlogo.webp"
                 alt="Bright Media"
-                className="h-12 sm:h-14 w-auto object-contain object-left"
+                className="h-24 sm:h-36 w-auto object-contain object-left"
               />
             </Link>
-            <p className="text-xs sm:text-sm text-white/50 leading-relaxed max-w-sm">
+            {/* <p className="text-xs sm:text-sm text-white/50 leading-relaxed max-w-sm">
               Bright Media is a full-service digital marketing and branding agency specializing in high-converting web development, SEO, and visual strategy.
-            </p>
+            </p> */}
           </div>
 
           {/* Right Columns (8 Cols) */}
@@ -164,6 +163,8 @@ export default function Footer() {
               <a
                 key={s.icon}
                 href={s.href}
+                target="_blan k"
+                rel="noopener noreferrer"
                 aria-label="social link"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-primary transition-colors duration-200"
               >

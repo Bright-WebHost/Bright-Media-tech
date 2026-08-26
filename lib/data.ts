@@ -360,9 +360,9 @@ export const FOOTER = {
     { label: "Help Desk", href: "#" },
   ],
   social: [
-    { icon: "fab fa-facebook-f", href: "#" },
-    { icon: "fab fa-linkedin-in", href: "#" },
-    { icon: "fab fa-behance", href: "#" },
-    { icon: "fab fa-dribbble", href: "#" },
+    { icon: "fab fa-facebook-f", href: "https://www.facebook.com/brightmediaglobal/"  },
+    { icon: "fab fa-linkedin-in", href: "https://www.linkedin.com/company/brightmedia-tech/posts/" },
+    { icon: "fab fa-instagram", href: "https://www.instagram.com/brightmedia.tech/" },
+    { icon: "fab fa-youtube", href: "https://www.youtube.com/@MoideenShahil" },
   ],
 };

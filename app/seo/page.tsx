@@ -20,7 +20,7 @@ export default function SeoPage() {
         description="Optimize your online presence to improve search rankings, attract qualified organic traffic, and increase authority across Google and AI search engines."
       />
       <ServicesShowcase variant={4} />
-      <WDWork/>
+      {/* <WDWork/> */}
       <SMCta />
     </SiteShell>
   );

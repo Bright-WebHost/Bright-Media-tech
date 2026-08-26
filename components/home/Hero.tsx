@@ -95,7 +95,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 mb-4 sm:mb-6"
             >
               <span className="h-px w-8 bg-[#c9f31d]/60" />
-              <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#c9f31d] font-bold">
+              <span className="font-mono text-[8px] sm:text-xs uppercase tracking-[0.3em] text-[#c9f31d] font-bold">
                 BRIGHT MEDIA // DIGITAL POWERHOUSE
               </span>
             </motion.div>
@@ -109,7 +109,7 @@ export default function Hero() {
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-[3.8rem] xs:text-[4.8rem] sm:text-[6.5rem] md:text-[7.5rem] lg:text-[7rem] xl:text-[8.2rem] font-black uppercase tracking-tighter leading-[0.85] font-barlow text-white"
+                  className="text-[3.8rem] xs:text-[4.8rem] sm:text-[6.5rem] md:text-[7rem] lg:text-[6rem] xl:text-[7.2rem] font-bold uppercase tracking-tighter leading-[0.85] font-barlow text-white"
                 >
                   MAKING
                 </motion.h1>
@@ -121,7 +121,7 @@ export default function Hero() {
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-[3.8rem] xs:text-[4.8rem] sm:text-[6.5rem] md:text-[7.5rem] lg:text-[7rem] xl:text-[8.2rem] font-black uppercase tracking-tighter leading-[0.85] font-barlow text-[#c9f31d]"
+                  className="text-[3.8rem] xs:text-[4.8rem] sm:text-[6.5rem] md:text-[7rem] lg:text-[6rem] xl:text-[7.2rem] font-bold uppercase tracking-tighter leading-[0.85] font-barlow text-[#c9f31d]"
                 >
                   BRANDS
                 </motion.h1>
@@ -144,7 +144,7 @@ export default function Hero() {
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-[3.8rem] xs:text-[4.8rem] sm:text-[6.5rem] md:text-[7.5rem] lg:text-[7rem] xl:text-[8.2rem] font-black uppercase tracking-tighter leading-[0.85] font-barlow"
+                  className="text-[3.8rem] xs:text-[4.8rem] sm:text-[6.5rem] md:text-[7.5rem] lg:text-[6rem] xl:text-[7.2rem] font-bold uppercase tracking-tighter leading-[0.85] font-barlow"
                   style={{
                     WebkitTextStroke: "1.5px rgba(255,255,255,0.4)",
                     color: "transparent",
@@ -162,15 +162,15 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.4 }}
               className="mt-6 sm:mt-8 max-w-xl"
             >
-              <p className="text-base sm:text-lg text-neutral-300 font-normal leading-relaxed">
+              {/* <p className="text-base sm:text-lg text-neutral-300 font-normal leading-relaxed">
                 Full-service creative studio crafting iconic brand identities, high-velocity websites, and scroll-stopping campaigns for industry leaders across 12 countries.
-              </p>
+              </p> */}
 
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
                 <Link
                   href="/contact"
-                  className="group relative inline-flex items-center gap-3 rounded-full bg-white text-[#08090b] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider font-mono shadow-2xl transition-all duration-300 hover:bg-[#c9f31d] hover:scale-105 active:scale-95"
+                  className="group relative inline-flex items-center gap-3 rounded-full bg-[#c9f31d] text-[#08090b] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider font-mono shadow-2xl transition-all duration-300 hover:bg-[#ffffff] hover:scale-105 active:scale-95"
                 >
                   <span>START A PROJECT</span>
                   <span className="w-6 h-6 rounded-full bg-[#08090b] text-white flex items-center justify-center group-hover:bg-[#08090b] group-hover:text-[#c9f31d] transition-colors">

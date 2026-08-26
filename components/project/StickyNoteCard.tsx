@@ -67,23 +67,24 @@ export default function StickyNoteCard({
           : `rotate(${rotationDeg}deg)`,
         transition: "all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",
       }}
-      className={`relative flex flex-col justify-between rounded-xl p-6 shadow-lg ${bgClass} ${hovered ? "sticky-shadow-hover z-30" : "sticky-shadow z-10"
-        } ${post.pinned ? "border-2 border-black/80 dark:border-white/80" : ""}`}
+      className={`relative flex flex-col justify-between rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 shadow-md sm:shadow-lg ${bgClass} ${
+        hovered ? "sticky-shadow-hover z-30" : "sticky-shadow z-10"
+      } ${post.pinned ? "border-2 border-black/80 dark:border-white/80" : ""}`}
     >
       {/* Tape Strip or Push Pin accent at top */}
       {post.pinned ? (
-        <div className="tape-strip -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg]" />
+        <div className="tape-strip -top-2 sm:-top-3 left-1/2 -translate-x-1/2 rotate-[-2deg]" />
       ) : (
-        <div className="tape-strip -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg]" />
+        <div className="tape-strip -top-2 sm:-top-3 left-1/2 -translate-x-1/2 rotate-[-2deg]" />
       )}
 
       {/* Top Bar: Category badge & Bookmark */}
       <div>
-        <div className="flex items-center justify-between gap-2 border-b border-black/10 pb-3">
-          <span className="rounded-full bg-black/90 px-3 py-1 text-[8px] font-medium text-[#c9f31d] uppercase tracking-wider">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-2 border-b border-black/10 pb-2 sm:pb-3">
+          <span className="rounded-full bg-black/90 px-2 py-0.5 sm:px-3 sm:py-1 text-[7px] sm:text-[8px] md:text-[9px] font-semibold text-[#c9f31d] uppercase tracking-wider truncate max-w-[65%] sm:max-w-none">
             {badgeCategory}
           </span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <button
               onClick={() => setIsBookmarked((b) => !b)}
               title={isBookmarked ? "Bookmarked note" : "Bookmark note"}
@@ -91,7 +92,7 @@ export default function StickyNoteCard({
             >
               {/* <i className={isBookmarked ? "fas fa-bookmark text-amber-900" : "far fa-bookmark"} /> */}
             </button>
-            <span className="font-handwriting text-sm font-bold text-black/70">
+            <span className="font-handwriting text-xs sm:text-sm font-bold text-black/70 whitespace-nowrap">
               {post.date.month} 
               {/* {post.date.day} */}
             </span>
@@ -101,12 +102,13 @@ export default function StickyNoteCard({
         {/* Thumbnail Preview taped to Sticky Note */}
         <Link
           href={`/project/${post.slug}`}
-          className="group/img relative mt-4 block h-40 w-full overflow-hidden rounded-lg border border-black/10 cursor-pointer shadow-inner"
+          className="group/img relative mt-2.5 sm:mt-4 block aspect-[4/3] sm:aspect-auto sm:h-36 md:h-40 w-full overflow-hidden rounded-md sm:rounded-lg border border-black/10 cursor-pointer shadow-inner"
         >
           <Image
             src={post.image}
             alt={post.title}
             fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             className="object-cover transition-transform duration-500 group-hover/img:scale-110"
           />
           {/* <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity group-hover/img:opacity-100 flex items-center justify-center">
@@ -118,33 +120,32 @@ export default function StickyNoteCard({
 
         {/* Note Title */}
         <Link
-              href={`/project/${post.slug}`}
-          className="mt-4 cursor-pointer text-base font-black text-black leading-snug tracking-tight hover:underline"
-          >
+          href={`/project/${post.slug}`}
+          className="mt-2.5 sm:mt-4 block cursor-pointer text-xs sm:text-sm md:text-base font-black text-black leading-tight sm:leading-snug tracking-tight hover:underline line-clamp-2"
+        >
           {post.title}
-       
         </Link>
 
         {/* Note Excerpt in Handwritten accent style */}
-        {/* <p className="mt-2 text-sm font-medium line-clamp-3 leading-relaxed text-black/80">
+        {/* <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm font-medium line-clamp-3 leading-relaxed text-black/80">
           {post.excerpt}
         </p> */}
 
         {/* Key Takeaway Mini Tape snippet */}
         {/* {post.takeaways && post.takeaways.length > 0 && (
-          <div className="mt-3 rounded-md bg-black/5 p-2.5 text-xs font-semibold text-black/90 border-l-2 border-black/40">
-            <span className="font-handwriting text-sm font-bold block text-black/60">💡 Key Note:</span>
+          <div className="mt-2 sm:mt-3 rounded-md bg-black/5 p-2 sm:p-2.5 text-[10px] sm:text-xs font-semibold text-black/90 border-l-2 border-black/40">
+            <span className="font-handwriting text-xs sm:text-sm font-bold block text-black/60">💡 Key Note:</span>
             <span className="italic font-sans">"{post.takeaways[0]}"</span>
           </div>
         )} */}
       </div>
 
       {/* Footer Meta & Action Links */}
-      {/* <div className="mt-6 border-t border-black/10 pt-4"> */}
-        {/* <div className="flex items-center justify-between text-xs font-bold text-black/70"> */}
+      {/* <div className="mt-3 sm:mt-6 border-t border-black/10 pt-2.5 sm:pt-4"> */}
+        {/* <div className="flex items-center justify-between text-[10px] sm:text-xs font-bold text-black/70"> */}
           {/* Author avatar */}
-          {/* <div className="flex items-center gap-2">
-            <div className="relative h-7 w-7 overflow-hidden rounded-full border border-black/30">
+          {/* <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="relative h-5 w-5 sm:h-7 sm:w-7 overflow-hidden rounded-full border border-black/30">
               <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
             </div>
             <span>{post.author.name}</span>
@@ -153,27 +154,27 @@ export default function StickyNoteCard({
         {/* </div> */}
 
         {/* Bottom Actions */}
-        {/* <div className="mt-4 flex items-center justify-between gap-2">
+        {/* <div className="mt-2.5 sm:mt-4 flex items-center justify-between gap-1.5 sm:gap-2">
           <button
             onClick={(e) => onLike(post.id, e)}
-            className="flex items-center gap-1.5 rounded-lg bg-black/10 px-3 py-1.5 text-xs font-bold transition-all hover:bg-black/20 hover:scale-105 active:scale-95"
+            className="flex items-center gap-1 sm:gap-1.5 rounded-lg bg-black/10 px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-bold transition-all hover:bg-black/20 hover:scale-105 active:scale-95"
           >
             <i className="fas fa-heart text-red-600" />
             <span>{post.likes}</span>
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <button
               onClick={() => onQuickRead(post)}
-              className="rounded-lg bg-black/10 px-3 py-1.5 text-xs font-bold transition-colors hover:bg-black/20"
+              className="rounded-lg bg-black/10 px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-bold transition-colors hover:bg-black/20"
             >
               <i className="fas fa-[#c9f31d] fa-eye mr-1" /> Quick View
             </button>
             <Link
               href={`/project/${post.slug}`}
-              className="inline-flex items-center gap-1 rounded-lg bg-black px-3.5 py-1.5 text-xs font-extrabold text-[#c9f31d] transition-transform hover:scale-105"
+              className="inline-flex items-center gap-1 rounded-lg bg-black px-2.5 py-1 sm:px-3.5 sm:py-1.5 text-[10px] sm:text-xs font-extrabold text-[#c9f31d] transition-transform hover:scale-105"
             >
-              View Project <i className="fas fa-arrow-right text-[10px]" />
+              View Project <i className="fas fa-arrow-right text-[9px] sm:text-[10px]" />
             </Link>
           </div>
         </div> */}

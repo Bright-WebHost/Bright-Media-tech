@@ -1,9 +1,7 @@
 {
   "/photography-and-video-production/page": "app/photography-and-video-production/page.js",
   "/web-development/page": "app/web-development/page.js",
-  "/seo/page": "app/seo/page.js",
-  "/paid-ads/page": "app/paid-ads/page.js",
-  "/services-2/branding/page": "app/services-2/branding/page.js",
-  "/page": "app/page.js",
-  "/contact/page": "app/contact/page.js"
+  "/projects/page": "app/projects/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/page": "app/page.js"
 }

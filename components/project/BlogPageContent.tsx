@@ -219,7 +219,7 @@ people live, work, and heal.
             <div
               className={
                 viewMode === "spread"
-                  ? "grid gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-10"
+                  ? "grid gap-8 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 xl:gap-10"
                   : "grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
               }
             >

@@ -6,6 +6,7 @@ import PABenefits from "@/components/paid-ads/PABenifits";
 import SMCta from "@/components/social-media/SMCta";
 import WDWork from "@/components/web-dev/WDWork";
 import SMWork from "@/components/social-media/SMWork";
+import PAWork from "@/components/paid-ads/PAWork";
 
 export const metadata: Metadata = {
   title: "Paid Ads | Bright Media",
@@ -29,7 +30,7 @@ export default function PaidAdsPage() {
 
       {/* Benefits */}
       <PABenefits />
-      <SMWork/>
+      <PAWork/>
 
       {/* CTA */}
       <SMCta />

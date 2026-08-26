@@ -103,19 +103,19 @@ export default function About() {
                 <div className="max-w-2xl pt-1">
                   <ScrollFillText
                     text={ABOUT.text}
-                    className="text-xl sm:text-2xl md:text-[1.65rem] leading-snug font-bold text-black tracking-tight"
+                    className="text-xl sm:text-2xl md:text-[1.65rem] leading-snug font-semibold text-black tracking-tight"
                   />
                 </div>
 
                 {/* 3 Sticky Sticker Tags */}
                 <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 pt-2 ">
-                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-[10.5px] lg:text-[13px] font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
+                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-[10.5px] lg:text-[13px] font-bold text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
                     <span className="text-black text-sm">✦</span> Made To Be Yours 
                   </div>
-                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-[10.5px] lg:text-[13px] font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
+                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-[10.5px] lg:text-[13px] font-bold text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
                     <span className="text-black text-sm">✦</span> One Story, Everywhere
                   </div>
-                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-[10.5px] lg:text-[13px] font-black text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
+                  <div className="rounded-xl border border-black/20 bg-black/5 p-3 text-[10.5px] lg:text-[13px] font-bold text-black flex items-center gap-2 backdrop-blur-xs shadow-2xs">
                     <span className="text-black text-sm">✦</span> Room To Grow
                   </div>
                 </div>
